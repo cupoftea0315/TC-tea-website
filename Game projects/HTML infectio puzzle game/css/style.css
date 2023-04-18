@@ -1,0 +1,113 @@
+@import url('css.css');
+
+/* colors */
+.a, .a-x {background: #573659;}
+.b, .b-x {background: #ad4375;}
+.c, .c-x {background: #fa7370;}
+.d, .d-x {background: #f59231;}
+.e, .e-x {background: #fecd5f;}
+.f, .f-x {background: #9ccf5e;}
+.g, .g-x {background: #3cad5b;}
+.h, .h-x {background: #36cbbf;}
+.i, .i-x {background: #1d839c;}
+.j, .j-x {background: #2f506c;}
+
+controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+}
+
+board {
+  display: flex;
+  flex-flow: row wrap;
+  height: 65vmin;
+	width: 65vmin;
+  border: 1ch solid;
+}
+
+tile {
+  flex: 0 1 6.5vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6.5vmin;
+  transition: background 300ms linear;
+}
+
+board:not(.started) tile:first-of-type::after {
+  content: '\f005';
+  font-size: 1.1em;
+}
+
+colors {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1ch;
+/*   border: 1ch solid; */
+}
+color {
+  flex: 0 1 6.5vmin;
+	height: 6.5vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: .3em;
+/*   border: 1ch solid; */
+}
+
+.new-game {
+  cursor: pointer;
+}
+main {
+  position: relative;
+}
+html, body {height: 100%}
+html {font-size: 10px}
+body {
+  margin: 0;
+  font-size: calc(1em + 1vmin);
+  font-family: 'Bubblegum Sans', Helvetica, FontAwesome, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #212429; /*#353539;*/
+  color: #fffced;
+}
+
+game-over {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5em;
+}
+.fa {
+  pointer-events: auto;
+}
+
+
+
+/* debugging */
+/*
+colors {
+  counter-reset: x;
+}
+color::after {
+  counter-increment: x;
+  content: counter(x);
+  content: attr(class);
+}
+
+board {
+  counter-reset: c;
+}
+tile::after {
+  counter-increment: c;
+  content: counter(c);
+  content: attr(class);
+  opacity: .4;
+}
+*/

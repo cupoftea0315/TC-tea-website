@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="TC-tea">
+
+<title>ENV222 EXERCISE</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="ENV222 exercise_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ENV222 exercise_files/libs/quarto-html/quarto.js"></script>
+<script src="ENV222 exercise_files/libs/quarto-html/popper.min.js"></script>
+<script src="ENV222 exercise_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="ENV222 exercise_files/libs/quarto-html/anchor.min.js"></script>
+<link href="ENV222 exercise_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ENV222 exercise_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="ENV222 exercise_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="ENV222 exercise_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="ENV222 exercise_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#quiz-1" id="toc-quiz-1" class="nav-link active" data-scroll-target="#quiz-1"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>0</strong></span> <strong>Quiz 1</strong></a></li>
+  <li><a href="#rmarkdown-exercise" id="toc-rmarkdown-exercise" class="nav-link" data-scroll-target="#rmarkdown-exercise"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>1</strong></span> <strong>Rmarkdown Exercise</strong></a></li>
+  <li><a href="#character-exercise" id="toc-character-exercise" class="nav-link" data-scroll-target="#character-exercise"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>2</strong></span> <strong>Character Exercise</strong></a></li>
+  <li><a href="#time-exercise" id="toc-time-exercise" class="nav-link" data-scroll-target="#time-exercise"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>3</strong></span> <strong>Time Exercise</strong></a></li>
+  <li><a href="#plot-exercise" id="toc-plot-exercise" class="nav-link" data-scroll-target="#plot-exercise"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>4</strong></span> <strong>Plot Exercise</strong></a></li>
+  <li><a href="#sessioninfo" id="toc-sessioninfo" class="nav-link" data-scroll-target="#sessioninfo"><strong><span style="color:green">SessionInfo:</span></strong></a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>ENV222 EXERCISE</strong></h1>
+<p class="subtitle lead"><em>R in statistics</em></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>TC-tea </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2023.04.18</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+
+<!-- Set viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Set styles for light and dark mode -->
+<style>
+    mark {
+      background-color: yellow;
+    }
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+    .light-code {
+      color: black;
+    }
+    .dark-code {
+      color: white;
+    }
+    .quarto-output pre:not([class*="language-"]) {
+      background-color: transparent;
+      color: inherit;
+    }
+    .quarto-output pre[class*="language-"] {
+      background-color: #F5F5F5;
+      color: black;
+    }
+    .dark-mode .quarto-output pre[class*="language-"] {
+      background-color: #2B2B2B;
+      color: white;
+    }
+    /* CSS for back-to-top button */
+    #back-to-top {
+      position: fixed;
+      bottom: 10px;
+      right: 22px;
+      font-size: 22px;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      text-decoration: none;
+    }
+    /* CSS for light/dark mode toggle button */
+    #myBtn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      border: none;
+      border-radius: 10px;
+      padding: 8px;
+      background-color: lightgray;
+    }
+    #myBtn:before {
+      content: "☀";
+    }
+    .dark-mode #myBtn:before {
+      content: "🌙";
+    }
+  </style>
+
+
+<!-- Button to toggle light/dark mode -->
+<button id="myBtn" onclick="myFunction()">
+</button>
+<script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+      var codeBlocks = document.querySelectorAll(".quarto-output pre[class*='language-']");
+      codeBlocks.forEach(function(block) {
+        block.classList.toggle("light-code");
+        block.classList.toggle("dark-code");
+      });
+    }
+  </script>
+<!-- Button to scroll back to top of page -->
+<a href="#" id="back-to-top" title="Back to top">🚀</a>
+
+<p>👉🏻<a href="../ENV222%20note/ENV222%20note.html">Click to enter the note section</a></p>
+<section id="quiz-1" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>0</strong></span> <strong>Quiz 1</strong></h1>
+<p>1.<br> The distribution is shown in Figure @ref(fig:box).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/box-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">A box plot for the ozone concentration</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>```<code>{r box, fig.cap="A box plot for the ozone concentration", echo=FALSE}</code><br> <code>boxplot(airquality$Ozone)</code><br> `````<br></p>
+<p>2.<br> rticles</p>
+<ol start="3" type="1">
+<li>::: {.cell layout-align=“center”}</li>
+</ol>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span>, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">'n'</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">axes =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">expression</span>(NH[<span class="dv">3</span>] <span class="sc">*</span> <span class="st">" ("</span> <span class="sc">*</span> mu<span class="sc">*</span> <span class="st">"mol m"</span><span class="sc">^-</span><span class="dv">3</span> <span class="sc">*</span> <span class="st">")"</span>), </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'1'</span>, <span class="st">'2'</span>, <span class="st">'3'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(latex2exp)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dtf, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">las =</span> <span class="dv">1</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">TeX</span>(<span class="st">'$NH_3$ ($</span><span class="sc">\\</span><span class="st">mu$mol m$^{-3}$)'</span>), </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxt =</span> <span class="st">"n"</span>, <span class="at">yaxt =</span><span class="st">"n"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">line=</span><span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<p>:::</p>
+<ol start="4" type="1">
+<li>::: {.cell layout-align=“center”}</li>
+</ol>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mymat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">0</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(mymat, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>))  <span class="co"># Set the ratio between widths and heights</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">xlab=</span><span class="st">'Sepal Length (cm)'</span>, <span class="at">ylab=</span><span class="st">'Sepal Width (cm)'</span>, <span class="at">las=</span><span class="dv">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">las=</span><span class="dv">1</span>, <span class="at">horizontal=</span>T)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Width, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">las=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<p>:::</p>
+<ol start="5" type="1">
+<li>::: {.cell layout-align=“center”}</li>
+</ol>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">'pack my box with five dozen liquor jugs'</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>xsingle <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="at">split =</span> <span class="st">""</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>xsingle <span class="ot">&lt;-</span> xsingle[xsingle <span class="sc">!=</span> <span class="st">" "</span>]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(xsingle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32</code></pre>
+</div>
+<p>:::</p>
+<ol start="6" type="1">
+<li>::: {.cell layout-align=“center”}</li>
+</ol>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mytab <span class="ot">&lt;-</span> <span class="fu">table</span>(xsingle)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mytab[mytab <span class="sc">==</span> <span class="fu">max</span>(mytab)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "i" "o"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"pack my box with five dozen liquor jugs"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>char_freq <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" "</span>, <span class="st">""</span>, x) <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">strsplit</span>(<span class="st">""</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">table</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(Freq))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(char_freq, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Var1 Freq
+1    i    3
+2    o    3
+3    e    2
+4    u    2
+5    a    1</code></pre>
+</div>
+<p>:::</p>
+<ol start="7" type="1">
+<li>::: {.cell layout-align=“center”}</li>
+</ol>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>xword <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="st">" "</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>xword[<span class="fu">which.max</span>(<span class="fu">nchar</span>(xword))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "liquor"</code></pre>
+</div>
+<p>:::</p>
+<ol start="8" type="1">
+<li>::: {.cell layout-align=“center”}</li>
+</ol>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">'five'</span>, <span class="st">'5'</span>, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "pack my box with 5 dozen liquor jugs"</code></pre>
+</div>
+<p>:::</p>
+<ol start="9" type="1">
+<li>::: {.cell layout-align=“center”} ::: {.cell-output .cell-output-stdout}</li>
+</ol>
+<pre><code>[1] "English_United States.1252"</code></pre>
+<p>::: ::: ::: {.cell layout-align=“center”}</p>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">diff</span>(mydata<span class="sc">$</span>date) <span class="sc">!=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<p>:::</p>
+<ol start="10" type="1">
+<li>::: {.cell layout-align=“center”}</li>
+</ol>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mydata<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">format</span>(mydata<span class="sc">$</span>date, <span class="st">'%Y'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ol start="11" type="1">
+<li>::: {.cell layout-align=“center”}</li>
+</ol>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mydata<span class="sc">$</span>month <span class="ot">&lt;-</span> <span class="fu">format</span>(mydata<span class="sc">$</span>date, <span class="st">'%B'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ol start="12" type="1">
+<li>::: {.cell layout-align=“center”}</li>
+</ol>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mydata<span class="sc">$</span>weekday <span class="ot">&lt;-</span> <span class="fu">format</span>(mydata<span class="sc">$</span>date, <span class="st">'%A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<p>Result: ::: {.cell layout-align=“center”}</p>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>mydata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 65,533 × 13
+   date                   ws    wd   nox   no2    o3  pm10   so2    co  pm25
+   &lt;dttm&gt;              &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+ 1 1998-01-01 00:00:00  0.6    280   285    39     1    29  4.72  3.37    NA
+ 2 1998-01-01 01:00:00  2.16   230    NA    NA    NA    37 NA    NA       NA
+ 3 1998-01-01 02:00:00  2.76   190    NA    NA     3    34  6.83  9.60    NA
+ 4 1998-01-01 03:00:00  2.16   170   493    52     3    35  7.66 10.2     NA
+ 5 1998-01-01 04:00:00  2.4    180   468    78     2    34  8.07  8.91    NA
+ 6 1998-01-01 05:00:00  3      190   264    42     0    16  5.50  3.05    NA
+ 7 1998-01-01 06:00:00  3      140   171    38     0    11  4.23  2.26    NA
+ 8 1998-01-01 07:00:00  3      170   195    51     0    12  3.88  2.00    NA
+ 9 1998-01-01 08:00:00  3.36   170   137    42     1    12  3.35  1.46    NA
+10 1998-01-01 09:00:00  3.96   170   113    39     2    12  2.92  1.20    NA
+# … with 65,523 more rows, and 3 more variables: year &lt;int&gt;, month &lt;chr&gt;,
+#   weekday &lt;chr&gt;</code></pre>
+</div>
+<p>:::</p>
+</section>
+<section id="rmarkdown-exercise" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>1</strong></span> <strong>Rmarkdown Exercise</strong></h1>
+<p><span style="color:red">NA</span></p>
+</section>
+<section id="character-exercise" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>2</strong></span> <strong>Character Exercise</strong></h1>
+<p><span style="color:red">NA</span></p>
+</section>
+<section id="time-exercise" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>3</strong></span> <strong>Time Exercise</strong></h1>
+<section id="today" class="level4">
+<h4 class="anchored" data-anchor-id="today">1. Today</h4>
+<ol type="1">
+<li>Which day of the year is it?</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2023-04-18 12:32:36 CST"</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Convert it as “Year, Month in English and Date, Weekday in English”, such as “2023, January 1, Sunday”.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="at">format =</span> <span class="st">'%Y, %B, %d, %A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2023, April, 18, Tuesday"</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Suppose we get to know each other at 15:00, September 13, 2022. How many days have we known each other until now? How many hours? How many seconds?</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="fu">strptime</span>( <span class="st">"2022-9-13 15:00:00"</span>, <span class="at">format=</span><span class="st">"%Y-%m-%d %H:%M:%S"</span> )</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">difftime</span>(<span class="at">time1 =</span> t1, <span class="at">time2 =</span> t2, <span class="at">units =</span> <span class="st">'secs'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 18739956 secs</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">difftime</span>(<span class="at">time1 =</span> t1, <span class="at">time2 =</span> t2, <span class="at">units =</span> <span class="st">'days'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 216.8976 days</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">difftime</span>(<span class="at">time1 =</span> t1, <span class="at">time2 =</span> t2, <span class="at">units =</span> <span class="st">'hours'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 5205.543 hours</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li>The anniversary is September 13, 2023. What day is it? How about in 2024? Plot a graph for September 13 of each year, with the weekday as x and the year as y.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>t3 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>( <span class="st">"9/13/2023"</span>, <span class="at">format=</span><span class="st">"%m/%d/%Y"</span> )</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(t3, <span class="at">format=</span><span class="st">"%A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Wednesday"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>t4 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>( <span class="st">"9/13/2024"</span>, <span class="at">format=</span><span class="st">"%m/%d/%Y"</span> )</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(t4, <span class="at">format=</span><span class="st">"%A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Friday"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>dates <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">"2020-09-13"</span>), <span class="fu">as.Date</span>(<span class="st">"2040-09-13"</span>), <span class="at">by=</span><span class="st">"year"</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>weekdays <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">weekdays</span>(dates, <span class="at">abbreviate=</span><span class="cn">TRUE</span>), </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Sun"</span>, <span class="st">"Mon"</span>, <span class="st">"Tue"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Fri"</span>, <span class="st">"Sat"</span>))</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>weekdays <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">format</span>(dates, <span class="st">"%u"</span>))</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(weekdays, <span class="fu">as.Date</span>(dates, <span class="at">format=</span><span class="st">"%Y"</span> ), </span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Weekday"</span>, <span class="at">ylab=</span><span class="st">"Year"</span>, <span class="at">main=</span><span class="st">"September 13th, 2020-2040"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-airquality-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="the-airquality-dataset">2. The airquality dataset</h4>
+<ol type="1">
+<li>Create a new column “Date”, showing the date in the format of “Year-month-day”, such as “2023-01-31”.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>air<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"data/airquality.csv"</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>day <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"2022-"</span>,air<span class="sc">$</span>Month,<span class="st">"-"</span>,air<span class="sc">$</span>Day,<span class="at">sep=</span><span class="st">""</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>air<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(day, <span class="at">format=</span><span class="st">"%Y-%m-%d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Plot a graph for each atmospheric variable (i.e.&nbsp;ozone in ppb, solar radiation in W m<sup>-2</sup>, wind speed in m s<sup>-1</sup>, air temperature in °C) against the date.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>air1<span class="ot">&lt;-</span><span class="fu">na.omit</span>(air)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>subsets <span class="ot">&lt;-</span> <span class="fu">split</span>(air1, air1<span class="sc">$</span>Month)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>plots <span class="ot">&lt;-</span> <span class="fu">lapply</span>(subsets, <span class="cf">function</span>(subset) {</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(subset<span class="sc">$</span>Day, subset<span class="sc">$</span>Ozone,<span class="at">ylab =</span> <span class="st">"Ozone pbb"</span> ,<span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Ozone, "</span>, <span class="fu">unique</span>(subset<span class="sc">$</span>Month))</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>)})</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(plots)) {</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(plots[[i]])</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(latex2exp)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> airquality</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>dtf5 <span class="ot">&lt;-</span> dtf <span class="sc">%&gt;%</span> <span class="fu">subset</span>(Date <span class="sc">&lt;</span> <span class="st">"1973-06-01"</span>)</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dtf5) <span class="sc">+</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Ozone))<span class="sc">+</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Ozone (ppb)"</span>) <span class="sc">+</span></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dtf5) <span class="sc">+</span></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Solar.R))<span class="sc">+</span></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">text{Solar Radiation } (W</span><span class="sc">\\</span><span class="st">cdot m^{-2})$"</span>)) <span class="sc">+</span></span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dtf5) <span class="sc">+</span></span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Wind))<span class="sc">+</span></span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">text{Wind speed }m</span><span class="sc">\\</span><span class="st">cdot m^{-1}$"</span>)) <span class="sc">+</span></span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dtf5) <span class="sc">+</span></span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Temp))<span class="sc">+</span></span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">text{Temperature }</span><span class="sc">\\</span><span class="st">circ C$"</span>)) <span class="sc">+</span></span>
+<span id="cb38-36"><a href="#cb38-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb38-37"><a href="#cb38-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Create a new column “Weekday”, showing the day in the week (1 as Monday and 7 as Sunday).</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("lubridate")</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>dtf<span class="sc">$</span>Weekday <span class="ot">&lt;-</span> <span class="fu">wday</span>(<span class="fu">as.Date</span>(dtf<span class="sc">$</span>Date), <span class="at">week_start =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Calculate the mean values of each atmospheric variable for each weekday.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>air1<span class="ot">&lt;-</span><span class="fu">na.omit</span>(air)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(<span class="fu">as.numeric</span>(air1<span class="sc">$</span>Ozone),air1<span class="sc">$</span>Weekday,mean)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>mean_dtf <span class="ot">&lt;-</span> dtf <span class="sc">%&gt;%</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Weekday) <span class="sc">%&gt;%</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">Ozone =</span> <span class="fu">mean</span>(Ozone),</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">Solar.R =</span> <span class="fu">mean</span>(Solar.R),</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">Wind =</span> <span class="fu">mean</span>(Wind),</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">Temp =</span> <span class="fu">mean</span>(Temp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>Plot a graph for each atmospheric variable with the mean values against the weekdays.<br></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(latex2exp)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>mean_ozone <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mean_dtf) <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Weekday, <span class="at">y =</span> Ozone)) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Ozone (ppb)"</span>) <span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>mean_solar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mean_dtf) <span class="sc">+</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Weekday, <span class="at">y =</span> Solar.R)) <span class="sc">+</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">text{Solar Radiation } (W</span><span class="sc">\\</span><span class="st">cdot m^{-2})$"</span>)) <span class="sc">+</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>mean_wind <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mean_dtf) <span class="sc">+</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Weekday, <span class="at">y =</span> Wind))<span class="sc">+</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">text{Wind speed }m</span><span class="sc">\\</span><span class="st">cdot m^{-1}$"</span>)) <span class="sc">+</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>mean_temp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mean_dtf) <span class="sc">+</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Weekday, <span class="at">y =</span> Temp))<span class="sc">+</span></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">text{Temperature }</span><span class="sc">\\</span><span class="st">circ C$"</span>)) <span class="sc">+</span></span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-smart-flux-data-set-the-smartflux.zip-data-set-was-obtained-from-the-flux-observation-at-the-outdoor-research-and-teaching-station-orts-xjtlu.-it-was-supposed-to-be-an-automatic-continuous-measurement-at-a-half-hourly-base-saved-in-daily-files.-however-there-were-missing-data-in-the-records-for-some-reason.-how-many-data-files-are-missing-how-many-records-are-missing" class="level4">
+<h4 class="anchored" data-anchor-id="the-smart-flux-data-set-the-smartflux.zip-data-set-was-obtained-from-the-flux-observation-at-the-outdoor-research-and-teaching-station-orts-xjtlu.-it-was-supposed-to-be-an-automatic-continuous-measurement-at-a-half-hourly-base-saved-in-daily-files.-however-there-were-missing-data-in-the-records-for-some-reason.-how-many-data-files-are-missing-how-many-records-are-missing">3. The Smart Flux data set The smartflux.zip data set was obtained from the flux observation at the Outdoor Research and Teaching Station (ORTS), XJTLU. It was supposed to be an automatic continuous measurement at a half-hourly base, saved in daily files. However, there were missing data in the records for some reason. How many data files are missing? How many records are missing?</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"data/smartflux/"</span>) <span class="co"># Remeber to delete the first file</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">list.files</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">substr</span>(<span class="at">start =</span> <span class="dv">1</span>, <span class="at">stop =</span><span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">strptime</span>(<span class="at">format =</span> <span class="st">"%Y-%m-%d"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">format</span>(<span class="st">"%Y-%m-%d"</span>)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>missing_files <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(temp)<span class="sc">-</span><span class="dv">1</span>)){</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    diff <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">difftime</span>(temp[i<span class="sc">+</span><span class="dv">1</span>], temp[i], <span class="at">units =</span> <span class="st">"days"</span>))</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(diff <span class="sc">!=</span> <span class="dv">1</span>){</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>        missing_files <span class="ot">&lt;-</span> missing_files <span class="sc">+</span> diff <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(missing_files)</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">list.files</span>()</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">lapply</span>(temp, <span class="cf">function</span>(i){</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">read.table</span>(i, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>missing_records <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(files)){</span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>    records <span class="ot">&lt;-</span> <span class="fu">length</span>(files[[i]][<span class="dv">3</span><span class="sc">:</span><span class="fu">nrow</span>(files[[i]]),<span class="dv">4</span>])</span>
+<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a>    missing_records <span class="ot">&lt;-</span> missing_records <span class="sc">+</span> <span class="dv">48</span> <span class="sc">-</span> records</span>
+<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a>missing_records <span class="ot">&lt;-</span> missing_records <span class="sc">+</span> <span class="dv">48</span> <span class="sc">*</span> missing_files</span>
+<span id="cb42-28"><a href="#cb42-28" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(missing_records)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="plot-exercise" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>4</strong></span> <strong>Plot Exercise</strong></h1>
+<ol type="1">
+<li><span style="color:#007bff">I think the range of the colour is enough by using red to blue, purple is unnecessary which may lead the graph ugly.</span></li>
+<li><br>
+<ol type="1">
+<li><span style="color:#007bff">Where are the x and y labs? Although information are simple, but we still need the basic elements.</span><br> <img src="images/5.1.1.jpg" width="425" height="341"></li>
+<li><span style="color:#007bff">The main problem is there do not have any unit in the y label. Further more, I think we’d better not to use this type of cover like p53-/-.</span><br> <img src="images/5.2.4.jpg" width="400" height="216"></li>
+<li><span style="color:#007bff">We’d better not to use 3D plot in our essay, especially for some plot which involving proportionality.</span><br> <img src="images/5.3.1.jpg" width="425" height="341"></li>
+<li><span style="color:#007bff">Those two figures can be combine together with different colour. And maybe there is one more thing that we can change the theme to blank which will make readers more easy to figure.</span><br> <img src="images/5.4.2.1.jpg" width="396" height="238"><img src="images/5.4.2.2.jpg" width="396" height="238"></li>
+</ol></li>
+<li>R-code chunk:</li>
+</ol>
+<div class="cell" data-layout-align="center">
+
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(latex2exp)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">las =</span> <span class="dv">1</span>, </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">TeX</span>(<span class="st">'D$_p$($</span><span class="sc">\\</span><span class="st">mu$m)'</span>), </span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">frac</span>(<span class="st">'dN'</span>, <span class="st">'dlogD'</span>[p] <span class="sc">*</span> <span class="st">'(cm'</span> <span class="sc">^-</span><span class="dv">3</span> <span class="sc">*</span> <span class="st">')'</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/figure1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">A scatterplot</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>R-code chunk:<br>
+</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>mymat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(mymat, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>), <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(co2)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(co2)</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(co2)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(co2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li><span style="color:#007bff">There are some errors related to the figure edges, which prevent me from generating a PDF_book.</span><br> See Figure @ref(fig:figure1).</li>
+</ol>
+</section>
+<section id="sessioninfo" class="level1">
+<h1><strong><span style="color:green">SessionInfo:</span></strong></h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.2.3 (2023-03-15 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19044)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=Chinese (Simplified)_China.utf8 
+[2] LC_CTYPE=Chinese (Simplified)_China.utf8   
+[3] LC_MONETARY=Chinese (Simplified)_China.utf8
+[4] LC_NUMERIC=C                               
+[5] LC_TIME=English_United States.1252         
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0   purrr_1.0.1    
+ [5] readr_2.1.4     tidyr_1.3.0     tibble_3.1.8    ggplot2_3.4.1  
+ [9] tidyverse_2.0.0 openair_2.16-0  dplyr_1.1.0     latex2exp_0.9.6
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.2.0    xfun_0.37           splines_4.2.3      
+ [4] lattice_0.20-45     colorspace_2.1-0    vctrs_0.5.2        
+ [7] generics_0.1.3      htmltools_0.5.4     yaml_2.3.7         
+[10] mgcv_1.8-42         utf8_1.2.3          rlang_1.1.0        
+[13] hexbin_1.28.3       pillar_1.8.1        glue_1.6.2         
+[16] withr_2.5.0         RColorBrewer_1.1-3  jpeg_0.1-10        
+[19] lifecycle_1.0.3     munsell_0.5.0       gtable_0.3.3       
+[22] htmlwidgets_1.6.1   mapproj_1.2.11      evaluate_0.20      
+[25] latticeExtra_0.6-30 knitr_1.42          tzdb_0.3.0         
+[28] fastmap_1.1.0       fansi_1.0.3         Rcpp_1.0.10        
+[31] scales_1.2.1        jsonlite_1.8.4      deldir_1.0-6       
+[34] interp_1.1-3        hms_1.1.2           png_0.1-8          
+[37] digest_0.6.31       stringi_1.7.12      grid_4.2.3         
+[40] cli_3.6.1           tools_4.2.3         magrittr_2.0.3     
+[43] maps_3.4.1          cluster_2.1.4       pkgconfig_2.0.3    
+[46] ellipsis_0.3.2      MASS_7.3-58.2       Matrix_1.5-3       
+[49] timechange_0.2.0    rmarkdown_2.21      rstudioapi_0.14    
+[52] R6_2.5.1            nlme_3.1-162        compiler_4.2.3     </code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,362 @@
+---
+title: "**ENV221 NOTE**"
+subtitle: "*R in statistics (Fundamental)*"
+author:
+  - "TC-tea"
+date: "`r Sys.Date()`"
+date-format: "YYYY.MM.DD"
+output:
+  quarto::quarto_document:
+    default_output_format: html
+    code:
+      pandoc_args: ["-V", "lang=en"]
+    df_print: paged
+toc: true
+toc-location: left
+fontsize: 12pt
+fontfamily: Tahoma
+theme: default
+comments:
+  hypothesis: true
+---
+
+<head>
+  <!-- Set viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Set styles for light and dark mode -->
+  <style>
+    mark {
+      background-color: yellow;
+    }
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+    .light-code {
+      color: black;
+    }
+    .dark-code {
+      color: white;
+    }
+    .quarto-output pre:not([class*="language-"]) {
+      background-color: transparent;
+      color: inherit;
+    }
+    .quarto-output pre[class*="language-"] {
+      background-color: #F5F5F5;
+      color: black;
+    }
+    .dark-mode .quarto-output pre[class*="language-"] {
+      background-color: #2B2B2B;
+      color: white;
+    }
+    /* CSS for back-to-top button */
+    #back-to-top {
+      position: fixed;
+      bottom: 10px;
+      right: 22px;
+      font-size: 22px;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      text-decoration: none;
+    }
+    /* CSS for light/dark mode toggle button */
+    #myBtn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      border: none;
+      border-radius: 10px;
+      padding: 8px;
+      background-color: lightgray;
+    }
+    #myBtn:before {
+      content: "☀";
+    }
+    .dark-mode #myBtn:before {
+      content: "🌙";
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Button to toggle light/dark mode -->
+  <button id="myBtn" onclick="myFunction()"></button>
+  <script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+      var codeBlocks = document.querySelectorAll(".quarto-output pre[class*='language-']");
+      codeBlocks.forEach(function(block) {
+        block.classList.toggle("light-code");
+        block.classList.toggle("dark-code");
+      });
+    }
+  </script>
+  <!-- Button to scroll back to top of page -->
+<a href="#" id="back-to-top" title="Back to top">🚀</a>
+</body>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      warning = FALSE,
+                      fig.align = "center")
+```
+
+<details>
+  <summary>Hyperlink of XJTLU ENV221 courseware</summary>
+- [Module overview mindmap](https://cupoftea0315.github.io/XJTLU-ENV221-slides/ENV221 final testing points.pdf)<br>
+- [Lecture1 overview](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week02_L01_overview.html)<br>
+- [Lecture2 r-basic](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week03_L02_r-basic.html)<br>
+- [Lecture3 r-programming](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week04_L03_r-programming.html)<br>
+- [Lecture4 statistical-graphs](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week05_L04_statistical-graphs)<br>
+- [Lecture5 basic-concepts](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week06_L05_basic-concepts.html)<br>
+- [Lecture6 descriptive-statistics](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week07_L06_descriptive-statistics.html)<br>
+- [Lecture7 distributions-and-clt](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week08_L07_distributions-and-clt.html)<br>
+- [Lecture8 hypothesis-test](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week09_L08_hypothesis-test.html)<br>
+- [Lecture9 t-test](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week10_L09_t-test.html)<br>
+- [Lecture10 numerical-vs-numerical](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week11_L10_numerical-vs-numerical.html)<br>
+- [Lecture11 numerical-vs-categorical](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week13_L11_numerical-vs-categorical.html)<br>
+- [Lecture12 categorical-vs-categorical](https://cupoftea0315.github.io/XJTLU-ENV221-slides/Week14_L12_categorical-vs-categorical.html)<br>
+</details>
+
+👉🏻[Click to enter the ENV222 note section](../ENV222 note/ENV222 note.html)
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**1**</span> **graph part & R basic code**
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**1.1**</span> **Scatterplot**
+
+```{r, fig.width = 6, fig.height = 4, fig.align='center'}
+library(ggplot2)
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + 
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_smooth(method = "lm") + facet_wrap(~ Species)
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**1.2**</span> **Barplot**
+
+```{r, fig.width = 6, fig.height = 4, fig.align='center'}
+library(ggplot2)
+ggplot(iris) + geom_bar(aes(Species), width = 0.5) + coord_flip()
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**1.3**</span> **Histogram**
+
+```{r, fig.width = 6, fig.height = 4, fig.align='center'}
+library(ggplot2)
+ggplot(iris) + geom_histogram(aes(Sepal.Length))
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**1.4**</span> **Boxplot**
+
+```{r, fig.width = 6, fig.height = 4, fig.align='center'}
+# R built-in way
+River_A <- c(2, 1.95, 1.99, 2.08, 1.99, 1.95, 2.03, 2.09, 2.07, 2.01)
+River_B <- c(1.85, 1.94, 1.87, 1.89, 1.91, 1.93, 2.01, 2, 1.96, 1.98)
+boxplot(River_A, River_B, names = c('River A','River B'))
+# ggplot2 way
+library(ggplot2)
+ggplot(iris) + geom_boxplot(aes(Sepal.Length))
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**1.5**</span> **Pairplot**
+
+```{r}
+# install.packages("GGally")
+library(GGally)
+ggpairs(iris, aes(colour=Species, alpha=0.5))
+```
+```{r eval = FALSE}
+ggsave("df_plot.pdf")   # Save graphs
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**1.6**</span> **R basic operations**
+
+```{r}
+# Random sampling
+df <- data.frame(x = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+                 y = c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i' ,'j'))   
+sample(df$y[df$x > 5], 2)
+sample(df$y[df$x <= 5], 2)
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**1.7**</span> **Two ways to remove NA & outlier from data set**
+
+```{r}
+x=c(1,2,NA,4)
+mean(x, na.rm = TRUE)   # Remove NA within a function
+x <- x[!is.na(x)]   # Adjust dataset (multidimensional data filtering) selected an undefined column. Need to add ', !is.na(***)' after it.
+x <- x[x != boxplot(x, plot=FALSE)$out]   # Excluded outliers from the dataset
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**1.8**</span> **Correlation coefficient function**
+
+```{r}
+cor_coe <- function(x, y){
+  N <- length(x)
+  co <- 1 / (N - 1) * sum((y - mean(y)) * (x - mean(x)))
+  sx <- sd(x)
+  sy <- sd(y)
+  co / (sx * sy)
+}
+```
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**2**</span> **Statistic part**
+
+-   H0：Usually, the researcher wants to collect evidence to oppose one side,
+    also known as the null hypothesis (generally including equal to.
+-   H1：Usually, it is the side that researchers collect evidence to support,
+    also known as the alternative hypothesis (generally including not equal to).
+-   Type 1 error: False positive (the hypothesis is right but we reject it)
+    \[alpha\]
+-   Type 2 error: False negative (the hypothesis is wrong but we didn't reject
+    it) \[beta\]
+-   Alpha(Significance level): The maximum allowable probability of making a
+    type I error \[0.10, 0.05, 0.01 ...\]
+-   Beta: ...
+-   P-value(Probability value): if P-value \<= alpha, reject H0; if P-value \>
+    alpha, not reject H0.
+-   Rejection region, critical region: the range of values for which H0 is not
+    probable(The interval where H0 cannot occur.)
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**2.1**</span> **Binomial distribution**
+
+[e.g. Toss a coin for "n" times, "x" is the frequency of
+head]{style="color:orange"}
+
+```{r}
+x <- 2
+n <- 2
+p <- 0.5
+dbinom(x, size = n, prob = p)  # Same as choose(n, x) * p^x * (1-p)^(n-x)
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**2.2**</span> **Z-test**
+
+[Known population mean and population variance]{style="color:orange"}
+
+```{r}
+x <- c(24, 36, 44, 35, 44, 34, 29, 40, 39, 43, 41, 32, 33, 29, 29, 43, 25, 39, 25, 42, 
+       29, 22, 22, 25, 14, 15, 14, 29, 25, 27, 22, 24, 18, 17)
+mu <- 29
+sd_p <- 9
+x_bar <- mean(x)
+se <- sd_p / sqrt(length(x))
+(z_score <- (x_bar - mu) / se)
+(z_critical <- qnorm(1 - 0.05))
+(p_value <- pnorm(z_score))
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**2.3**</span> **T-test**
+
+[Known population mean but unknown population variance]{style="color:orange"}
+
+```{r}
+mu <- 100
+x <- c(91, 100, 70, 87, 104, 92, 104, 88, 72, 119)
+t.test(x, mu = mu , alternative = "less", conf.level = 0.05)   # One-tailed
+
+mu <- 0.02
+x <- c(0.011, 0.021, 0.001, 0.007, 0.031, 0.023, 0.026, 0.019)
+t.test(x, mu = 0.02, alternative = "two.sided", conf.level = 0.1)   # Two-tailed
+
+x1 <- c(24.58, 22.09, 23.70, 18.89, 22.02, 28.71, 24.44, 20.91, 23.83, 20.83)
+x2 <- c(21.61, 19.06, 20.72, 15.77, 19, 25.88, 21.48, 17.85, 20.86, 17.77)
+t.test(x1, x2, var.equal = TRUE, alternative = "two.sided", mu = 0)   # Two samples
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**2.4**</span> **F-test**
+
+[The significance of testing the difference between two sets of values, where
+mu1 = mu2 = mu3 = mu4...]{style="color:orange"}
+
+```{r}
+x1 <- c(24.58, 22.09, 23.70, 18.89, 22.02, 28.71, 24.44, 20.91, 23.83, 20.83)
+x2 <- c(21.61, 19.06, 20.72, 15.77, 19, 25.88, 21.48, 17.85, 20.86, 17.77)
+var.test(x2, x1, ratio = 1, alternative = "two.sided", conf.level = 0.95)   # Two set of data "x1, x2" ANOVA calculation
+
+dtf <- data.frame(before = c(198, 201, 210, 185, 204, 156, 167, 197, 220, 186),
+                  one = c(194, 203, 200, 183, 200, 153, 166, 197, 215, 184),
+                  two = c(191, 200, 192, 180, 195, 150, 167, 195, 209, 179),
+                  three = c(188, 196, 188, 178, 191, 145, 166, 192, 205, 175))
+rownames(dtf) <- LETTERS[1:10]
+dtf2 <- stack(dtf)
+names(dtf2) <- c("w", "level")
+w_aov <- aov(w ~ level, data = dtf2)
+summary(w_aov)
+dtf2$subject <- rep(LETTERS[1:10], 4)
+w_aov2 <- aov(w ~ level + Error(subject/level), data = dtf2)
+summary(w_aov2)    # One-way ANOVA, judging significance based on the '*' symbol after Pr(>F)
+
+dtf <- data.frame(w = c(90,95,100,75,78,90,120,125,130,100,118,112,125,130,135,118,125,132),
+                  diet = rep(c("Diet1", "Diet2", "Diet3"), each = 6),
+                  gender = rep(c("Male", "Female"), each = 3))
+aov_wg <- aov(w ~ diet * gender, data = dtf)
+summary(aov_wg)    # Two-way ANOVA, judging significance based on the '*' symbol after Pr(>F)
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**2.5**</span> **X^2-test**
+
+[Check if there is a correlation between A and B]{style="color:orange"}
+
+```{r}
+dtf <- data.frame(colour = c("red", "white", "pink"),   # One-category X^2 test
+                  observed = c(72, 63, 125))   # H0:The ratio of red to white to pink is 1:1:2
+dtf$expected <- sum(dtf$observed) * c(1, 1, 2) / 4
+df <- nrow(dtf) - 1
+(chi_sq_score <- sum((dtf$observed - dtf$expected)^2 / dtf$expected))
+(critical_point <- qchisq(0.05, df, lower.tail = FALSE))
+(p_value <- pchisq(chi_sq_score, df, lower.tail = FALSE))
+
+dtf <- data.frame(Endangered = c(162, 143, 38, 17, 45),   # Multiple-category X^2 test
+                  Threatened = c( 18,  16, 19, 10, 32), 
+                  row.names = c('Mammals', 'Birds', 'Reptiles', 'Amphibians', 'Fish'))
+chisq.test(dtf)   # Yates’ correction
+```
+
+## <span style="color:gray; font-family:Microsoft JhengHei;">**2.6**</span> **Regression & Correlation [Lecture 10]**
+
+```{r}
+# Hypothesis test
+dtf0 <- read.csv("data/students_env221.csv")
+dtf <- dtf0[dtf0$SHOE != boxplot(dtf0$SHOE, plot=FALSE)$out & !is.na(dtf0$SHOE), ]    # Excluded NA and outliers.
+env_lm <- lm(SHOE ~ HEIGHT, data = dtf)
+env_lm$coefficients       # Intercept & Slope
+
+# Hypothesis test about correlation (continue)
+(r <- cor(dtf$HEIGHT, dtf$SHOE))    # correlation coefficient
+r ^ 2       # coefficient of determination. When R^2 is closer to 1, it means that the related equation is more referential; The closer to 0, the less referential.
+n <- nrow(dtf)
+(t_score <- r * sqrt((n-2) / (1 - r ^ 2)))
+(t_critical <- qt(0.975, df = n - 2))
+(p_value <- pt(t_score, df = n - 2, lower.tail = FALSE) * 2)
+summary(env_lm)    # Quick method, where R-squared represents the correlation coefficient.
+
+# Hypothesis test about slope (continue)
+summary(env_lm)    # Quick method, where the HEIGHT column represents the slope and includes t-scores and p-values.
+(t_critical <- qt(0.975, df = n - 2))
+
+# Hypothesis test about intercept (continue)
+summary(env_lm)     # Quick method, the intercept column is both the slope, including t-scores and p-values.
+(t_critical <- qt(0.025, df = n - 1))
+
+# Visualization (another example)
+X <- c(4.69, 4.43, 4.04, 4.06, 3.89, 3.93, 3.49, 3.4, 2.97, 2.47, 2.22, 2.13)
+Y <- c(15.6, 15.4, 14.9, 14.5, 13.5, 13.4, 12.7, 12.3, 11.4, 10.5, 10.2, 10.0)
+dtf <- data.frame(X, Y)
+XY_lm <- lm(Y ~ X, data = dtf)
+plot(x = dtf$X, y = dtf$Y, xlab = "X(unit)", ylab = "Y(unit)", las = 1, pch = 16)
+abline(XY_lm, col = "blue")
+mean_X <- mean(dtf$X, na.rm = TRUE)
+mean_Y <- mean(dtf$Y, na.rm = TRUE)
+points(x = mean_X, y = mean_Y, col = "red", cex = 3)
+abline(h = mean_Y, v = mean_X, col = "red", lty = 2)
+```
+
+# **[SessionInfo:]{style="color:green"}**
+
+```{r, echo=FALSE}
+sessionInfo()
+```

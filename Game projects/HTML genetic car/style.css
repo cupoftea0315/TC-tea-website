@@ -1,0 +1,225 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+#mainbox {
+    width: 100%;
+    height: 100%;
+}
+
+#graphholder {
+    position: relative;
+}
+
+#graphholder .scale {
+    position: relative;
+    font-size: 9px;
+    left: 382px;
+}
+
+.meta {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.info {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.info #graphholder {
+    margin: 20px auto;
+    display: block;
+}
+
+.info #graphholder p {
+    position: relative;
+    top: -78px;
+    font-size: 15px;
+}
+
+.info .full {
+    width: 80%;
+    margin: 10px auto;
+    display: block;
+}
+
+.info .two {
+    width: 50%;
+    float: left;
+}
+
+div.clearfix {
+    display: block;
+    clear: both;
+}
+
+.info .minimap-wrap {
+    width: 100%;
+    padding: 0 10vw;
+}
+
+.info #minimapholder {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.options {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    border-left: #333 solid 1px;
+    border-bottom: #333 solid 1px;
+    height: auto;
+    width: 250px;
+    background-color: rgba(255,255,255,0.3);
+    z-index: 20;
+}
+
+.options input, .options select, .options label {
+    display: block;
+}
+
+.options input, .options select {
+    width: 100%;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.options label {
+    margin: 10px 0 2px 0;
+}
+
+.options input, .options select {
+    height: 30px;
+    font-size: 16px;
+    padding: 0 5px;
+}
+
+.options input.nice-button, input.nice-button {
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: block;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+
+.options input.nice-button:hover, input.nice-button {
+    background-color: rgba(200,200,200,0.3);
+}
+
+#s100 {
+    top: -270px;
+}
+
+#s75 {
+    top: -220px;
+}
+
+#s50 {
+    top: -170px;
+}
+
+#s25 {
+    top: -120px;
+}
+
+#s0 {
+    top: -70px;
+}
+
+#graphcanvas {
+    border: 1px solid black;
+}
+
+#topscoreholder {
+    font-size: 15px;
+}
+
+#minimapholder {
+    position: relative;
+    border: 1px solid black;
+    width: 800px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.minimapmarker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 200px;
+    z-index: 5;
+    border-left: 1px solid #444;
+    font-size: 9px;
+    padding-left: 2px;
+}
+
+.silverdot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 200px;
+    z-index: 4;
+}
+
+#minimapfog {
+    width: 798px;
+    height: 198px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    z-index: 2;
+    background-color: white;
+}
+
+#minimapcamera {
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    height: 199px;
+    width: 50px;
+    z-index: 3;
+    border: 1px dashed #888;
+}
+
+.healthbar {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #444;
+    width: 3vw;
+    height: 15px;
+    padding: 2px;
+    margin-left: 23px;
+}
+
+.healthbar .health {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+}
+
+.healthbar .healthtext {
+    position: absolute;
+    top: -4px;
+    left: -20px;
+}

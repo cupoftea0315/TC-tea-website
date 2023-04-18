@@ -1,0 +1,45 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-container > .top-row, .body-container > .bottom-row {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.left-container, .right-container {
+    width: 50%;
+    height: 100%;
+}
+
+.tradingview-widget-container, .tradingview-widget-container > div {
+    height: 100%;
+}
+
+.bottom-row > .left-container > .tradingview-widget-container, .bottom-row > .right-container > .tradingview-widget-container {
+    zoom: 1%;
+}
+

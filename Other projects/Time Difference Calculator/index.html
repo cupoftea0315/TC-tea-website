@@ -1,0 +1,134 @@
+<html>
+
+<head>
+  <script>
+    function calculateTimeDifference() {
+      // get the input values
+      var timestamp1 = document.getElementById("timestamp1").value;
+      var timestamp2 = document.getElementById("timestamp2").value;
+
+      // convert them to Date objects
+      var date1 = new Date(timestamp1);
+      var date2 = new Date(timestamp2);
+
+      // get the difference in milliseconds
+      var diffInMilliSeconds = Math.abs(date2 - date1);
+
+      // calculate days
+      var days = Math.floor(diffInMilliSeconds / (1000 * 60 * 60 * 24));
+      diffInMilliSeconds -= days * (1000 * 60 * 60 * 24);
+
+      // calculate hours
+      var hours = Math.floor(diffInMilliSeconds / (1000 * 60 * 60) % 24);
+      diffInMilliSeconds -= hours * (1000 * 60 * 60);
+
+      // calculate minutes
+      var minutes = Math.floor(diffInMilliSeconds / (1000 * 60) % 60);
+      diffInMilliSeconds -= minutes * (1000 * 60);
+
+      // display the result
+      document.getElementById("result").innerHTML = "The time difference is " + days + " days, " + hours + " hours, and " + minutes + " minutes.";
+    }
+
+    var images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+    var index = 0;
+    var image = document.getElementById("myImage");
+
+    function changeImage() {
+      image.src = "../../images/" + images[index];
+      index++;
+      if (index >= images.length) {
+        index = 0;
+      }
+    }
+
+    setInterval(changeImage, 10000);
+
+    function updateTime() {
+      var now = new Date();
+      var year = now.getFullYear();
+      var month = (now.getMonth() + 1).toString().padStart(2, "0");
+      var date = now.getDate().toString().padStart(2, "0");
+      var hours = now.getHours().toString().padStart(2, "0");
+      var minutes = now.getMinutes().toString().padStart(2, "0");
+      var seconds = now.getSeconds().toString().padStart(2, "0");
+      var timeString = year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
+      document.getElementById("currentTime").textContent = timeString;
+    }
+
+
+    setInterval(updateTime, 1000);
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("author").textContent = "Author: TC-tea";
+      image = document.getElementById("myImage"); // Get image
+      changeImage(); // Switch to the first image
+    });
+  </script>
+</head>
+
+<body>
+  <center>
+    <h1>Time Difference Calculator</h1>
+    <meta name="date" content="datetime">
+    <p>Enter two timestamps in ISO format (e.g. YYYY-MM-DD HH:MM:SS)</p>
+    <input type="text" id="timestamp1" placeholder="Enter first timestamp">
+    <input type="text" id="timestamp2" placeholder="Enter second timestamp">
+    <button onclick="calculateTimeDifference()">Calculate</button>
+    <p id="result"></p>
+    <img src="1.jpg" id="myImage" style="width:1350px; height:500px" />
+    <p id="author"></p>
+    <p>Current Time: <span id="currentTime"></span></p>
+  </center>
+</body>
+
+<head>
+  <title>Day/Night Mode Switcher</title>
+  <script>
+      function toggleMode() {
+          var body = document.getElementsByTagName('body')[0];
+          if (body.classList.contains('night')) {
+              body.classList.remove('night');
+              document.getElementById('mode-switch').innerHTML = 'Night Mode';
+          } else {
+              body.classList.add('night');
+              document.getElementById('mode-switch').innerHTML = 'Day Mode';
+          }
+      }
+  </script>
+  <style>
+      body {
+          background-color: #fff;
+          color: #000;
+      }
+      body.night {
+          background-color: #000;
+          color: #fff;
+      }
+      .mode-switch {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          z-index: 9999;
+      }
+      .mode-switch button {
+          background-color: #fff;
+          color: #000;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+      .mode-switch button:hover {
+          background-color: #000;
+          color: #fff;
+      }
+  </style>
+</head>
+<body>
+  <div class="mode-switch">
+      <button id="mode-switch" onclick="toggleMode()">Night Mode</button>
+  </div>
+</body>
+
+</html>
