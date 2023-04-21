@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="TC-tea">
+
+<title>BIO214 NOTE</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="BIO214 note_files/libs/clipboard/clipboard.min.js"></script>
+<script src="BIO214 note_files/libs/quarto-html/quarto.js"></script>
+<script src="BIO214 note_files/libs/quarto-html/popper.min.js"></script>
+<script src="BIO214 note_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="BIO214 note_files/libs/quarto-html/anchor.min.js"></script>
+<link href="BIO214 note_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="BIO214 note_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="BIO214 note_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="BIO214 note_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="BIO214 note_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#Illumina-sequencing" id="toc-Illumina-sequencing" class="nav-link active" data-scroll-target="#Illumina-sequencing"><strong>Illumina sequencing</strong></a></li>
+  <li><a href="#alignment-based-alignment-free-methods" id="toc-alignment-based-alignment-free-methods" class="nav-link" data-scroll-target="#alignment-based-alignment-free-methods"><strong>Alignment-based &amp; Alignment-free methods</strong></a></li>
+  <li><a href="#fpkm-rpkm-tpm" id="toc-fpkm-rpkm-tpm" class="nav-link" data-scroll-target="#fpkm-rpkm-tpm"><strong>FPKM &amp; RPKM &amp; TPM</strong></a></li>
+  <li><a href="#molecular-dynamics-simulations" id="toc-molecular-dynamics-simulations" class="nav-link" data-scroll-target="#molecular-dynamics-simulations"><strong>Molecular dynamics simulations</strong></a></li>
+  <li><a href="#selection-analysis" id="toc-selection-analysis" class="nav-link" data-scroll-target="#selection-analysis"><strong>Selection analysis</strong></a></li>
+  <li><a href="#motif-discovery-hidden-markov-models" id="toc-motif-discovery-hidden-markov-models" class="nav-link" data-scroll-target="#motif-discovery-hidden-markov-models"><strong>Motif discovery &amp; Hidden Markov Models</strong></a></li>
+  <li><a href="#identify-meaningful-gene" id="toc-identify-meaningful-gene" class="nav-link" data-scroll-target="#identify-meaningful-gene"><strong>Identify meaningful gene</strong></a></li>
+  <li><a href="#scale-free-random-biological-network" id="toc-scale-free-random-biological-network" class="nav-link" data-scroll-target="#scale-free-random-biological-network"><strong>Scale-free &amp; Random biological network</strong></a></li>
+  <li><a href="#d-structure-prediction-homology-modeling" id="toc-d-structure-prediction-homology-modeling" class="nav-link" data-scroll-target="#d-structure-prediction-homology-modeling"><strong>3D structure prediction (homology modeling)</strong></a></li>
+  <li><a href="#lid-domain" id="toc-lid-domain" class="nav-link" data-scroll-target="#lid-domain"><strong>Lid domain</strong></a></li>
+  <li><a href="#phylogenetic-tree" id="toc-phylogenetic-tree" class="nav-link" data-scroll-target="#phylogenetic-tree"><strong>Phylogenetic tree</strong></a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>BIO214 NOTE</strong></h1>
+<p class="subtitle lead"><em>Bioinformatics II</em></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>TC-tea </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2023.04.21</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+
+<!-- Set viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Set styles for light and dark mode -->
+<style>
+    mark {
+      background-color: yellow;
+    }
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+    .light-code {
+      color: black;
+    }
+    .dark-code {
+      color: white;
+    }
+    .quarto-output pre:not([class*="language-"]) {
+      background-color: transparent;
+      color: inherit;
+    }
+    .quarto-output pre[class*="language-"] {
+      background-color: #F5F5F5;
+      color: black;
+    }
+    .dark-mode .quarto-output pre[class*="language-"] {
+      background-color: #2B2B2B;
+      color: white;
+    }
+    /* CSS for back-to-top button */
+    #back-to-top {
+      position: fixed;
+      bottom: 10px;
+      right: 22px;
+      font-size: 22px;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      text-decoration: none;
+    }
+    /* CSS for light/dark mode toggle button */
+    #myBtn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      border: none;
+      border-radius: 10px;
+      padding: 8px;
+      background-color: lightgray;
+    }
+    #myBtn:before {
+      content: "☀";
+    }
+    .dark-mode #myBtn:before {
+      content: "🌙";
+    }
+  </style>
+
+
+<!-- Button to toggle light/dark mode -->
+<button id="myBtn" onclick="myFunction()">
+</button>
+<script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+      var codeBlocks = document.querySelectorAll(".quarto-output pre[class*='language-']");
+      codeBlocks.forEach(function(block) {
+        block.classList.toggle("light-code");
+        block.classList.toggle("dark-code");
+      });
+    }
+  </script>
+<!-- Button to scroll back to top of page -->
+<a href="#" id="back-to-top" title="Back to top">🚀</a>
+
+<p>👉🏻<a href="../BIO214%20R-session/BIO214%20R-session.html">Click to enter the BIO214 R-session section</a><br> 👉🏻<a href="../BIO214%20R-session/BIO214%20courseware.html">Click to enter the BIO214 courseware section</a></p>
+<section id="Illumina-sequencing" class="level1">
+<h1><strong>Illumina sequencing</strong></h1>
+<p>This is a type of <strong>high accuracy</strong>, <strong>high throughput</strong> and <strong>low cost</strong> <span style="color:orange">DNA sequencing</span> technology.</p>
+<p>Reversible terminator sequencing-by-synthesis to sequence millions of DNA fragments in parallel with 4 steps:</p>
+<ol type="1">
+<li>Library preparation</li>
+<li>Cluster generation</li>
+<li>Sequencing</li>
+<li>Data analysis</li>
+</ol>
+<p>Technical artifacts:</p>
+<ol type="1">
+<li>Phasing and pre-phasing errors</li>
+<li>Adapter contamination</li>
+<li>Read errors</li>
+</ol>
+</section>
+<section id="alignment-based-alignment-free-methods" class="level1">
+<h1><strong>Alignment-based &amp; Alignment-free methods</strong></h1>
+<ul>
+<li><p><strong>Alignment-based RNA-Seq quantification</strong> involves aligning RNA-Seq reads to a reference genome or transcriptome, and then quantifying expression based on the number of reads that align to each transcript.</p></li>
+<li><p><strong>Alignment-free RNA-Seq quantification</strong> involves comparing the frequency of k-mers (short nucleotide sequences) between samples to infer differential gene expression.</p></li>
+</ul>
+<p>Alignment-based methods are generally more accurate but require a reference, while alignment-free methods can be used without a reference but may be less accurate.</p>
+<p><strong>EM algorithm</strong>: short for expectation-maximization algorithm with E-step and M-step, those are three example which used EM algorithm:</p>
+<ol type="1">
+<li>Gene expression quantification
+<ul>
+<li>EM algorithm can be used to estimate the expression levels of genes or transcripts from RNA-Seq data, especially when dealing with technical or biological variability.</li>
+</ul></li>
+<li>De novo assembly of transcriptomes
+<ul>
+<li>EM algorithm can be used to cluster and assemble RNA-Seq reads into transcripts, without the need for a reference genome or transcriptome.</li>
+</ul></li>
+<li>Haplotype phasing
+<ul>
+<li>EM algorithm can be used to infer the haplotypes of an individual based on its genotype data, which is important for understanding genetic variations and their effects on phenotypes.</li>
+</ul></li>
+</ol>
+</section>
+<section id="fpkm-rpkm-tpm" class="level1">
+<h1><strong>FPKM &amp; RPKM &amp; TPM</strong></h1>
+<p><span class="math display">\[
+\text{FPKM}=\frac{\text{Fragment count of the gene feature} \times10^9}{\text{Total fragment count of the library} \times \text{Length of the gene feature}}
+\]</span></p>
+<p><span class="math display">\[
+\text{RPKM}=\frac{\text{Read count of the gene feature} \times10^9}{\text{Total read count of the library} \times \text{Length of the gene feature}}
+\]</span></p>
+<span class="math display">\[
+\text{TPM}=\frac{N_i/L_i \times 10^6}{sum(N_1/L_1+N_2/L_2+...+N_n/L_n)}
+\]</span>
+<center>
+<a href="https://www.jianshu.com/p/1940c5954c81">More detail</a>
+</center>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(edgeR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Original dataset</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">9</span>, <span class="dv">24</span>, <span class="dv">17</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">17</span>, <span class="dv">13</span>, <span class="dv">6</span>, <span class="dv">15</span>), <span class="at">nrow=</span><span class="dv">4</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(counts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Sample 1"</span>, <span class="st">"Sample 2"</span>, <span class="st">"Sample 3"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(counts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Gene A"</span>, <span class="st">"Gene B"</span>, <span class="st">"Gene C"</span>, <span class="st">"Gene D"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>gene.length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">800</span>, <span class="dv">1200</span>, <span class="dv">900</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create DGEList object</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>dge <span class="ot">&lt;-</span> <span class="fu">DGEList</span>(<span class="at">counts=</span>counts)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>dge <span class="ot">&lt;-</span> <span class="fu">calcNormFactors</span>(dge)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>cpm.matrix <span class="ot">&lt;-</span> <span class="fu">cpm</span>(dge)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>eff.length <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">t</span>(<span class="fu">cpm</span>(dge))) <span class="sc">/</span> dge<span class="sc">$</span>counts <span class="sc">*</span> dge<span class="sc">$</span>lib.size</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate RPKM values</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>rpkm <span class="ot">&lt;-</span> <span class="fu">rpkm</span>(dge, <span class="at">gene.length=</span>gene.length, <span class="at">eff.length=</span>eff.length)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply z-score normalization to FPKM</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>mean_rpkm <span class="ot">&lt;-</span> <span class="fu">apply</span>(rpkm, <span class="dv">1</span>, mean)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>sd_rpkm <span class="ot">&lt;-</span> <span class="fu">apply</span>(rpkm, <span class="dv">1</span>, sd)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>zscore_rpkm <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">t</span>(rpkm) <span class="sc">-</span> mean_rpkm) <span class="sc">/</span> sd_rpkm</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply column-wise quantile normalization to FPKM</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>norm_rpkm <span class="ot">&lt;-</span> <span class="fu">apply</span>(rpkm, <span class="dv">2</span>, <span class="cf">function</span>(x) {</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  rank_x <span class="ot">&lt;-</span> <span class="fu">rank</span>(x)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  qnorm_x <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(rank_x<span class="sc">/</span>(<span class="fu">length</span>(x)<span class="sc">+</span><span class="dv">1</span>))</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(qnorm_x)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate TPM values</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>rpk <span class="ot">&lt;-</span> counts <span class="sc">/</span> gene.length</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>tpm <span class="ot">&lt;-</span> rpk<span class="sc">/</span><span class="fu">colSums</span>(rpk) <span class="sc">*</span> <span class="dv">1000000</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply z-score normalization to TPM</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>mean_tpm <span class="ot">&lt;-</span> <span class="fu">apply</span>(tpm, <span class="dv">1</span>, mean)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>sd_tpm <span class="ot">&lt;-</span> <span class="fu">apply</span>(tpm, <span class="dv">1</span>, sd)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>zscore_tpm <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">t</span>(tpm) <span class="sc">-</span> mean_tpm) <span class="sc">/</span> sd_tpm</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply column-wise quantile normalization to TPM</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>norm_tpm <span class="ot">&lt;-</span> <span class="fu">apply</span>(tpm, <span class="dv">2</span>, <span class="cf">function</span>(x) {</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  rank_x <span class="ot">&lt;-</span> <span class="fu">rank</span>(x)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  qnorm_x <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(rank_x<span class="sc">/</span>(<span class="fu">length</span>(x)<span class="sc">+</span><span class="dv">1</span>))</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(qnorm_x)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rpkm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Sample 1 Sample 2  Sample 3
+Gene A 277591.3 406479.4 415762.24
+Gene B 453755.0 169366.4  43308.57
+Gene C      0.0 225821.9 245415.21
+Gene D 308434.8 301095.8 288723.78</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>zscore_rpkm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Sample 1   Sample 2   Sample 3
+Gene A -1.152613  2.3867559  3.3493924
+Gene B  0.734059 -0.9381370 -0.8505761
+Gene C -1.151718 -0.5396146 -0.8886184
+Gene D  8.662037 14.4565729 -1.0735115</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>norm_rpkm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Sample 1   Sample 2   Sample 3
+Gene A -0.2533471  0.8416212  0.8416212
+Gene B  0.8416212 -0.8416212 -0.8416212
+Gene C -0.8416212 -0.2533471 -0.2533471
+Gene D  0.2533471  0.2533471  0.2533471</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tpm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Sample 1  Sample 2  Sample 3
+Gene A 266970.9 368600.68 418604.65
+Gene B 870307.2  65406.98  51340.56
+Gene C      0.0 102681.12 580204.78
+Gene D 296634.3 273037.54 290697.67</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>norm_tpm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Sample 1   Sample 2   Sample 3
+Gene A -0.2533471  0.8416212  0.2533471
+Gene B  0.8416212 -0.8416212 -0.8416212
+Gene C -0.8416212 -0.2533471  0.8416212
+Gene D  0.2533471  0.2533471 -0.2533471</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>zscore_tpm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Sample 1   Sample 2   Sample 3
+Gene A -1.0925801  0.5122767  2.4716146
+Gene B  1.2446438 -0.6100069 -0.5922871
+Gene C -0.7351727 -0.5946164  0.7389969
+Gene D -2.6383750  3.6995470  0.3183774</code></pre>
+</div>
+</div>
+</section>
+<section id="molecular-dynamics-simulations" class="level1">
+<h1><strong>Molecular dynamics simulations</strong></h1>
+<p>Molecular dynamics (MD) is a computer simulation method for analyzing the physical movements of atoms and molecules. The atoms and molecules are allowed to interact for a fixed period of time, giving a view of the dynamic “evolution” of the system.</p>
+<p>The computational workflow of GROMACS package consists of several steps:</p>
+<ol type="1">
+<li><strong>System preparation:</strong> protein structure is prepared by adding missing atoms and residues, removing water molecules and ions, and adding hydrogen atoms.</li>
+<li><strong>Energy minimization:</strong> system is minimized to remove any steric clashes and bad contacts.</li>
+<li><strong>Equilibration:</strong> system is equilibrated at constant temperature and pressure to allow for relaxation of the system.</li>
+<li><strong>Production run</strong></li>
+<li><strong>Analysis</strong></li>
+</ol>
+</section>
+<section id="selection-analysis" class="level1">
+<h1><strong>Selection analysis</strong></h1>
+<p>A selection analysis of a gene from a group of related species typically involves identifying the degree and direction of selection acting on the gene across different species. The main procedures typically involve the following steps:</p>
+<ol type="1">
+<li><strong>Sequence alignment:</strong> Align the gene sequences from each species to identify the conserved regions and variable regions of the gene.</li>
+<li><strong>Phylogenetic analysis:</strong> Construct a phylogenetic tree to understand the evolutionary relationships among the species and to determine the branch lengths and divergence times between them.</li>
+<li><strong>Positive selection analysis:</strong> Use various methods to detect positive selection acting on the gene, such as the ratio of non-synonymous to synonymous substitutions (dN/dS), site models, branch-site models, and so on.</li>
+<li><strong>Functional analysis:</strong> Investigate the functional significance of the positively selected sites and how they may affect the protein structure and function.</li>
+<li><strong>Validation:</strong> Validate the results by comparing with the known biological functions and other evidence such as experimental data, literature review, and so on.</li>
+</ol>
+<p><strong>Example</strong> of a selection analysis of a gene from a group of related species:</p>
+<ol type="1">
+<li><p>Suppose we are interested in studying the evolution of the lactase gene in primates, which is responsible for lactose digestion. We first obtain the lactase gene sequences from several primates, including humans, chimpanzees, gorillas, and orangutans. We then align the sequences and identify the conserved and variable regions of the gene.</p></li>
+<li><p>Next, we construct a phylogenetic tree using the aligned sequences to understand the evolutionary relationships among the primates and determine the branch lengths and divergence times between them.</p></li>
+<li><p>Afterwards, we use various methods to detect positive selection acting on the lactase gene, such as the dN/dS ratio and site models. We may find evidence of positive selection acting on certain amino acid residues in the lactase protein, which may indicate functional adaptation related to lactose digestion.</p></li>
+<li><p>We then investigate the functional significance of the positively selected sites and how they may affect the protein structure and function. For example, we may use structural modeling to predict the effects of the amino acid substitutions on the protein structure and function.</p></li>
+<li><p>Finally, we validate the results by comparing with the known biological functions of the lactase gene and other evidence from experimental data and literature review. If our analysis suggests that certain amino acid substitutions are functionally important and adaptive, we may propose hypotheses for further testing using experimental methods.</p></li>
+</ol>
+</section>
+<section id="motif-discovery-hidden-markov-models" class="level1">
+<h1><strong>Motif discovery &amp; Hidden Markov Models</strong></h1>
+<p>Motif discovery focuses on identifying recurring patterns in sequences, HMM is a probabilistic model used to represent complex sequence data with hidden states. HMMs have been successfully applied in gene finding, protein structure prediction, and sequence alignment in bioinformatics.</p>
+<details>
+<summary>
+Details
+</summary>
+<ul>
+<li><p><strong>Motif discovery:</strong> Motif discovery is the process of identifying recurring patterns or motifs within a set of DNA, RNA, or protein sequences. It involves searching for a conserved sequence pattern that is present in multiple sequences and is likely to have a functional significance. The main goal of motif discovery is to identify the binding sites of transcription factors or other regulatory elements in DNA sequences.</p></li>
+<li><p><strong>Hidden Markov Models (HMM):</strong> HMM is a probabilistic model that represents a sequence of observations as a sequence of states. It is based on the assumption that the underlying states that generate the observations are not directly observable. Instead, the states are hidden and can only be inferred from the observed data. HMMs are used to model sequence data that has a complex structure, such as natural language, speech, and biological sequences.</p></li>
+</ul>
+<p><strong>Applications</strong> of HMM in Bioinformatics:</p>
+<ol type="1">
+<li><p><strong>Gene finding:</strong> HMMs are used to identify the coding regions or exons in DNA sequences. In this application, the HMM is trained on a set of known coding sequences and non-coding sequences, and then used to predict the location of coding regions in new sequences.</p></li>
+<li><p><strong>Protein structure prediction:</strong> HMMs are used to predict the secondary structure of proteins. In this application, the HMM is trained on a set of known protein structures and used to predict the secondary structure of new proteins.</p></li>
+<li><p><strong>Sequence alignment:</strong> HMMs are used to align sequences and to identify conserved domains or motifs within the sequences. In this application, the HMM is trained on a set of aligned sequences and used to align new sequences and to identify conserved regions.</p></li>
+</ol>
+</details>
+</section>
+<section id="identify-meaningful-gene" class="level1">
+<h1><strong>Identify meaningful gene</strong></h1>
+<ul>
+<li><p><strong>Gene set enrichment analysis (GSEA):</strong> GSEA is a widely used method for identifying gene sets or pathways that are differentially expressed between groups. In this method, gene sets are predefined based on prior knowledge of gene function, pathways, or other biological characteristics. The expression data is then ranked based on the differential expression between groups, and the enrichment of each gene set is calculated using a statistical test. The significance of the enrichment is determined by comparing the observed enrichment score with a null distribution generated by random permutations of the data. GSEA can be used to identify both upregulated and downregulated pathways or gene sets, and it has been shown to be effective in identifying biologically relevant pathways in various types of studies.</p></li>
+<li><p><strong>Weighted gene co-expression network analysis (WGCNA):</strong> WGCNA is a data-driven approach that identifies groups of genes that are highly correlated across multiple samples. In this method, a pairwise correlation matrix is calculated between all genes in the dataset, and the resulting matrix is used to construct a network of co-expressed genes. The network is then partitioned into modules or clusters of highly correlated genes, and each module is assigned a unique color or label. The modules are then characterized by their expression patterns, gene ontology enrichment, or association with clinical variables. WGCNA has been shown to be effective in identifying biologically relevant modules that are associated with disease or other phenotypes, and it has been widely used in transcriptomics studies.</p></li>
+</ul>
+<p>Both GSEA and WGCNA can be used to identify meaningful gene sets or modules from a set of expression data. GSEA relies on prior knowledge of gene function or pathways, while WGCNA is a data-driven approach that identifies co-expressed gene modules.</p>
+</section>
+<section id="scale-free-random-biological-network" class="level1">
+<h1><strong>Scale-free &amp; Random biological network</strong></h1>
+<p>In a random network, nodes are connected randomly without any preference for highly connected nodes. In contrast, scale-free networks have a few highly connected nodes (hubs) and many poorly connected nodes.</p>
+<p><strong>Example</strong> of a scale-free biological network is the <mark>protein interaction network (PIN)</mark> which is a network of proteins that interact with each other in cells. It has been constructed in various organisms and utilized to conduct evolutionary analyses and functional predictions. PINs have several interesting properties from the viewpoint of network architecture including scale-freeness.</p>
+</section>
+<section id="d-structure-prediction-homology-modeling" class="level1">
+<h1><strong>3D structure prediction (homology modeling)</strong></h1>
+<p>The 3D structure of a query protein can be predicted using a computational technique called homology modeling, also known as comparative modeling. Homology modeling relies on the assumption that proteins with similar amino acid sequences have similar 3D structures and functions. Therefore, if the amino acid sequence of the query protein is similar to a known protein with a known structure, then the 3D structure of the query protein can be predicted by modeling it based on the structure of the known protein.</p>
+<p>Basic <strong>steps</strong> involved in homology modeling:</p>
+<ol type="1">
+<li><p><strong>Identify a suitable template protein:</strong> The first step in homology modeling is to identify a suitable template protein with a known 3D structure that is similar to the query protein. This can be done using sequence alignment algorithms such as BLAST or PSI-BLAST.</p></li>
+<li><p><strong>Align the query protein with the template protein:</strong> Once a suitable template protein has been identified, the next step is to align the amino acid sequence of the query protein with the amino acid sequence of the template protein.</p></li>
+<li><p><strong>Model the 3D structure of the query protein:</strong> The aligned sequences are used to generate a 3D model of the query protein based on the known 3D structure of the template protein. This is typically done using software packages such as MODELLER, SWISS-MODEL, or Phyre2.</p></li>
+<li><p><strong>Refine the model:</strong> Once the initial model has been generated, it is often refined using energy minimization algorithms to improve its accuracy and stability.</p></li>
+<li><p><strong>Evaluate the model:</strong> The final step in homology modeling is to evaluate the quality of the model using various validation methods, such as Ramachandran plots, MolProbity, or ProSA-web.</p></li>
+</ol>
+</section>
+<section id="lid-domain" class="level1">
+<h1><strong>Lid domain</strong></h1>
+<p>The lid domain is a mobile structural element that covers the active site of lipases and related enzymes. The function of the lid domain is to regulate the access of substrates and products to the active site, thereby controlling the enzyme activity. The opening and closing of the lid domain is thought to be triggered by conformational changes induced by substrate binding or other environmental cues.</p>
+<p><strong>Approaches:</strong></p>
+<ol type="1">
+<li><p><strong>Molecular dynamics simulations:</strong> Molecular dynamics (MD) simulations can be used to model the motion of the lid domain in response to changes in the surrounding environment. This approach involves simulating the interactions between the lid domain and the rest of the protein, as well as the solvent molecules and any ligands or substrates present. MD simulations can provide insights into the conformational changes and structural dynamics of the lid domain, as well as its interactions with other parts of the protein.</p></li>
+<li><p><strong>Comparative analysis:</strong> Comparative analysis can be used to compare the lid domain sequences and structures across different species or enzymes. This approach involves identifying homologous proteins with similar lid domains and analysing their sequence and structural features. Comparative analysis can help to identify conserved residues or motifs that are important for lid domain function, as well as variations that may be responsible for differences in enzyme activity or substrate specificity.</p></li>
+<li><p><strong>Biochemical assays:</strong> Biochemical assays can be used to measure the enzyme activity of variants or mutants of the lid domain. This approach involves producing recombinant proteins with modified lid domains and testing their ability to hydrolyse substrates or interact with ligands. Biochemical assays can provide direct evidence of the functional role of the lid domain and help to validate the results of computational studies.</p></li>
+</ol>
+</section>
+<section id="phylogenetic-tree" class="level1">
+<h1><strong>Phylogenetic tree</strong></h1>
+<p><strong>Procedure:</strong></p>
+<ol type="1">
+<li><p><strong>Sequence retrieval and alignment:</strong> Obtain the DNA or protein sequences for the species of interest and align them using a sequence alignment software tool such as ClustalW or MUSCLE.</p></li>
+<li><p><strong>Model selection:</strong> Choose an appropriate evolutionary model that best fits the data. The most commonly used models include Jukes-Cantor, Kimura 2-parameter, and General Time Reversible (GTR) model.</p></li>
+<li><p><strong>Phylogenetic inference:</strong> Use a software tool such as Maximum Likelihood (ML), Bayesian Inference (BI), or Neighbor Joining (NJ) to infer the evolutionary relationships among the sequences.</p></li>
+<li><p><strong>Tree evaluation and interpretation:</strong> Evaluate the quality and reliability of the resulting tree, and interpret the tree in the context of the available biological knowledge about the species of interest.</p></li>
+</ol>
+<p><strong>Example</strong> of how these steps might be applied to reconstruct a phylogenetic tree for a group of related bird species based on a sequence alignment of their mitochondrial DNA (mtDNA) sequences:</p>
+<ol type="1">
+<li><p><strong>Sequence retrieval and alignment:</strong> Obtain the mtDNA sequences for the bird species of interest and align them using a sequence alignment software tool such as ClustalW or MUSCLE.</p></li>
+<li><p><strong>Model selection:</strong> Choose an appropriate evolutionary model that best fits the data. For mtDNA sequences, the most commonly used model is the GTR model.</p></li>
+<li><p><strong>Phylogenetic inference:</strong> Use a software tool such as ML or BI to infer the evolutionary relationships among the mtDNA sequences. For example, the RAxML software package could be used to perform a ML analysis of the mtDNA alignment, which would produce a maximum likelihood tree that represents the most likely evolutionary relationships among the bird species.</p></li>
+<li><p><strong>Tree evaluation and interpretation:</strong> Evaluate the quality and reliability of the resulting tree using statistical tests such as bootstrap analysis, and interpret the tree in the context of the available biological knowledge about the bird species. For example, the resulting tree might suggest that the bird species can be grouped into distinct clades based on their geographic distribution or morphological characteristics, which would provide insights into their evolutionary history and relationships.</p></li>
+</ol>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
