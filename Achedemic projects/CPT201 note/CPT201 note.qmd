@@ -1,0 +1,171 @@
+---
+title: "**CPT201 NOTE**"
+subtitle: "*Database development and design*"
+author:
+  - "TC-tea"
+date: "`r Sys.Date()`"
+date-format: "YYYY.MM.DD"
+output:
+  quarto::quarto_document:
+    default_output_format: html
+    code:
+      pandoc_args: ["-V", "lang=en"]
+    df_print: paged
+toc: true
+toc-location: left
+fontsize: 12pt
+fontfamily: Tahoma
+theme: default
+comments:
+  hypothesis: true
+---
+
+<head>
+  <!-- Set viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Set styles for light and dark mode -->
+  <style>
+    mark {
+      background-color: yellow;
+    }
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+    .light-code {
+      color: black;
+    }
+    .dark-code {
+      color: white;
+    }
+    .quarto-output pre:not([class*="language-"]) {
+      background-color: transparent;
+      color: inherit;
+    }
+    .quarto-output pre[class*="language-"] {
+      background-color: #F5F5F5;
+      color: black;
+    }
+    .dark-mode .quarto-output pre[class*="language-"] {
+      background-color: #2B2B2B;
+      color: white;
+    }
+    /* CSS for back-to-top button */
+    #back-to-top {
+      position: fixed;
+      bottom: 10px;
+      right: 22px;
+      font-size: 22px;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      text-decoration: none;
+    }
+    /* CSS for light/dark mode toggle button */
+    #myBtn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      border: none;
+      border-radius: 10px;
+      padding: 8px;
+      background-color: lightgray;
+    }
+    #myBtn:before {
+      content: "☀";
+    }
+    .dark-mode #myBtn:before {
+      content: "🌙";
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Button to toggle light/dark mode -->
+  <button id="myBtn" onclick="myFunction()"></button>
+  <script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+      var codeBlocks = document.querySelectorAll(".quarto-output pre[class*='language-']");
+      codeBlocks.forEach(function(block) {
+        block.classList.toggle("light-code");
+        block.classList.toggle("dark-code");
+      });
+    }
+  </script>
+  <!-- Button to scroll back to top of page -->
+<a href="#" id="back-to-top" title="Back to top">🚀</a>
+</body>
+
+# **Week2 note1**
+- [Week2 note1 (Data Storage Structures)](cpt201_week2_note1.pdf)
+<iframe src="cpt201_week2_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week3 note1**
+- [Week3 note1 (Indexing Techniques & B+ Tree Indexing](cpt201_week3_note1.pdf)
+<iframe src="cpt201_week3_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week4 note1**
+- [Week4 note1 (Hash Indexing)](cpt201_week4_note1.pdf)
+<iframe src="cpt201_week4_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week5 note1**
+- [Week5 note1 (Relational Model)](cpt201_week5_note1.pdf)
+<iframe src="cpt201_week5_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week6 note1**
+- [Week6 note1 (Query Evaluation)](cpt201_week6_note1.pdf)
+<iframe src="cpt201_week6_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week7 note1**
+- [Week7 note1 (Query Optimization Introduction 1)](cpt201_week7_note1.pdf)
+<iframe src="cpt201_week7_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week7 note2**
+- [Week7 note2 (Query Optimization Introduction 2)](cpt201_week7_note2.pdf)
+<iframe src="cpt201_week7_note2.pdf" width="100%" height="400px"></iframe>
+
+# **Week9 note1**
+- [Week9 note1 (Transaction Management)](cpt201_week9_note1.pdf)
+<iframe src="cpt201_week9_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week10 note1**
+- [Week10 note1 (Concurrency Control)](cpt201_week10_note1.pdf)
+<iframe src="cpt201_week10_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week10 note2**
+- [Week10 note2 (Failure Recovery)](cpt201_week10_note2.pdf)
+<iframe src="cpt201_week10_note2.pdf" width="100%" height="400px"></iframe>
+
+# **Week11 note1**
+- [Week11 note1 (Introduction to Object-Oriented Databases)](cpt201_week11_note1.pdf)
+<iframe src="cpt201_week11_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week11 note2**
+- [Week11 note2 (Introduction to Distributed Databases)](cpt201_week11_note2.pdf)
+<iframe src="cpt201_week11_note2.pdf" width="100%" height="400px"></iframe>
+
+# **Week12 note1**
+- [Week12 note1 (Web Technologies and Data Storage 1)](cpt201_week12_note1.pdf)
+<iframe src="cpt201_week12_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week12 note2**
+- [Week12 note2 (Web Technologies and Data Storage 2)](cpt201_week12_note2.pdf)
+<iframe src="cpt201_week12_note2.pdf" width="100%" height="400px"></iframe>
+
+# **Week13 note1**
+- [Week13 note1 (Big Data Storage)](cpt201_week13_note1.pdf)
+<iframe src="cpt201_week13_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Week13 note2**
+- [Week13 note2 (Blockchain-based Storage)](cpt201_week13_note2.pdf)
+<iframe src="cpt201_week13_note2.pdf" width="100%" height="400px"></iframe>
+
+# **Week14 note1**
+- [Week14 note1 (Data Analytics)](cpt201_week14_note1.pdf)
+<iframe src="cpt201_week14_note1.pdf" width="100%" height="400px"></iframe>
+
+# **Final revision**
+- [Final revision](cpt201_final_revision.pdf)
+<iframe src="cpt201_final_revision.pdf" width="100%" height="400px"></iframe>

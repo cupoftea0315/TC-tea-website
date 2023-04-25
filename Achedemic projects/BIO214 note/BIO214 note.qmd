@@ -1,0 +1,450 @@
+---
+title: "**BIO214 NOTE**"
+subtitle: "*Bioinformatics II*"
+author:
+  - "TC-tea"
+date: "`r Sys.Date()`"
+date-format: "YYYY.MM.DD"
+output:
+  quarto::quarto_document:
+    default_output_format: html
+    code:
+      pandoc_args: ["-V", "lang=en"]
+    df_print: paged
+toc: true
+toc-location: left
+fontsize: 12pt
+fontfamily: Tahoma
+theme: default
+comments:
+  hypothesis: true
+---
+
+<head>
+  <!-- Set viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Set styles for light and dark mode -->
+  <style>
+    mark {
+      background-color: yellow;
+    }
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+    .light-code {
+      color: black;
+    }
+    .dark-code {
+      color: white;
+    }
+    .quarto-output pre:not([class*="language-"]) {
+      background-color: transparent;
+      color: inherit;
+    }
+    .quarto-output pre[class*="language-"] {
+      background-color: #F5F5F5;
+      color: black;
+    }
+    .dark-mode .quarto-output pre[class*="language-"] {
+      background-color: #2B2B2B;
+      color: white;
+    }
+    /* CSS for back-to-top button */
+    #back-to-top {
+      position: fixed;
+      bottom: 10px;
+      right: 22px;
+      font-size: 22px;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      text-decoration: none;
+    }
+    /* CSS for light/dark mode toggle button */
+    #myBtn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      border: none;
+      border-radius: 10px;
+      padding: 8px;
+      background-color: lightgray;
+    }
+    #myBtn:before {
+      content: "☀";
+    }
+    .dark-mode #myBtn:before {
+      content: "🌙";
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Button to toggle light/dark mode -->
+  <button id="myBtn" onclick="myFunction()"></button>
+  <script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+      var codeBlocks = document.querySelectorAll(".quarto-output pre[class*='language-']");
+      codeBlocks.forEach(function(block) {
+        block.classList.toggle("light-code");
+        block.classList.toggle("dark-code");
+      });
+    }
+  </script>
+  <!-- Button to scroll back to top of page -->
+<a href="#" id="back-to-top" title="Back to top">🚀</a>
+</body>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      warning = FALSE,
+                      fig.align = "center")
+```
+
+👉🏻[Click to enter the BIO214 R-session section](../BIO214 R-session/BIO214 R-session.html)<br>
+👉🏻[Click to enter the BIO214 courseware section](../BIO214 R-session/BIO214 courseware.html)
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**1**</span> **Illumina sequencing**
+
+This is a type of **high accuracy**, **high throughput** and **low cost** <span style="color:orange">DNA sequencing</span> technology.
+
+Reversible terminator sequencing-by-synthesis to sequence millions of DNA fragments in parallel with 4 steps:
+
+1. Library preparation
+2. Cluster generation
+3. Sequencing
+4. Data analysis
+
+Technical artifacts:
+
+1. Phasing and pre-phasing errors
+2. Adapter contamination
+3. Read errors
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**2**</span> **Alignment-based & Alignment-free methods**
+
+- **Alignment-based RNA-Seq quantification** involves aligning RNA-Seq reads to a reference genome or transcriptome, and then quantifying expression based on the number of reads that align to each transcript. 
+
+- **Alignment-free RNA-Seq quantification** involves comparing the frequency of k-mers (short nucleotide sequences) between samples to infer differential gene expression. 
+
+Alignment-based methods are generally more accurate but require a reference, while alignment-free methods can be used without a reference but may be less accurate.
+
+**EM algorithm**: short for expectation-maximization algorithm with E-step and M-step, those are three example which used EM algorithm:
+
+1. Gene expression quantification
+   - EM algorithm can be used to estimate the expression levels of genes or transcripts from RNA-Seq data, especially when dealing with technical or biological variability.
+2. De novo assembly of transcriptomes
+   - EM algorithm can be used to cluster and assemble RNA-Seq reads into transcripts, without the need for a reference genome or transcriptome.
+3. Haplotype phasing
+   - EM algorithm can be used to infer the haplotypes of an individual based on its genotype data, which is important for understanding genetic variations and their effects on phenotypes.
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**3**</span> **FPKM & RPKM & TPM**
+
+$$
+\text{FPKM}=\frac{\text{Fragment count of the gene feature} \times10^9}{\text{Total fragment count of the library} \times \text{Length of the gene feature}}
+$$
+
+$$
+\text{RPKM}=\frac{\text{Read count of the gene feature} \times10^9}{\text{Total read count of the library} \times \text{Length of the gene feature}}
+$$
+
+$$
+\text{TPM}=\frac{N_i/L_i \times 10^6}{sum(N_1/L_1+N_2/L_2+...+N_n/L_n)}
+$$
+<center>[More detail](https://www.jianshu.com/p/1940c5954c81)</center>
+
+```{r}
+library(edgeR)
+# Original dataset
+counts <- matrix(c(13, 9, 24, 17, 3, 2, 0, 6, 17, 13, 6, 15), nrow=4, byrow=TRUE)
+colnames(counts) <- c("Sample 1", "Sample 2", "Sample 3")
+rownames(counts) <- c("Gene A", "Gene B", "Gene C", "Gene D")
+gene.length <- c(1000, 800, 1200, 900)
+# Create DGEList object
+dge <- DGEList(counts=counts)
+dge <- calcNormFactors(dge)
+cpm.matrix <- cpm(dge)
+eff.length <- t(t(cpm(dge))) / dge$counts * dge$lib.size
+
+# Calculate RPKM values
+rpkm <- rpkm(dge, gene.length=gene.length, eff.length=eff.length)
+# Apply z-score normalization to FPKM
+mean_rpkm <- apply(rpkm, 1, mean)
+sd_rpkm <- apply(rpkm, 1, sd)
+zscore_rpkm <- t(t(rpkm) - mean_rpkm) / sd_rpkm
+# Apply column-wise quantile normalization to FPKM
+norm_rpkm <- apply(rpkm, 2, function(x) {
+  rank_x <- rank(x)
+  qnorm_x <- qnorm(rank_x/(length(x)+1))
+  return(qnorm_x)
+})
+
+# Calculate TPM values
+rpk <- counts / gene.length
+tpm <- rpk/colSums(rpk) * 1000000
+# Apply z-score normalization to TPM
+mean_tpm <- apply(tpm, 1, mean)
+sd_tpm <- apply(tpm, 1, sd)
+zscore_tpm <- t(t(tpm) - mean_tpm) / sd_tpm
+# Apply column-wise quantile normalization to TPM
+norm_tpm <- apply(tpm, 2, function(x) {
+  rank_x <- rank(x)
+  qnorm_x <- qnorm(rank_x/(length(x)+1))
+  return(qnorm_x)
+})
+```
+```{r}
+rpkm
+zscore_rpkm
+norm_rpkm
+tpm
+norm_tpm
+zscore_tpm
+```
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**4**</span> **Molecular dynamics simulations**
+
+Molecular dynamics (MD) is a computer simulation method for analyzing the physical movements of atoms and molecules. The atoms and molecules are allowed to interact for a fixed period of time, giving a view of the dynamic "evolution" of the system. 
+
+The computational workflow of GROMACS package consists of several steps:
+
+1. **System preparation:** protein structure is prepared by adding missing atoms and residues, removing water molecules and ions, and adding hydrogen atoms.
+2. **Energy minimization:** system is minimized to remove any steric clashes and bad contacts.
+3. **Equilibration:** system is equilibrated at constant temperature and pressure to allow for relaxation of the system.
+4. **Production run**
+5. **Analysis**
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**5**</span> **Selection analysis**
+
+A selection analysis of a gene from a group of related species typically involves identifying the degree and direction of selection acting on the gene across different species. The main procedures typically involve the following steps:
+
+1. **Sequence alignment:** Align the gene sequences from each species to identify the conserved regions and variable regions of the gene.
+2. **Phylogenetic analysis:** Construct a phylogenetic tree to understand the evolutionary relationships among the species and to determine the branch lengths and divergence times between them.
+3. **Positive selection analysis:** Use various methods to detect positive selection acting on the gene, such as the ratio of non-synonymous to synonymous substitutions (dN/dS), site models, branch-site models, and so on.
+4. **Functional analysis:** Investigate the functional significance of the positively selected sites and how they may affect the protein structure and function.
+5. **Validation:** Validate the results by comparing with the known biological functions and other evidence such as experimental data, literature review, and so on.
+
+**Example** of a selection analysis of a gene from a group of related species:
+
+1. Suppose we are interested in studying the evolution of the lactase gene in primates, which is responsible for lactose digestion. We first obtain the lactase gene sequences from several primates, including humans, chimpanzees, gorillas, and orangutans. We then align the sequences and identify the conserved and variable regions of the gene.
+
+2. Next, we construct a phylogenetic tree using the aligned sequences to understand the evolutionary relationships among the primates and determine the branch lengths and divergence times between them.
+
+3. Afterwards, we use various methods to detect positive selection acting on the lactase gene, such as the dN/dS ratio and site models. We may find evidence of positive selection acting on certain amino acid residues in the lactase protein, which may indicate functional adaptation related to lactose digestion.
+
+4. We then investigate the functional significance of the positively selected sites and how they may affect the protein structure and function. For example, we may use structural modeling to predict the effects of the amino acid substitutions on the protein structure and function.
+
+5. Finally, we validate the results by comparing with the known biological functions of the lactase gene and other evidence from experimental data and literature review. If our analysis suggests that certain amino acid substitutions are functionally important and adaptive, we may propose hypotheses for further testing using experimental methods.
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**6**</span> **Motif discovery & Hidden Markov Models**
+
+Motif discovery focuses on identifying recurring patterns in sequences, HMM is a probabilistic model used to represent complex sequence data with hidden states. HMMs have been successfully applied in gene finding, protein structure prediction, and sequence alignment in bioinformatics.
+
+<details>
+  <summary>Details</summary>
+- **Motif discovery:** Motif discovery is the process of identifying recurring patterns or motifs within a set of DNA, RNA, or protein sequences. It involves searching for a conserved sequence pattern that is present in multiple sequences and is likely to have a functional significance. The main goal of motif discovery is to identify the binding sites of transcription factors or other regulatory elements in DNA sequences.
+
+- **Hidden Markov Models (HMM):** HMM is a probabilistic model that represents a sequence of observations as a sequence of states. It is based on the assumption that the underlying states that generate the observations are not directly observable. Instead, the states are hidden and can only be inferred from the observed data. HMMs are used to model sequence data that has a complex structure, such as natural language, speech, and biological sequences.
+
+**Applications** of HMM in Bioinformatics:
+
+1. **Gene finding:** HMMs are used to identify the coding regions or exons in DNA sequences. In this application, the HMM is trained on a set of known coding sequences and non-coding sequences, and then used to predict the location of coding regions in new sequences.
+
+2. **Protein structure prediction:** HMMs are used to predict the secondary structure of proteins. In this application, the HMM is trained on a set of known protein structures and used to predict the secondary structure of new proteins.
+
+3. **Sequence alignment:** HMMs are used to align sequences and to identify conserved domains or motifs within the sequences. In this application, the HMM is trained on a set of aligned sequences and used to align new sequences and to identify conserved regions.
+</details>
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**7**</span> **Identify meaningful gene**
+
+- **Gene set enrichment analysis (GSEA):** GSEA is a widely used method for identifying gene sets or pathways that are differentially expressed between groups. In this method, gene sets are predefined based on prior knowledge of gene function, pathways, or other biological characteristics. The expression data is then ranked based on the differential expression between groups, and the enrichment of each gene set is calculated using a statistical test. The significance of the enrichment is determined by comparing the observed enrichment score with a null distribution generated by random permutations of the data. GSEA can be used to identify both upregulated and downregulated pathways or gene sets, and it has been shown to be effective in identifying biologically relevant pathways in various types of studies.
+
+- **Weighted gene co-expression network analysis (WGCNA):** WGCNA is a data-driven approach that identifies groups of genes that are highly correlated across multiple samples. In this method, a pairwise correlation matrix is calculated between all genes in the dataset, and the resulting matrix is used to construct a network of co-expressed genes. The network is then partitioned into modules or clusters of highly correlated genes, and each module is assigned a unique color or label. The modules are then characterized by their expression patterns, gene ontology enrichment, or association with clinical variables. WGCNA has been shown to be effective in identifying biologically relevant modules that are associated with disease or other phenotypes, and it has been widely used in transcriptomics studies.
+
+Both GSEA and WGCNA can be used to identify meaningful gene sets or modules from a set of expression data. GSEA relies on prior knowledge of gene function or pathways, while WGCNA is a data-driven approach that identifies co-expressed gene modules.
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**8**</span> **Scale-free & Random biological network**
+
+In a random network, nodes are connected randomly without any preference for highly connected nodes. 
+In contrast, scale-free networks have a few highly connected nodes (hubs) and many poorly connected nodes. 
+
+**Example** of a scale-free biological network is the <mark>protein interaction network (PIN)</mark> which is a network of proteins that interact with each other in cells. It has been constructed in various organisms and utilized to conduct evolutionary analyses and functional predictions. PINs have several interesting properties from the viewpoint of network architecture including scale-freeness.
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**9**</span> **3D structure prediction (homology modeling)**
+
+The 3D structure of a query protein can be predicted using a computational technique called homology modeling, also known as comparative modeling. Homology modeling relies on the assumption that proteins with similar amino acid sequences have similar 3D structures and functions. Therefore, if the amino acid sequence of the query protein is similar to a known protein with a known structure, then the 3D structure of the query protein can be predicted by modeling it based on the structure of the known protein.
+
+Basic **steps** involved in homology modeling:
+
+1. **Identify a suitable template protein:** The first step in homology modeling is to identify a suitable template protein with a known 3D structure that is similar to the query protein. This can be done using sequence alignment algorithms such as BLAST or PSI-BLAST.
+
+2. **Align the query protein with the template protein:** Once a suitable template protein has been identified, the next step is to align the amino acid sequence of the query protein with the amino acid sequence of the template protein.
+
+3. **Model the 3D structure of the query protein:** The aligned sequences are used to generate a 3D model of the query protein based on the known 3D structure of the template protein. This is typically done using software packages such as MODELLER, SWISS-MODEL, or Phyre2.
+
+4. **Refine the model:** Once the initial model has been generated, it is often refined using energy minimization algorithms to improve its accuracy and stability.
+
+5. **Evaluate the model:** The final step in homology modeling is to evaluate the quality of the model using various validation methods, such as Ramachandran plots, MolProbity, or ProSA-web.
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**10**</span> **Lid domain**
+
+The lid domain is a mobile structural element that covers the active site of lipases and related enzymes. The function of the lid domain is to regulate the access of substrates and products to the active site, thereby controlling the enzyme activity. The opening and closing of the lid domain is thought to be triggered by conformational changes induced by substrate binding or other environmental cues.
+
+**Approaches:**
+
+1. **Molecular dynamics simulations:** Molecular dynamics (MD) simulations can be used to model the motion of the lid domain in response to changes in the surrounding environment. This approach involves simulating the interactions between the lid domain and the rest of the protein, as well as the solvent molecules and any ligands or substrates present. MD simulations can provide insights into the conformational changes and structural dynamics of the lid domain, as well as its interactions with other parts of the protein.
+
+2. **Comparative analysis:** Comparative analysis can be used to compare the lid domain sequences and structures across different species or enzymes. This approach involves identifying homologous proteins with similar lid domains and analysing their sequence and structural features. Comparative analysis can help to identify conserved residues or motifs that are important for lid domain function, as well as variations that may be responsible for differences in enzyme activity or substrate specificity.
+
+3. **Biochemical assays:** Biochemical assays can be used to measure the enzyme activity of variants or mutants of the lid domain. This approach involves producing recombinant proteins with modified lid domains and testing their ability to hydrolyse substrates or interact with ligands. Biochemical assays can provide direct evidence of the functional role of the lid domain and help to validate the results of computational studies.
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**11**</span> **Phylogenetic tree**
+
+**Procedure:**
+
+1. **Sequence retrieval and alignment:** Obtain the DNA or protein sequences for the species of interest and align them using a sequence alignment software tool such as ClustalW or MUSCLE.
+
+2. **Model selection:** Choose an appropriate evolutionary model that best fits the data. The most commonly used models include Jukes-Cantor, Kimura 2-parameter, and General Time Reversible (GTR) model.
+
+3. **Phylogenetic inference:** Use a software tool such as Maximum Likelihood (ML), Bayesian Inference (BI), or Neighbor Joining (NJ) to infer the evolutionary relationships among the sequences.
+
+4. **Tree evaluation and interpretation:** Evaluate the quality and reliability of the resulting tree, and interpret the tree in the context of the available biological knowledge about the species of interest.
+
+**Example** of how these steps might be applied to reconstruct a phylogenetic tree for a group of related bird species based on a sequence alignment of their mitochondrial DNA (mtDNA) sequences:
+
+1. **Sequence retrieval and alignment:** Obtain the mtDNA sequences for the bird species of interest and align them using a sequence alignment software tool such as ClustalW or MUSCLE.
+
+2. **Model selection:** Choose an appropriate evolutionary model that best fits the data. For mtDNA sequences, the most commonly used model is the GTR model.
+
+3. **Phylogenetic inference:** Use a software tool such as ML or BI to infer the evolutionary relationships among the mtDNA sequences. For example, the RAxML software package could be used to perform a ML analysis of the mtDNA alignment, which would produce a maximum likelihood tree that represents the most likely evolutionary relationships among the bird species.
+
+4. **Tree evaluation and interpretation:** Evaluate the quality and reliability of the resulting tree using statistical tests such as bootstrap analysis, and interpret the tree in the context of the available biological knowledge about the bird species. For example, the resulting tree might suggest that the bird species can be grouped into distinct clades based on their geographic distribution or morphological characteristics, which would provide insights into their evolutionary history and relationships.
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**12**</span> **DNA bisulfite sequencing**
+
+Compute the **MLE** (Maximum Likelihood Estimation):
+```{r}
+counts <- matrix(c(40, 17, 2130, 361), nrow=2, byrow=TRUE)
+colnames(counts) <- c("ConvertedRead(Not methylated)", "Unconverted Read (Methylated)")
+rownames(counts) <- c("Cytosine Site 1", "Other Sites")
+n <- rowSums(counts)
+k <- counts[,2]
+p_hat <- sum(k) / sum(n)
+round(p_hat, 3)
+```
+$$\hat{p} = \frac{\sum_{i=1}^2 k_i}{\sum_{i=1}^2 m_i} = \frac{17+361}{40+2130+17+361} \approx 0.148$$
+
+Compute the **one-sided p-value**:
+```{r}
+p <- pbinom(counts[1, 2], counts[2, 2], 0.04)
+p
+```
+
+Identify **significant** or not:
+```{r}
+p <- phyper(counts[1, 2], sum(counts[, 2]), sum(counts[, 1]), sum(counts[1,]))
+p
+```
+
+Compute the adjusted p-value with Bonferroni correction:
+```{r}
+# Original p-value table
+sum_p <- matrix(c(0.005, 0.627, 0.941, 0.120, 0.022), nrow=5, byrow=TRUE)
+colnames(sum_p) <- c("p-value")
+rownames(sum_p) <- c("Site 1", "Site 2", "Site 3", "Site 4", "Site 5")
+
+# Compute the adjusted p-values with Bonferroni correction and clip them at 1
+adjusted_p_bonf <- p.adjust(sum_p, method = "bonferroni")
+
+# Compute the adjusted p-values with BH method and clip them at 1
+adjusted_p_bh <- p.adjust(sum_p, method = "BH")
+
+# Filter the significant sites with adjusted p-value < 0.05
+significant_sites_bonf <- rownames(sum_p)[adjusted_p_bonf < 0.05]
+significant_sites_bh <- rownames(sum_p)[adjusted_p_bh < 0.05]
+
+# Return the adjusted p-values clipped at 1 and the significant sites
+list(adjusted_p_bonf = pmin(adjusted_p_bonf, 1), significant_sites_bonf = significant_sites_bonf, adjusted_p_bh = adjusted_p_bh, significant_sites_bh = significant_sites_bh)
+
+```
+Another adjustment method that is less stringent but more powerful than the Bonferroni correction is the False Discovery Rate (FDR) correction. The FDR control the expected proportion of false discoveries among all discoveries, and is less likely to miss true positives than the Bonferroni correction. One common method for FDR correction is the **Benjamini-Hochberg (BH)** procedure, which is implemented in R by the `p.adjust()` function.
+
+# <span style="color:gray; font-family:Microsoft JhengHei;">**13**</span> **Gene expression levels (in RPKM)**
+
+Identify 2 clusters (on-expression and off-expression) using **K-means clustering** with K=2:
+```{r}
+# Create a data frame from the gene expression data
+df_cell <- matrix(c(10, 55, 40, 15), nrow=4, byrow=TRUE)
+colnames(df_cell) <- c("RPKM")
+rownames(df_cell) <- c("Cell type 1", "Cell type 2", "Cell type 3", "Cell type 4")
+df_cell <- as.data.frame(df_cell)
+
+# Perform K-means clustering with K=2
+k <- 2
+set.seed(123)
+km <- kmeans(df_cell, centers = k)
+
+# Identify the clusters based on the cluster centers
+on_cluster <- which(km$centers == max(km$centers))
+off_cluster <- which(km$centers == min(km$centers))
+
+# Print the cluster assignments
+cat("Cluster assignments:\n")
+cat(paste(" - ", rownames(df_cell)[km$cluster == on_cluster], " (on-expression)\n", sep = ""))
+cat(paste(" - ", rownames(df_cell)[km$cluster == off_cluster], " (off-expression)\n", sep = ""))
+```
+
+The K-means clustering was initiated with center 1=30 and center 2=45. Using values of 0 and 1, fill the following **responsibility matrix** for the first iteration.
+```{r}
+# Define the data
+df_cell <- matrix(c(10, 55, 40, 15), nrow=4, byrow=TRUE)
+colnames(df_cell) <- c("RPKM")
+rownames(df_cell) <- c("Cell type 1", "Cell type 2", "Cell type 3", "Cell type 4")
+
+# Define the centers
+center1 <- 30
+center2 <- 45
+
+# Compute the distances to the centers
+dist1 <- abs(df_cell - center1)
+dist2 <- abs(df_cell - center2)
+
+# Create the responsibility matrix
+df_center <- matrix(0, nrow=4, ncol=2)
+colnames(df_center) <- c("Responsibilities for center 1", "Responsibilities for center 2")
+rownames(df_center) <- c("Cell type 1", "Cell type 2", "Cell type 3", "Cell type 4")
+
+# Assign the responsibilities
+df_center[,1] <- as.numeric(dist1 < dist2)
+df_center[,2] <- as.numeric(dist1 > dist2)
+df_cell
+df_center
+```
+
+Compute the updated **cluster centers** with the assigned responsibilities:
+```{r}
+# Sample data
+df_cell <- matrix(c(10, 55, 40, 15), nrow=4, byrow=TRUE)
+colnames(df_cell) <- c("RPKM")
+rownames(df_cell) <- c("Cell type 1", "Cell type 2", "Cell type 3", "Cell type 4")
+
+# Initial cluster centers
+center1 <- 30
+center2 <- 45
+
+# Assign responsibilities
+dist1 <- abs(df_cell[,1] - center1)
+dist2 <- abs(df_cell[,1] - center2)
+responsibility <- as.numeric(dist1 > dist2)
+
+# Compute updated cluster centers
+df_new <- matrix(c(mean(df_cell[responsibility == 0, 1]), mean(df_cell[responsibility == 1, 1])), nrow=2, byrow=TRUE)
+rownames(df_new) <- c("New center 1", "New center 2")
+colnames(df_new) <- c("RPKM")
+df_new
+```
+
