@@ -368,7 +368,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023.04.25</p>
+      <p class="date">2023.04.26</p>
     </div>
   </div>
   
@@ -1010,7 +1010,7 @@ attr(,"useBytes")
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the current date</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Tue Apr 25 17:12:44 2023"</code></pre>
+<pre><code>[1] "Wed Apr 26 14:49:35 2023"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># character</span></span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="st">"2/11/1962"</span></span>
@@ -3525,7 +3525,13 @@ Brief explanation in Chinese
 <h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>12</strong></span> <strong>Non-parametric hypothesis tests</strong></h1>
 <section id="definition" class="level2">
 <h2 class="anchored" data-anchor-id="definition"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>12.1</strong></span> <strong>Definition</strong></h2>
-<p><strong>Non-parametric hypothesis tests:</strong><br> A hypothesis test that does not require any specific conditions concerning the shapes of <mark>population distributions</mark> or <mark>the values of population parameters</mark>. When we don’t know the distribution of the population, the it is <mark>easier to perform</mark> than corresponding parametric tests but <mark>less efficient</mark> than parametric tests.</p>
+<p><strong>Non-parametric hypothesis tests:</strong><br> A hypothesis test that does not require any specific conditions concerning the shapes of population distributions or the values of population parameters. When we don’t know the distribution of the population, the it is <span style="color:green">easier to perform</span> than corresponding parametric tests but <span style="color:green">less efficient</span> than parametric tests.</p>
+<ul>
+<li><p><strong>Wilcoxon Rank-Sum test:</strong> Used to compare whether the <span style="color:red">medians</span> of <mark>two independent groups</mark> are equal. It is suitable for situations where the sample does not follow a normal distribution or where the variances are unequal.</p></li>
+<li><p><strong>Wilcoxon Signed-Rank test:</strong> Used to compare whether the <span style="color:red">medians</span> of <mark>two related groups</mark> are equal. It is suitable for situations where the sample does not follow a normal distribution or where the variances are unequal.</p></li>
+<li><p><strong>Kruskal-Wallis test:</strong> Used to compare whether the <span style="color:red">medians</span> of <mark>three or more independent groups</mark> are equal. It is suitable for situations where the sample does not follow a normal distribution or where the variances are unequal.</p></li>
+<li><p><strong>Friedman test:</strong> Used to compare whether the <span style="color:red">medians</span> of <mark>three or more related groups are equal</mark>. It is suitable for situations where the sample does not follow a normal distribution or where the variances are unequal.</p></li>
+</ul>
 </section>
 <section id="wilcoxon-rank-sum-test" class="level2">
 <h2 class="anchored" data-anchor-id="wilcoxon-rank-sum-test"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>12.2</strong></span> <strong>Wilcoxon Rank-Sum test</strong></h2>
@@ -4246,20 +4252,20 @@ Call:
 lm(formula = y ~ x1 + x2, data = dtf)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--28.846  -5.503  -1.621   5.985  26.269 
+     Min       1Q   Median       3Q      Max 
+-27.8628  -6.2406  -0.9819   5.8859  29.2889 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    8.690      2.137   4.067 9.34e-05 ***
-x1            14.855      8.699   1.708   0.0907 .  
-x2           -14.553      8.700  -1.673   0.0974 .  
+(Intercept)    8.968      2.138   4.194 5.83e-05 ***
+x1           -13.020      7.794  -1.671   0.0978 .  
+x2            13.320      7.792   1.709   0.0904 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 9.337 on 103 degrees of freedom
-Multiple R-squared:  0.4194,    Adjusted R-squared:  0.4082 
-F-statistic: 37.21 on 2 and 103 DF,  p-value: 6.889e-13</code></pre>
+Residual standard error: 9.331 on 103 degrees of freedom
+Multiple R-squared:  0.4201,    Adjusted R-squared:  0.4089 
+F-statistic: 37.31 on 2 and 103 DF,  p-value: 6.486e-13</code></pre>
 </div>
 </div>
 <p><a id="Variance inflation factor (VIF)" href=""></a></p>
@@ -4378,7 +4384,7 @@ F-statistic:  9.32 on 12 and 34 DF,  p-value: 1.351e-07</code></pre>
 <li>Start with all the predictors in the model.</li>
 <li>Remove the predictor with highest p-value greater than <span class="math inline">\(\alpha\)</span> (= 0.05 usually).</li>
 <li>Refit the model and go to 2.</li>
-<li>Stop when all p-values are less than <span class="math inline">\(\alpha\)</span>.</li>
+<li><mark>Stop when all p-values are less than <span class="math inline">\(\alpha\)</span>.</mark></li>
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb406"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb406-1"><a href="#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This function is used to calculate the coefficients of the linear regression model and sort them from largest to smallest by P-value</span></span>

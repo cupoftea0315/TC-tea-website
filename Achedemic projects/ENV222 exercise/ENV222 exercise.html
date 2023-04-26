@@ -117,6 +117,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#plot-exercise" id="toc-plot-exercise" class="nav-link" data-scroll-target="#plot-exercise"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>4</strong></span> <strong>Plot Exercise</strong></a></li>
   <li><a href="#r-tidyverse" id="toc-r-tidyverse" class="nav-link" data-scroll-target="#r-tidyverse"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>5</strong></span> <strong>R Tidyverse</strong></a></li>
   <li><a href="#post-hoc-tests" id="toc-post-hoc-tests" class="nav-link" data-scroll-target="#post-hoc-tests"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>6</strong></span> <strong>Post-hoc tests</strong></a></li>
+  <li><a href="#non-parametric-hypothesis-tests" id="toc-non-parametric-hypothesis-tests" class="nav-link" data-scroll-target="#non-parametric-hypothesis-tests"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>7</strong></span> <strong>Non-parametric hypothesis tests</strong></a></li>
+  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>8</strong></span> <strong>Multiple Linear Regression</strong></a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>9</strong></span> <strong>Logistic Regression</strong></a></li>
+  <li><a href="#poisson-regression" id="toc-poisson-regression" class="nav-link" data-scroll-target="#poisson-regression"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>10</strong></span> <strong>Poisson Regression</strong></a></li>
   <li><a href="#sessioninfo" id="toc-sessioninfo" class="nav-link" data-scroll-target="#sessioninfo"><strong><span style="color:green">SessionInfo:</span></strong></a></li>
   </ul>
 </nav>
@@ -145,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023.04.19</p>
+      <p class="date">2023.04.26</p>
     </div>
   </div>
   
@@ -398,8 +402,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8 1998-01-01 07:00:00  3      170   195    51     0    12  3.88  2.00    NA
  9 1998-01-01 08:00:00  3.36   170   137    42     1    12  3.35  1.46    NA
 10 1998-01-01 09:00:00  3.96   170   113    39     2    12  2.92  1.20    NA
-# … with 65,523 more rows, and 3 more variables: year &lt;int&gt;, month &lt;chr&gt;,
-#   weekday &lt;chr&gt;</code></pre>
+# ℹ 65,523 more rows
+# ℹ 3 more variables: year &lt;int&gt;, month &lt;chr&gt;, weekday &lt;chr&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -421,7 +425,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-04-19 10:37:56 CST"</code></pre>
+<pre><code>[1] "2023-04-26 15:01:46 CST"</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
@@ -430,7 +434,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="at">format =</span> <span class="st">'%Y, %B, %d, %A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023, April, 19, Wednesday"</code></pre>
+<pre><code>[1] "2023, April, 26, Wednesday"</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
@@ -441,15 +445,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="fu">strptime</span>( <span class="st">"2022-9-13 15:00:00"</span>, <span class="at">format=</span><span class="st">"%Y-%m-%d %H:%M:%S"</span> )</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">difftime</span>(<span class="at">time1 =</span> t1, <span class="at">time2 =</span> t2, <span class="at">units =</span> <span class="st">'secs'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 18819476 secs</code></pre>
+<pre><code>Time difference of 19440106 secs</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">difftime</span>(<span class="at">time1 =</span> t1, <span class="at">time2 =</span> t2, <span class="at">units =</span> <span class="st">'days'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 217.818 days</code></pre>
+<pre><code>Time difference of 225.0012 days</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">difftime</span>(<span class="at">time1 =</span> t1, <span class="at">time2 =</span> t2, <span class="at">units =</span> <span class="st">'hours'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 5227.632 hours</code></pre>
+<pre><code>Time difference of 5400.03 hours</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
@@ -795,7 +799,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8 BDL         10205
  9 BGR          9732
 10 BHM         12345
-# … with 95 more rows</code></pre>
+# ℹ 95 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dest) <span class="sc">%&gt;%</span></span>
@@ -804,23 +808,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 336,776 × 21
 # Groups:   dest [105]
-    year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
-   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
- 1  2013     1     1      517        515       2     830     819      11 UA     
- 2  2013     1     1      533        529       4     850     830      20 UA     
- 3  2013     1     1      542        540       2     923     850      33 AA     
- 4  2013     1     1      544        545      -1    1004    1022     -18 B6     
- 5  2013     1     1      554        600      -6     812     837     -25 DL     
- 6  2013     1     1      554        558      -4     740     728      12 UA     
- 7  2013     1     1      555        600      -5     913     854      19 B6     
- 8  2013     1     1      557        600      -3     709     723     -14 EV     
- 9  2013     1     1      557        600      -3     838     846      -8 B6     
-10  2013     1     1      558        600      -2     753     745       8 AA     
-# … with 336,766 more rows, 11 more variables: flight &lt;int&gt;, tailnum &lt;chr&gt;,
-#   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
-#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, total_delay &lt;dbl&gt;, prop_delay &lt;dbl&gt;, and
-#   abbreviated variable names ¹​sched_dep_time, ²​dep_delay, ³​arr_time,
-#   ⁴​sched_arr_time, ⁵​arr_delay</code></pre>
+    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+ 1  2013     1     1      517            515         2      830            819
+ 2  2013     1     1      533            529         4      850            830
+ 3  2013     1     1      542            540         2      923            850
+ 4  2013     1     1      544            545        -1     1004           1022
+ 5  2013     1     1      554            600        -6      812            837
+ 6  2013     1     1      554            558        -4      740            728
+ 7  2013     1     1      555            600        -5      913            854
+ 8  2013     1     1      557            600        -3      709            723
+ 9  2013     1     1      557            600        -3      838            846
+10  2013     1     1      558            600        -2      753            745
+# ℹ 336,766 more rows
+# ℹ 13 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
+#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
+#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, total_delay &lt;dbl&gt;,
+#   prop_delay &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p>(4)<br><br><br></p>
@@ -844,7 +848,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8 N0EGMQ      5      13
  9 N0EGMQ      6      32
 10 N0EGMQ      7      11
-# … with 37,978 more rows</code></pre>
+# ℹ 37,978 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -983,6 +987,380 @@ Jinji   FALSE FALSE</code></pre>
 </div>
 </div>
 </section>
+<section id="non-parametric-hypothesis-tests" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>7</strong></span> <strong>Non-parametric hypothesis tests</strong></h1>
+<ul>
+<li><p><strong>Wilcoxon Rank-Sum test:</strong> Used to compare whether the <span style="color:red">medians</span> of <mark>two independent groups</mark> are equal. It is suitable for situations where the sample does not follow a normal distribution or where the variances are unequal.</p></li>
+<li><p><strong>Wilcoxon Signed-Rank test:</strong> Used to compare whether the <span style="color:red">medians</span> of <mark>two related groups</mark> are equal. It is suitable for situations where the sample does not follow a normal distribution or where the variances are unequal.</p></li>
+<li><p><strong>Kruskal-Wallis test:</strong> Used to compare whether the <span style="color:red">medians</span> of <mark>three or more independent groups</mark> are equal. It is suitable for situations where the sample does not follow a normal distribution or where the variances are unequal.</p></li>
+<li><p><strong>Friedman test:</strong> Used to compare whether the <span style="color:red">medians</span> of <mark>three or more related groups are equal</mark>. It is suitable for situations where the sample does not follow a normal distribution or where the variances are unequal.</p></li>
+</ul>
+<ol type="1">
+<li>Trichloroethylene (TCE) is reported by the EPA to be the most prevalent solvent contaminating groundwater at superfund sites in the United States. Exposure can result in effects to the immune and reproductive systems, liver, kidneys, central nervous system, and may affect fetal development during pregnancy. Long term exposures to TCE can increase the risk of kidney cancer. There is also evidence that TCE exposure can increase the risk for non-Hodgkin’s lymphoma and liver cancer.<br><br> The “tce” dataset shows the TCE concentrations (mg/L) at 10 randomly selected groundwater monitoring wells before remediation and the same wells after remediation. Download the tce.csv file. Is the median TCE concentration different after the remediation from before? Carry out a nonparametric test.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'data/tce.csv'</span>)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(dtf<span class="sc">$</span>TCE.mg.per.L[dtf<span class="sc">$</span>Period <span class="sc">==</span> <span class="st">'Before'</span>], </span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>            dtf<span class="sc">$</span>TCE.mg.per.L[dtf<span class="sc">$</span>Period <span class="sc">==</span> <span class="st">'After'</span>], </span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon signed rank exact test
+
+data:  dtf$TCE.mg.per.L[dtf$Period == "Before"] and dtf$TCE.mg.per.L[dtf$Period == "After"]
+V = 55, p-value = 0.001953
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+  6.8650 28.5715
+sample estimates:
+(pseudo)median 
+         18.78 </code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>The iris dataset. Are the median sepal lengths equal among the three species? Carry out a nonparametric test.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
+
+data:  Sepal.Length by Species
+Kruskal-Wallis chi-squared = 96.937, df = 2, p-value &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Sepal.Length <span class="sc">~</span> Species, </span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> iris, </span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">notch =</span> <span class="cn">TRUE</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-linear-regression" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>8</strong></span> <strong>Multiple Linear Regression</strong></h1>
+<ol type="1">
+<li>The airquality dataset. Build a multiple linear regression model for predicting the ozone concentration (the dependent variable) with the solar radiation, wind speed, temperature, and month (the independent variables).</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Visualization</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> airquality[, <span class="sc">-</span><span class="dv">6</span>]</span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(dtf)</span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>dtf_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(dtf)</span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(dtf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(dtf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-37-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>corrplot<span class="sc">::</span><span class="fu">corrplot</span>(dtf_cor, </span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">order =</span> <span class="st">'AOE'</span>, </span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">"upper"</span>, </span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">method =</span> <span class="st">"number"</span>)</span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a>corrplot<span class="sc">::</span><span class="fu">corrplot</span>(dtf_cor, </span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">order =</span> <span class="st">"AOE"</span>, </span>
+<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">"lower"</span>,</span>
+<span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">method =</span> <span class="st">"ell"</span>, </span>
+<span id="cb85-9"><a href="#cb85-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">diag =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb85-10"><a href="#cb85-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">tl.pos =</span> <span class="st">"l"</span>, </span>
+<span id="cb85-11"><a href="#cb85-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">cl.pos =</span> <span class="st">"n"</span>, </span>
+<span id="cb85-12"><a href="#cb85-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-37-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Maximal model</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>ozone_concentration_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Ozone <span class="sc">~</span> ., <span class="at">data =</span> dtf)</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ozone_concentration_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Ozone ~ ., data = dtf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-35.870 -13.968  -2.671   9.553  97.918 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -58.05384   22.97114  -2.527   0.0130 *  
+Solar.R       0.04960    0.02346   2.114   0.0368 *  
+Wind         -3.31651    0.64579  -5.136 1.29e-06 ***
+Temp          1.87087    0.27363   6.837 5.34e-10 ***
+Month        -2.99163    1.51592  -1.973   0.0510 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 20.9 on 106 degrees of freedom
+Multiple R-squared:  0.6199,    Adjusted R-squared:  0.6055 
+F-statistic: 43.21 on 4 and 106 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(ozone_concentration_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    2.5 %       97.5 %
+(Intercept) -1.035964e+02 -12.51131722
+Solar.R      3.088529e-03   0.09610512
+Wind        -4.596849e+00  -2.03616955
+Temp         1.328372e+00   2.41337586
+Month       -5.997092e+00   0.01383629</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(ozone_concentration_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: Ozone
+           Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+Solar.R     1  14780   14780 33.8357 6.427e-08 ***
+Wind        1  39969   39969 91.5037 5.327e-16 ***
+Temp        1  19050   19050 43.6117 1.639e-09 ***
+Month       1   1701    1701  3.8946   0.05104 .  
+Residuals 106  46302     437                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Check the Multicollinearity</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>faraway<span class="sc">::</span><span class="fu">vif</span>(dtf[, <span class="sc">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Solar.R     Wind     Temp    Month 
+1.151409 1.329309 1.712455 1.256371 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: simplify the model using Backward selection</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>get_p <span class="ot">&lt;-</span> <span class="cf">function</span>(model){</span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  smry2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">summary</span>(model)<span class="sc">$</span>coefficients)</span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  smry2[<span class="fu">order</span>(<span class="sc">-</span>smry2<span class="sc">$</span>Pr...t..), ]</span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a><span class="fu">get_p</span>(ozone_concentration_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                Estimate  Std..Error   t.value     Pr...t..
+Month        -2.99162786  1.51592267 -1.973470 5.104492e-02
+Solar.R       0.04959683  0.02345827  2.114258 3.683836e-02
+(Intercept) -58.05383883 22.97114118 -2.527251 1.297198e-02
+Wind         -3.31650940  0.64578918 -5.135591 1.286145e-06
+Temp          1.87087379  0.27363201  6.837189 5.337230e-10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">update</span>(ozone_concentration_lm,.<span class="sc">~</span>.<span class="sc">-</span>Month)</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_p</span>(lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                Estimate  Std..Error   t.value     Pr...t..
+Solar.R       0.05982059  0.02318647  2.579979 1.123664e-02
+(Intercept) -64.34207893 23.05472435 -2.790841 6.226638e-03
+Wind         -3.33359131  0.65440710 -5.094063 1.515934e-06
+Temp          1.65209291  0.25352979  6.516366 2.423506e-09</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>lm3 <span class="ot">&lt;-</span> <span class="fu">step</span>(ozone_concentration_lm, <span class="at">direction =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Start:  AIC=679.71
+Ozone ~ Solar.R + Wind + Temp + Month
+
+          Df Sum of Sq   RSS    AIC
+&lt;none&gt;                 46302 679.71
+- Month    1    1701.2 48003 681.71
+- Solar.R  1    1952.6 48254 682.29
+- Wind     1   11520.5 57822 702.37
+- Temp     1   20419.5 66721 718.26</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: report the results</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Ozone ~ Solar.R + Wind + Temp, data = dtf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-40.485 -14.219  -3.551  10.097  95.619 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -64.34208   23.05472  -2.791  0.00623 ** 
+Solar.R       0.05982    0.02319   2.580  0.01124 *  
+Wind         -3.33359    0.65441  -5.094 1.52e-06 ***
+Temp          1.65209    0.25353   6.516 2.42e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 21.18 on 107 degrees of freedom
+Multiple R-squared:  0.6059,    Adjusted R-squared:  0.5948 
+F-statistic: 54.83 on 3 and 107 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>stargazer<span class="sc">::</span><span class="fu">stargazer</span>(lm2, <span class="at">type =</span> <span class="st">'text'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                               Ozone           
+-----------------------------------------------
+Solar.R                       0.060**          
+                              (0.023)          
+                                               
+Wind                         -3.334***         
+                              (0.654)          
+                                               
+Temp                         1.652***          
+                              (0.254)          
+                                               
+Constant                    -64.342***         
+                             (23.055)          
+                                               
+-----------------------------------------------
+Observations                    111            
+R2                             0.606           
+Adjusted R2                    0.595           
+Residual Std. Error      21.181 (df = 107)     
+F Statistic           54.834*** (df = 3; 107)  
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>A scientist studies the social factors that influence heart disease. She surveys 500 towns and gather data on the percentage of people in each town who smoke, the percentage of people in each town who bike to work, and the percentage of people in each town who have heart disease. The data set is available as heart.data.csv. Perform multiple linear regression analysis.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/heart.data.csv"</span>)</span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> dtf[, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(dtf)</span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>dtf_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(dtf)</span>
+<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(dtf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>corrplot<span class="sc">::</span><span class="fu">corrplot</span>(dtf_cor, </span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">order =</span> <span class="st">'AOE'</span>, </span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">"upper"</span>, </span>
+<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">method =</span> <span class="st">"number"</span>)</span>
+<span id="cb105-5"><a href="#cb105-5" aria-hidden="true" tabindex="-1"></a>corrplot<span class="sc">::</span><span class="fu">corrplot</span>(dtf_cor, </span>
+<span id="cb105-6"><a href="#cb105-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">order =</span> <span class="st">"AOE"</span>, </span>
+<span id="cb105-7"><a href="#cb105-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">"lower"</span>,</span>
+<span id="cb105-8"><a href="#cb105-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">method =</span> <span class="st">"ell"</span>, </span>
+<span id="cb105-9"><a href="#cb105-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">diag =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb105-10"><a href="#cb105-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">tl.pos =</span> <span class="st">"l"</span>, </span>
+<span id="cb105-11"><a href="#cb105-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">cl.pos =</span> <span class="st">"n"</span>, </span>
+<span id="cb105-12"><a href="#cb105-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-exercise_files/figure-html/unnamed-chunk-38-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>heart_disease_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(heart.disease <span class="sc">~</span> ., <span class="at">data =</span> dtf)</span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(heart_disease_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = heart.disease ~ ., data = dtf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.1789 -0.4463  0.0362  0.4422  1.9331 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 14.984658   0.080137  186.99   &lt;2e-16 ***
+biking      -0.200133   0.001366 -146.53   &lt;2e-16 ***
+smoking      0.178334   0.003539   50.39   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.654 on 495 degrees of freedom
+Multiple R-squared:  0.9796,    Adjusted R-squared:  0.9795 
+F-statistic: 1.19e+04 on 2 and 495 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(heart_disease_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %     97.5 %
+(Intercept) 14.8272075 15.1421084
+biking      -0.2028166 -0.1974495
+smoking      0.1713800  0.1852878</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(heart_disease_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: heart.disease
+           Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+biking      1 9090.6  9090.6 21251.7 &lt; 2.2e-16 ***
+smoking     1 1086.0  1086.0  2538.8 &lt; 2.2e-16 ***
+Residuals 495  211.7     0.4                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>faraway<span class="sc">::</span><span class="fu">vif</span>(dtf[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  biking  smoking 
+1.000229 1.000229 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>get_p <span class="ot">&lt;-</span> <span class="cf">function</span>(model){</span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>  smry2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">summary</span>(model)<span class="sc">$</span>coefficients)</span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>  smry2[<span class="fu">order</span>(<span class="sc">-</span>smry2<span class="sc">$</span>Pr...t..), ]</span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="fu">get_p</span>(heart_disease_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Estimate  Std..Error    t.value      Pr...t..
+smoking      0.1783339 0.003539307   50.38667 5.192235e-197
+(Intercept) 14.9846580 0.080136914  186.98821  0.000000e+00
+biking      -0.2001331 0.001365858 -146.52547  0.000000e+00</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>stargazer<span class="sc">::</span><span class="fu">stargazer</span>(heart_disease_lm, <span class="at">type =</span> <span class="st">'text'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                           heart.disease       
+-----------------------------------------------
+biking                       -0.200***         
+                              (0.001)          
+                                               
+smoking                      0.178***          
+                              (0.004)          
+                                               
+Constant                     14.985***         
+                              (0.080)          
+                                               
+-----------------------------------------------
+Observations                    498            
+R2                             0.980           
+Adjusted R2                    0.980           
+Residual Std. Error      0.654 (df = 495)      
+F Statistic         11,895.240*** (df = 2; 495)
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+</section>
+<section id="logistic-regression" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>9</strong></span> <strong>Logistic Regression</strong></h1>
+<p><span style="color:#008888">To be continue…</span></p>
+</section>
+<section id="poisson-regression" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>10</strong></span> <strong>Poisson Regression</strong></h1>
+<p><span style="color:#008888">To be continue…</span></p>
+</section>
 <section id="sessioninfo" class="level1">
 <h1><strong><span style="color:green">SessionInfo:</span></strong></h1>
 <div class="cell" data-layout-align="center">
@@ -1006,33 +1384,37 @@ attached base packages:
 other attached packages:
  [1] agricolae_1.3-5    nycflights13_1.0.2 lubridate_1.9.2    forcats_1.0.0     
  [5] stringr_1.5.0      purrr_1.0.1        readr_2.1.4        tidyr_1.3.0       
- [9] tibble_3.1.8       ggplot2_3.4.1      tidyverse_2.0.0    openair_2.16-0    
+ [9] tibble_3.2.1       ggplot2_3.4.2      tidyverse_2.0.0    openair_2.16-0    
 [13] dplyr_1.1.0        latex2exp_0.9.6   
 
 loaded via a namespace (and not attached):
- [1] maps_3.4.1          jsonlite_1.8.4      splines_4.2.3      
- [4] shiny_1.7.4         highr_0.10          latticeExtra_0.6-30
- [7] yaml_2.3.7          pillar_1.8.1        lattice_0.20-45    
-[10] glue_1.6.2          digest_0.6.31       RColorBrewer_1.1-3 
-[13] promises_1.2.0.1    colorspace_2.1-0    htmltools_0.5.4    
-[16] httpuv_1.6.9        Matrix_1.5-3        klaR_1.7-2         
-[19] pkgconfig_2.0.3     labelled_2.10.0     haven_2.5.1        
-[22] questionr_0.7.8     xtable_1.8-4        scales_1.2.1       
-[25] jpeg_0.1-10         later_1.3.0         tzdb_0.3.0         
-[28] timechange_0.2.0    combinat_0.0-8      mgcv_1.8-42        
-[31] generics_0.1.3      ellipsis_0.3.2      withr_2.5.0        
-[34] hexbin_1.28.3       cli_3.6.1           magrittr_2.0.3     
-[37] mime_0.12           deldir_1.0-6        evaluate_0.20      
-[40] fansi_1.0.3         nlme_3.1-162        MASS_7.3-58.2      
-[43] tools_4.2.3         hms_1.1.2           lifecycle_1.0.3    
-[46] interp_1.1-3        munsell_0.5.0       cluster_2.1.4      
-[49] compiler_4.2.3      rlang_1.1.0         grid_4.2.3         
-[52] rstudioapi_0.14     htmlwidgets_1.6.1   miniUI_0.1.1.1     
-[55] rmarkdown_2.21      gtable_0.3.3        AlgDesign_1.2.1    
-[58] R6_2.5.1            knitr_1.42          fastmap_1.1.0      
-[61] utf8_1.2.3          stringi_1.7.12      Rcpp_1.0.10        
-[64] vctrs_0.5.2         mapproj_1.2.11      png_0.1-8          
-[67] tidyselect_1.2.0    xfun_0.37          </code></pre>
+ [1] nlme_3.1-162        RColorBrewer_1.1-3  tools_4.2.3        
+ [4] utf8_1.2.3          R6_2.5.1            AlgDesign_1.2.1    
+ [7] mgcv_1.8-42         questionr_0.7.8     colorspace_2.1-0   
+[10] withr_2.5.0         tidyselect_1.2.0    GGally_2.1.2       
+[13] klaR_1.7-2          compiler_4.2.3      cli_3.6.1          
+[16] labeling_0.4.2      scales_1.2.1        hexbin_1.28.3      
+[19] digest_0.6.31       minqa_1.2.5         rmarkdown_2.21     
+[22] jpeg_0.1-10         pkgconfig_2.0.3     htmltools_0.5.4    
+[25] lme4_1.1-31         labelled_2.11.0     fastmap_1.1.0      
+[28] highr_0.10          maps_3.4.1          htmlwidgets_1.6.2  
+[31] rlang_1.1.0         rstudioapi_0.14     shiny_1.7.4        
+[34] generics_0.1.3      farver_2.1.1        combinat_0.0-8     
+[37] jsonlite_1.8.4      magrittr_2.0.3      interp_1.1-4       
+[40] Matrix_1.5-3        Rcpp_1.0.10         munsell_0.5.0      
+[43] fansi_1.0.3         lifecycle_1.0.3     stringi_1.7.12     
+[46] yaml_2.3.7          MASS_7.3-58.2       plyr_1.8.8         
+[49] grid_4.2.3          promises_1.2.0.1    miniUI_0.1.1.1     
+[52] deldir_1.0-6        lattice_0.20-45     stargazer_5.2.3    
+[55] haven_2.5.2         splines_4.2.3       mapproj_1.2.11     
+[58] hms_1.1.3           knitr_1.42          pillar_1.9.0       
+[61] boot_1.3-28.1       glue_1.6.2          evaluate_0.20      
+[64] latticeExtra_0.6-30 nloptr_2.0.3        png_0.1-8          
+[67] vctrs_0.6.2         tzdb_0.3.0          httpuv_1.6.9       
+[70] gtable_0.3.3        reshape_0.8.9       xfun_0.37          
+[73] mime_0.12           xtable_1.8-4        later_1.3.0        
+[76] faraway_1.0.8       cluster_2.1.4       corrplot_0.92      
+[79] timechange_0.2.0    ellipsis_0.3.2     </code></pre>
 </div>
 </div>
 </section>
