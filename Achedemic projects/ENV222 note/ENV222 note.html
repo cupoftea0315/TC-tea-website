@@ -368,7 +368,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023.04.26</p>
+      <p class="date">2023.05.02</p>
     </div>
   </div>
   
@@ -1010,7 +1010,7 @@ attr(,"useBytes")
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the current date</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Wed Apr 26 14:49:35 2023"</code></pre>
+<pre><code>[1] "Tue May  2 00:06:42 2023"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># character</span></span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="st">"2/11/1962"</span></span>
@@ -1044,7 +1044,7 @@ attr(,"useBytes")
 </div>
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(d3, <span class="st">"%Y %B %d %A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1962 十一月 02 星期五"</code></pre>
+<pre><code>[1] "1962 November 02 Friday"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Different format will have different meaning</span></span>
 <span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>( <span class="st">"2/11/1962"</span>, <span class="at">format=</span><span class="st">"%m/%d/%Y"</span> )</span>
@@ -1097,7 +1097,8 @@ attr(,"useBytes")
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>diet<span class="sc">$</span>dox2 <span class="ot">&lt;-</span> <span class="fu">format</span>(diet<span class="sc">$</span>dox, <span class="at">format=</span><span class="st">"%A %d %B %Y"</span>)</span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(diet<span class="sc">$</span>dox2, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "星期二 02 十二月 1986" "星期一 05 七月 1982"   "星期二 20 三月 1984"  </code></pre>
+<pre><code>[1] "Tuesday 02 December 1986" "Monday 05 July 1982"     
+[3] "Tuesday 20 March 1984"   </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Some advanced calculation between dates</span></span>
 <span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(diet<span class="sc">$</span>dox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1144,7 +1145,7 @@ attr(,"useBytes")
  $ fibre     : num  1.4 0.935 1.248 1.557 0.991 ...
  $ energy.grp: Factor w/ 2 levels "&lt;=2750 KCals",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ chd       : num  0 0 1 1 1 1 0 0 1 0 ...
- $ dox2      : chr  "星期二 02 十二月 1986" "星期一 05 七月 1982" "星期二 20 三月 1984" "星期三 31 十二月 1969" ...</code></pre>
+ $ dox2      : chr  "Tuesday 02 December 1986" "Monday 05 July 1982" "Tuesday 20 March 1984" "Wednesday 31 December 1969" ...</code></pre>
 </div>
 </div>
 </section>
@@ -4252,20 +4253,20 @@ Call:
 lm(formula = y ~ x1 + x2, data = dtf)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--27.8628  -6.2406  -0.9819   5.8859  29.2889 
+    Min      1Q  Median      3Q     Max 
+-28.779  -5.886  -1.408   6.158  27.203 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    8.968      2.138   4.194 5.83e-05 ***
-x1           -13.020      7.794  -1.671   0.0978 .  
-x2            13.320      7.792   1.709   0.0904 .  
+(Intercept)    8.716      2.157   4.041 0.000103 ***
+x1            -7.246      8.118  -0.893 0.374135    
+x2             7.549      8.118   0.930 0.354561    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 9.331 on 103 degrees of freedom
-Multiple R-squared:  0.4201,    Adjusted R-squared:  0.4089 
-F-statistic: 37.31 on 2 and 103 DF,  p-value: 6.486e-13</code></pre>
+Residual standard error: 9.423 on 103 degrees of freedom
+Multiple R-squared:  0.4086,    Adjusted R-squared:  0.3971 
+F-statistic: 35.59 on 2 and 103 DF,  p-value: 1.781e-12</code></pre>
 </div>
 </div>
 <p><a id="Variance inflation factor (VIF)" href=""></a></p>
@@ -5636,7 +5637,7 @@ locale:
 [2] LC_CTYPE=Chinese (Simplified)_China.utf8   
 [3] LC_MONETARY=Chinese (Simplified)_China.utf8
 [4] LC_NUMERIC=C                               
-[5] LC_TIME=Chinese (Simplified)_China.utf8    
+[5] LC_TIME=en_GB.UTF-8                        
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
