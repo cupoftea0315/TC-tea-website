@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+
+<title>Fez</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="user-scalable = no">
+
+<script>
+function blockMove() {
+      event.preventDefault() ;
+}
+
+window.onresize = setPos;
+window.onload = onLoad;
+
+function onLoad()
+{
+  setPos();
+}
+
+function setWindowSize()
+{
+winW = window.innerWidth;
+winH = window.innerHeight;
+}
+
+function moveIt(obj, top, left, width, height) {
+	obj.style.position = "fixed";
+	obj.style.top = top;
+	obj.style.left = left;
+        obj.style.width = width;
+        obj.style.height = height;
+}
+
+function changeSize(obj, width, height) {
+        obj.style.width = width;
+        obj.style.height = height;
+}
+
+function setPos() {
+    setWindowSize();
+    iheight = winH*0.9;
+    iwidth = iheight*(1680/2233);
+    ileft = winW/2-iwidth/2;
+    itop2 = winH*0.1-20;
+    moveIt(document.getElementById('islandDiv'), itop2+'px', ileft+'px', iwidth+'px', iheight+'px');
+    changeSize(document.getElementById('island'), iwidth+'px', iheight+'px');
+    height = iheight*0.11;
+    width = height;
+    left = ileft+iwidth*0.25;
+    top2 = itop2+iheight*0.37;
+    moveIt(document.getElementById('millDiv'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('mill'), width+'px', height+'px');
+    height = iheight*0.03;
+    width = height;
+    left = ileft+iwidth*0.5;
+    top2 = itop2+iheight*0.633;
+    moveIt(document.getElementById('grain1Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('grain1'), width+'px', height+'px');
+    height = iheight*0.03;
+    width = height;
+    left = ileft+iwidth*0.215;
+    top2 = itop2+iheight*0.632;
+    moveIt(document.getElementById('grain2Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('grain2'), width+'px', height+'px');
+    height = iheight*0.02;
+    width = height*(54/45);
+    left = ileft+iwidth*0.28;
+    top2 = itop2+iheight*0.6;
+    moveIt(document.getElementById('butterfly11Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('butterfly11'), width+'px', height+'px');
+    height = iheight*0.02;
+    width = height*(54/45);
+    left = ileft+iwidth*0.6;
+    top2 = itop2+iheight*0.39;
+    moveIt(document.getElementById('butterfly12Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('butterfly12'), width+'px', height+'px');
+    height = iheight*0.02;
+    width = height*(54/45);
+    left = ileft+iwidth*0.7;
+    top2 = itop2+iheight*0.6;
+    moveIt(document.getElementById('butterfly21Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('butterfly21'), width+'px', height+'px');
+    height = iheight*0.02;
+    width = height*(54/45);
+    left = ileft+iwidth*0.25;
+    top2 = itop2+iheight*0.35;
+    moveIt(document.getElementById('butterfly22Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('butterfly22'), width+'px', height+'px');
+
+
+    height = iheight*0.02;
+    width = height*(150/42);
+    left = ileft+iwidth*0.18;
+    top2 = itop2+iheight*0.5565;
+    moveIt(document.getElementById('gull1Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('gull1'), width+'px', height+'px');
+    left = ileft+iwidth*0.455;
+    top2 = itop2+iheight*0.0005;
+    moveIt(document.getElementById('gull2Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('gull2'), width+'px', height+'px');
+
+    height = iheight*0.007;
+    width = height*(18/12);
+    left = ileft+iwidth*0.75;
+    top2 = itop2+iheight*0.647;
+    moveIt(document.getElementById('redFlowerDiv'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('redFlower'), width+'px', height+'px');
+    left = ileft+iwidth*0.7;
+    top2 = itop2+iheight*0.6457;
+    moveIt(document.getElementById('blueFlowerDiv'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('blueFlower'), width+'px', height+'px');
+    height = iheight*0.005;
+    width = height*(15/9);
+    left = ileft+iwidth*0.77;
+    top2 = itop2+iheight*0.6457;
+    moveIt(document.getElementById('grass1Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('grass1'), width+'px', height+'px');
+    height = iheight*0.003;
+    width = height*(15/9);
+    left = ileft+iwidth*0.73;
+    top2 = itop2+iheight*0.6457;
+    moveIt(document.getElementById('grass2Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('grass2'), width+'px', height+'px');
+
+    height = iheight*0.007;
+    width = height*(18/12);
+    left = ileft+iwidth*0.51;
+    top2 = itop2+iheight*0.3907;
+    moveIt(document.getElementById('redFlower2Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('redFlower2'), width+'px', height+'px');
+    left = ileft+iwidth*0.5;
+    top2 = itop2+iheight*0.4107;
+    moveIt(document.getElementById('blueFlower2Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('blueFlower2'), width+'px', height+'px');
+    height = iheight*0.005;
+    width = height*(15/9);
+    left = ileft+iwidth*0.51;
+    top2 = itop2+iheight*0.4107;
+    moveIt(document.getElementById('grass3Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('grass3'), width+'px', height+'px');
+    height = iheight*0.003;
+    width = height*(15/9);
+    left = ileft+iwidth*0.53;
+    top2 = itop2+iheight*0.4107;
+    moveIt(document.getElementById('grass4Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('grass4'), width+'px', height+'px');
+
+    height = iheight*0.007;
+    width = height*(18/12);
+    left = ileft+iwidth*0.9;
+    top2 = itop2+iheight*0.4107;
+    moveIt(document.getElementById('redFlower3Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('redFlower3'), width+'px', height+'px');
+    left = ileft+iwidth*0.8;
+    top2 = itop2+iheight*0.4107;
+    moveIt(document.getElementById('blueFlower3Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('blueFlower3'), width+'px', height+'px');
+    height = iheight*0.005;
+    width = height*(15/9);
+    left = ileft+iwidth*0.85;
+    top2 = itop2+iheight*0.4107;
+    moveIt(document.getElementById('grass5Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('grass5'), width+'px', height+'px');
+    height = iheight*0.003;
+    width = height*(15/9);
+    left = ileft+iwidth*0.87;
+    top2 = itop2+iheight*0.4107;
+    moveIt(document.getElementById('grass6Div'), top2+'px', left+'px', width+'px', height+'px');
+    changeSize(document.getElementById('grass6'), width+'px', height+'px');
+
+    moveIt(document.getElementById('vignette'), '0px', '0px', winW+'px', winH+'px');
+    moveIt(document.getElementById('blueAir'), '0px', '0px', winW+'px', winH+'px');
+    moveIt(document.getElementById('redAir'), '0px', '0px', winW+'px', winH+'px');
+    moveIt(document.getElementById('stars'), '0px', '0px', winW+'px', winH+'px');
+    moveIt(document.getElementById('darkAir'), '0px', '0px', winW+'px', winH+'px');
+    moveIt(document.getElementById('darkAirBack'), '0px', '0px', winW+'px', winH+'px');
+    moveIt(document.getElementById('pinkAir'), '0px', '0px', winW+'px', winH+'px');
+    moveIt(document.getElementById('halfYellowAir'), '0px', '0px', winW+'px', winH+'px');
+    moveIt(document.getElementById('yellowAir'), '0px', '0px', winW+'px', winH+'px');
+    moveIt(document.getElementById('brightBlueAir'), '0px', '0px', winW+'px', winH+'px');
+    
+    width = 32;
+    height = width;
+    left = winW-60;
+    top2 = winH-60;
+    moveIt(document.getElementById('i'), top2+'px', left+'px', width+'px', height+'px');
+    height = 600;
+    width = 310;
+    left = winW-320;
+    top2 = winH-620;
+    moveIt(document.getElementById('infoContainer'), top2+'px', left+'px', width+'px', height+'px');
+    height = winH/7;
+    width = height*(294/193);
+    moveIt(document.getElementById('cloud1'), '0px', '0px', width+'px', height+'px');
+    moveIt(document.getElementById('cloud8'), '40%', '0px', width+'px', height+'px');
+    height = winH/6;
+    width = height*(186/111);
+    moveIt(document.getElementById('cloud2'), '20%', '0px', width+'px', height+'px');
+    moveIt(document.getElementById('cloud4'), '60%', '0px', width+'px', height+'px');
+    moveIt(document.getElementById('cloud6'), '0%', '0px', width+'px', height+'px');
+    height = winH/7;
+    width = height*(170/87);
+    moveIt(document.getElementById('cloud3'), '40%', '0px', width+'px', height+'px');
+    moveIt(document.getElementById('cloud9'), '60%', '0px', width+'px', height+'px');
+    moveIt(document.getElementById('cloud10'), '80%', '0px', width+'px', height+'px');
+    height = winH/6;
+    width = height*(203/140);
+    moveIt(document.getElementById('cloud4'), '60%', '0px', width+'px', height+'px');
+    moveIt(document.getElementById('cloud5'), '80%', '0px', width+'px', height+'px');
+    moveIt(document.getElementById('cloud7'), '20%', '0px', width+'px', height+'px');
+}
+
+</script>
+<style type="text/css">
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+::-webkit-scrollbar-track:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+
+::-webkit-scrollbar-button{
+    visibility:hidden;
+}
+
+.no-flick{-webkit-transform:translate3d(0,0,0);}
+.pixelated{image-rendering: -webkit-optimize-contrast; image-rendering: -moz-crisp-edges;}
+.non-pixelated{image-rendering: auto;}
+
+#millDiv
+{
+z-index:-15;
+width:0px;
+rotation-point:50% 50%;
+-webkit-transform: rotate(45deg);
+-webkit-animation:millRotating 10s linear 0s infinite normal;
+-moz-transform: rotate(45deg);
+-moz-animation:millRotating 10s linear 0s infinite normal;
+}
+
+#mill{width:0px;}
+
+@-webkit-keyframes millRotating
+{
+0%{-webkit-transform: rotate(0deg);}
+100%{-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes millRotating
+{
+0%{-moz-transform: rotate(0deg);}
+100%{-moz-transform: rotate(360deg);}
+}
+
+.grainDiv
+{
+z-index:-16;
+width:0px;
+}
+
+.grain{width:0px; image-rendering: -webkit-optimize-contrast;}
+
+.butterflyDiv
+{
+z-index:-17;
+width:0px;
+}
+
+.butterfly{width:0px; image-rendering: -webkit-optimize-contrast;}
+
+#vignette
+{
+    background-image: -webkit-gradient(
+	radial,
+	50% 50%,
+        300,
+        50% 50%,
+        1000,
+	color-stop(0, rgba(0,0,0,0)),
+	color-stop(1, rgba(0,0,0,0.5))
+);
+background: -moz-radial-gradient(ellipse, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background-repeat: no-repeat;
+    z-index:1000000;
+    opacity: 0;
+}
+
+#blueAir
+{
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0, rgb(146,231,255)),
+	color-stop(1, rgb(41,197,255))
+);
+    background-image: -moz-linear-gradient(bottom, rgb(146,231,255) 0%, rgb(41,197,255) 100%);
+    background-color: rgb(146,231,255);
+    background-repeat: no-repeat;
+    z-index:-40;
+    -webkit-animation:airBlue 260s linear 0s infinite normal;
+    -moz-animation:airBlue 260s linear 0s infinite normal;
+}
+
+#redAir
+{
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.59, rgb(104,57,121)),
+	color-stop(0.5, rgb(147,79,140)),
+	color-stop(0.38, rgb(150,82,141)),
+	color-stop(0.23, rgb(181,100,149)),
+	color-stop(0.18, rgb(185,100,150)),
+	color-stop(0.1, rgb(215,114,156))
+);
+    background-image: -moz-linear-gradient(bottom, rgb(215,114,156) 10%, rgb(185,100,150) 18%, rgb(181,100,149) 23%, rgb(150,82,141) 38%, rgb(147,79,140) 50%, rgb(104,57,121) 59%);
+    background-color: rgb(146,231,255);
+    background-repeat: no-repeat;
+    z-index:-50;
+   -webkit-animation:airAway 260s linear 100s infinite normal;
+   -moz-animation:airAway 260s linear 100s infinite normal;
+}
+
+#stars
+{
+    background:url(Fez_files/stars.png);
+    z-index:-19;
+    opacity:0;
+    -webkit-animation:airDark 260s linear 0s infinite normal;
+    -moz-animation:airDark 260s linear 0s infinite normal;
+    background-size: auto;
+    background-repeat: repeat;
+}
+
+#darkAir
+{
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.31, rgb(0,0,0)),
+	color-stop(0, rgb(45,0,30))
+);
+    background-image: -moz-linear-gradient(bottom, rgb(45,0,30) 0%, rgb(0,0,0) 31%);
+    background-color: rgb(146,231,255);
+    background-repeat: no-repeat;
+    z-index:-20;
+    opacity:0;
+   -webkit-animation:airDark 260s linear 0s infinite normal;
+   -moz-animation:airDark 260s linear 0s infinite normal;
+}
+
+#darkAirBack
+{
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.31, rgb(0,0,0)),
+	color-stop(0, rgb(45,0,30))
+);
+    background-image: -moz-linear-gradient(bottom, rgb(45,0,30) 0%, rgb(0,0,0) 31%);
+    background-color: rgb(146,231,255);
+    background-repeat: no-repeat;
+    z-index:-40;
+    opacity:0;
+   -webkit-animation:airDarkBack 260s linear 0s infinite normal;
+   -moz-animation:airDarkBack 260s linear 0s infinite normal;
+}
+
+#pinkAir
+{
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0, rgb(214,0,89)),
+	color-stop(1, rgb(138,2,72))
+);
+
+    background-image: -moz-linear-gradient(bottom, rgb(138,2,72) 100%, rgb(214,0,89) 0%);
+    background-color: rgb(146,231,255);
+    background-repeat: no-repeat;
+    z-index:-60;
+   -webkit-animation:airAway 260s linear 180s infinite normal;
+   -moz-animation:airAway 260s linear 180s infinite normal;
+}
+
+#halfYellowAir
+{
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+        color-stop(1, rgb(220,36,107)),
+	color-stop(0, rgb(242,200,30))
+);
+    background-image: -moz-linear-gradient(bottom, rgb(242,200,30) 0%, rgb(220,36,107) 100%);
+    background-color: rgb(146,231,255);
+    background-repeat: no-repeat;
+    z-index:-70;
+   -webkit-animation:airAway 260s linear 200s infinite normal;
+   -moz-animation:airAway 260s linear 200s infinite normal;
+}
+
+#yellowAir
+{
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+        color-stop(1, rgb(224,204,49)),
+	color-stop(0, rgb(233,236,137))
+);
+
+    background-image: -moz-linear-gradient(bottom, rgb(233,236,137) 0%, rgb(224,204,49) 100%);
+    background-color: rgb(146,231,255);
+    background-repeat: no-repeat;
+    z-index:-80;
+   -webkit-animation:airAway 260s linear 220s infinite normal;
+   -moz-animation:airAway 260s linear 220s infinite normal;
+}
+
+#brightBlueAir
+{
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(1, rgb(144,247,255)),
+	color-stop(0, rgb(187,255,250))
+);
+    background-image: -moz-linear-gradient(bottom, rgb(187,255,250) 0%, rgb(144,247,255) 100%);
+    background-color: rgb(146,231,255);
+    background-repeat: no-repeat;
+    z-index:-90;
+}
+
+@-webkit-keyframes airAway
+{
+0%{opacity:1;}
+7.692307692%{opacity:0;}
+80%{opacity:0;}
+81%{opacity:1;}
+100%{opacity:1;}
+}
+
+@-webkit-keyframes airAppear
+{
+0%{opacity:0;}
+7.692307692%{opacity:1;}
+80%{opacity:1;}
+81%{opacity:0;}
+100%{opacity:0;}
+}
+
+@-webkit-keyframes airBlue
+{
+0%{opacity:1;}
+23.07692308%{opacity:1;}
+30.76923077%{opacity:0;}
+80%{opacity:0;}
+81%{opacity:1;}
+100%{opacity:1;}
+}
+
+@-webkit-keyframes airDark
+{
+0%{opacity:0;}
+30.76923077%{opacity:0;}
+38.46153846%{opacity:0.9;}
+61.53846154%{opacity:0.9;}
+69.23076923%{opacity:0;}
+100%{opacity:0;}
+}
+
+@-webkit-keyframes airDarkBack
+{
+0%{opacity:0;}
+30.76923077%{opacity:0;}
+38.46153846%{opacity:1;}
+61.53846154%{opacity:1;}
+69.23076923%{opacity:0;}
+100%{opacity:0;}
+}
+
+@-moz-keyframes airAway
+{
+0%{opacity:1;}
+7.692307692%{opacity:0;}
+80%{opacity:0;}
+81%{opacity:1;}
+100%{opacity:1;}
+}
+
+@-moz-keyframes airAppear
+{
+0%{opacity:0;}
+7.692307692%{opacity:1;}
+80%{opacity:1;}
+81%{opacity:0;}
+100%{opacity:0;}
+}
+
+@-moz-keyframes airBlue
+{
+0%{opacity:1;}
+23.07692308%{opacity:1;}
+30.76923077%{opacity:0;}
+80%{opacity:0;}
+81%{opacity:1;}
+100%{opacity:1;}
+}
+
+@-moz-keyframes airDark
+{
+0%{opacity:0;}
+30.76923077%{opacity:0;}
+38.46153846%{opacity:0.9;}
+61.53846154%{opacity:0.9;}
+69.23076923%{opacity:0;}
+100%{opacity:0;}
+}
+
+@-moz-keyframes airDarkBack
+{
+0%{opacity:0;}
+30.76923077%{opacity:0;}
+38.46153846%{opacity:1;}
+61.53846154%{opacity:1;}
+69.23076923%{opacity:0;}
+100%{opacity:0;}
+}
+
+#cloud1
+{
+position:fixed;
+top: 0%;
+-webkit-animation:cloud 50s linear -35s infinite normal;
+-moz-animation:cloud 50s linear -35s infinite normal;
+z-index:-30;
+}
+
+#cloud2
+{
+position:fixed;
+top: 20%;
+-webkit-animation:cloud 75s linear -37.5s infinite normal;
+-moz-animation:cloud 75s linear -37.5s infinite normal;
+z-index:-30;
+}
+
+#cloud3
+{
+position:fixed;
+top: 40%;
+-webkit-animation:cloud 100s linear -90s infinite normal;
+-moz-animation:cloud 100s linear -90s infinite normal;
+z-index:-30;
+}
+
+#cloud4
+{
+position:fixed;
+top: 60%;
+-webkit-animation:cloud 75s linear -97.5s infinite normal;
+-moz-animation:cloud 75s linear -97.5s infinite normal;
+z-index:-30;
+}
+
+#cloud5
+{
+position:fixed;
+top: 80%;
+-webkit-animation:cloud 50s linear -45s infinite normal;
+-moz-animation:cloud 50s linear -45s infinite normal;
+z-index:-30;
+}
+
+#cloud6
+{
+position:fixed;
+top: 0%;
+-webkit-animation:cloud 50s linear -10s infinite normal;
+-moz-animation:cloud 50s linear -10s infinite normal;
+z-index:-30;
+}
+
+#cloud7
+{
+position:fixed;
+top: 20%;
+-webkit-animation:cloud 75s linear 0s infinite normal;
+-moz-animation:cloud 75s linear 0s infinite normal;
+z-index:-30;
+}
+
+#cloud8
+{
+position:fixed;
+top: 40%;
+-webkit-animation:cloud 100s linear -40s infinite normal;
+-moz-animation:cloud 100s linear -40s infinite normal;
+z-index:-30;
+}
+
+#cloud9
+{
+position:fixed;
+top: 60%;
+-webkit-animation:cloud 75s linear -60s infinite normal;
+-moz-animation:cloud 75s linear -60s infinite normal;
+z-index:-30;
+}
+
+#cloud10
+{
+position:fixed;
+top: 80%;
+-webkit-animation:cloud 50s linear -20s infinite normal;
+-moz-animation:cloud 50s linear -20s infinite normal;
+z-index:-30;
+}
+
+@-webkit-keyframes cloud
+{
+0% {left:15%; opacity:0;}
+40%{opacity:0.7;}
+60%{opacity:0.7;}
+100% {left:70%; opacity:0;}
+}
+
+@-moz-keyframes cloud
+{
+0% {left:15%; opacity:0;}
+40%{opacity:0.7;}
+60%{opacity:0.7;}
+100% {left:70%; opacity:0;}
+}
+
+#islandDiv
+{
+    z-index: -18;
+    width:0px;
+}
+
+#island{width:0px;}
+
+h1
+{
+    margin:10px;
+    font-family:"Arial";
+    line-height:18px;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+p
+{
+    margin:10px;
+    font-family:"Arial";
+    line-height:18px;
+}
+
+a
+{
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover
+{
+    color: rgba(0,0,0,0.7);
+}
+
+#vigCheck
+{
+    position: absolute;
+    margin: 10px;
+    opacity: 0.2;
+    z-index: 1000020;
+}
+
+#vigCheck:hover
+{
+    opacity: 1;
+}
+
+#frontAirLayer
+{
+    opacity:0.1;
+}
+
+@-webkit-keyframes loading{
+0%{
+-webkit-transform: rotate(0deg);
+}
+100%{
+-webkit-transform: rotate(360deg);
+}}
+
+@-moz-keyframes loading{
+0%{
+-moz-transform: rotate(0deg);
+}
+100%{
+-moz-transform: rotate(360deg);
+}}
+
+</style>
+</head>
+<body>
+
+<div style="position: fixed; top: 0px; left: 0px; width: 1680px; height: 922px;" id="vignette" ontouchmove="blockMove()" onclick="vigClick()"> </div>
+<div id="islandShit">
+ <div style="position: fixed; top: 379.226px; left: 683.925px; width: 91.278px; height: 91.278px;" id="millDiv"><img style="width: 91.278px; height: 91.278px;" id="mill" class="pixelated" src="Fez_files/mill.png" width="800px"></div>
+ <div style="position: fixed; top: 570.08px; left: 702.654px; width: 19.9152px; height: 16.596px;" id="butterfly11Div" class="butterflyDiv"><img style="width: 19.9152px; height: 16.596px;" id="butterfly11" class="butterfly" src="Fez_files/butterfly1b.gif" width="800px"></div>
+ <div style="position: fixed; top: 395.822px; left: 902.43px; width: 19.9152px; height: 16.596px;" id="butterfly12Div" class="butterflyDiv"><img style="width: 19.9152px; height: 16.596px;" id="butterfly12" class="butterfly" src="Fez_files/butterfly1.gif" width="800px"></div>
+ <div style="position: fixed; top: 570.08px; left: 964.86px; width: 19.9152px; height: 16.596px;" id="butterfly21Div" class="butterflyDiv"><img style="width: 19.9152px; height: 16.596px;" id="butterfly21" class="butterfly" src="Fez_files/butterfly2.gif" width="800px"></div>
+ <div style="position: fixed; top: 362.63px; left: 683.925px; width: 19.9152px; height: 16.596px;" id="butterfly22Div" class="butterflyDiv"><img style="width: 19.9152px; height: 16.596px;" id="butterfly22" class="butterfly" src="Fez_files/butterfly2b.gif" width="800px"></div>
+ <div style="position: fixed; top: 597.463px; left: 840px; width: 24.894px; height: 24.894px;" id="grain1Div" class="grainDiv"><img style="width: 24.894px; height: 24.894px;" id="grain1" class="grain" src="Fez_files/grain.gif" width="800px"></div>
+ <div style="position: fixed; top: 596.634px; left: 662.074px; width: 24.894px; height: 24.894px;" id="grain2Div" class="grainDiv"><img style="width: 24.894px; height: 24.894px;" id="grain2" class="grain" src="Fez_files/grain.gif" width="800px"></div>
+ <div style="position: fixed; top: 72.2px; left: 527.85px; width: 624.301px; height: 829.8px;" id="islandDiv"><img style="width: 624.301px; height: 829.8px;" id="island" class="pixelated" src="Fez_files/island.png" width="800px"></div>
+ <div style="position: fixed; top: 533.984px; left: 640.224px; width: 59.2714px; height: 16.596px;" id="gull1Div"><img style="width: 59.2714px; height: 16.596px;" id="gull1" class="pixelated" src="Fez_files/gull.gif" width="0px"></div>
+ <div style="position: fixed; top: 72.6149px; left: 811.906px; width: 59.2714px; height: 16.596px;" id="gull2Div"><img style="width: 59.2714px; height: 16.596px;" id="gull2" class="pixelated" src="Fez_files/gullb.gif" width="0px"></div>
+
+ <div style="position: fixed; top: 609.081px; left: 996.075px; width: 8.7129px; height: 5.8086px;" id="redFlowerDiv"><img style="width: 8.7129px; height: 5.8086px;" id="redFlower" class="pixelated" src="Fez_files/redFlower.gif" width="0px"></div>
+ <div style="position: fixed; top: 608.002px; left: 964.86px; width: 8.7129px; height: 5.8086px;" id="blueFlowerDiv"><img style="width: 8.7129px; height: 5.8086px;" id="blueFlower" class="pixelated" src="Fez_files/blueFlower.gif" width="0px"></div>
+ <div style="position: fixed; top: 608.002px; left: 1008.56px; width: 6.915px; height: 4.149px;" id="grass1Div"><img style="width: 6.915px; height: 4.149px;" id="grass1" class="pixelated" src="Fez_files/grass1.gif" width="0px"></div>
+ <div style="position: fixed; top: 608.002px; left: 983.589px; width: 4.149px; height: 2.4894px;" id="grass2Div"><img style="width: 4.149px; height: 2.4894px;" id="grass2" class="pixelated" src="Fez_files/grass2.gif" width="0px"></div>
+
+ <div style="position: fixed; top: 396.403px; left: 846.243px; width: 8.7129px; height: 5.8086px;" id="redFlower2Div"><img style="width: 8.7129px; height: 5.8086px;" id="redFlower2" class="pixelated" src="Fez_files/redFlower.gif" width="0px"></div>
+ <div style="position: fixed; top: 412.999px; left: 840px; width: 8.7129px; height: 5.8086px;" id="blueFlower2Div"><img style="width: 8.7129px; height: 5.8086px;" id="blueFlower2" class="pixelated" src="Fez_files/blueFlower.gif" width="0px"></div>
+ <div style="position: fixed; top: 412.999px; left: 846.243px; width: 6.915px; height: 4.149px;" id="grass3Div"><img style="width: 6.915px; height: 4.149px;" id="grass3" class="pixelated" src="Fez_files/grass1.gif" width="0px"></div>
+ <div style="position: fixed; top: 412.999px; left: 858.729px; width: 4.149px; height: 2.4894px;" id="grass4Div"><img style="width: 4.149px; height: 2.4894px;" id="grass4" class="pixelated" src="Fez_files/grass2.gif" width="0px"></div>
+
+ <div style="position: fixed; top: 412.999px; left: 1089.72px; width: 8.7129px; height: 5.8086px;" id="redFlower3Div"><img style="width: 8.7129px; height: 5.8086px;" id="redFlower3" class="pixelated" src="Fez_files/redFlower.gif" width="0px"></div>
+ <div style="position: fixed; top: 412.999px; left: 1027.29px; width: 8.7129px; height: 5.8086px;" id="blueFlower3Div"><img style="width: 8.7129px; height: 5.8086px;" id="blueFlower3" class="pixelated" src="Fez_files/blueFlower.gif" width="0px"></div>
+ <div style="position: fixed; top: 412.999px; left: 1058.51px; width: 6.915px; height: 4.149px;" id="grass5Div"><img style="width: 6.915px; height: 4.149px;" id="grass5" class="pixelated" src="Fez_files/grass1.gif" width="0px"></div>
+ <div style="position: fixed; top: 412.999px; left: 1070.99px; width: 4.149px; height: 2.4894px;" id="grass6Div"><img style="width: 4.149px; height: 2.4894px;" id="grass6" class="pixelated" src="Fez_files/grass2.gif" width="0px"></div>
+</div>
+<div id="clouds">
+ <img style="position: fixed; top: 0px; left: 0px; width: 200.642px; height: 131.714px;" id="cloud1" src="Fez_files/cloud1.png">
+ <img style="position: fixed; top: 20%; left: 0px; width: 257.495px; height: 153.667px;" id="cloud2" src="Fez_files/cloud2.png">
+ <img style="position: fixed; top: 40%; left: 0px; width: 257.373px; height: 131.714px;" id="cloud3" src="Fez_files/cloud3.png">
+ <img style="position: fixed; top: 60%; left: 0px; width: 222.817px; height: 153.667px;" id="cloud4" src="Fez_files/cloud4.png">
+ <img style="position: fixed; top: 80%; left: 0px; width: 222.817px; height: 153.667px;" id="cloud5" src="Fez_files/cloud4.png">
+ <img style="position: fixed; top: 0%; left: 0px; width: 257.495px; height: 153.667px;" id="cloud6" src="Fez_files/cloud2.png">
+ <img style="position: fixed; top: 20%; left: 0px; width: 222.817px; height: 153.667px;" id="cloud7" src="Fez_files/cloud4.png">
+ <img style="position: fixed; top: 40%; left: 0px; width: 200.642px; height: 131.714px;" id="cloud8" src="Fez_files/cloud1.png">
+ <img style="position: fixed; top: 60%; left: 0px; width: 257.373px; height: 131.714px;" id="cloud9" src="Fez_files/cloud3.png">
+ <img style="position: fixed; top: 80%; left: 0px; width: 257.373px; height: 131.714px;" id="cloud10" src="Fez_files/cloud3.png">
+</div>
+<div id="air">
+ <div style="position: fixed; top: 0px; left: 0px; width: 1680px; height: 922px;" id="blueAir" onload="setPos()"> </div>
+ <div style="position: fixed; top: 0px; left: 0px; width: 1680px; height: 922px;" id="redAir"> </div>
+ <div style="position: fixed; top: 0px; left: 0px; width: 1680px; height: 922px;" id="stars" class="pixelated"> </div>
+ <div style="position: fixed; top: 0px; left: 0px; width: 1680px; height: 922px;" id="darkAir"> </div>
+ <div style="position: fixed; top: 0px; left: 0px; width: 1680px; height: 922px;" id="darkAirBack"> </div>
+ <div style="position: fixed; top: 0px; left: 0px; width: 1680px; height: 922px;" id="pinkAir"> </div>
+ <div style="position: fixed; top: 0px; left: 0px; width: 1680px; height: 922px;" id="halfYellowAir"> </div>
+ <div style="position: fixed; top: 0px; left: 0px; width: 1680px; height: 922px;" id="yellowAir"> </div>
+ <div style="position: fixed; top: 0px; left: 0px; width: 1680px; height: 922px;" id="brightBlueAir"> </div>
+</div>
+
+</body></html>
