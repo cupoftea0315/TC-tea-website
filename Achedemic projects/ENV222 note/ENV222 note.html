@@ -337,9 +337,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#result-5" id="toc-result-5" class="nav-link" data-scroll-target="#result-5"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>15.2.4</strong></span> <strong>Result</strong></a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#non-linear-regression" id="toc-non-linear-regression" class="nav-link" data-scroll-target="#non-linear-regression"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16</strong></span> <strong>Non-linear regression</strong></a></li>
-  <li><a href="#principal-component-analysis" id="toc-principal-component-analysis" class="nav-link" data-scroll-target="#principal-component-analysis"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17</strong></span> <strong>Principal component analysis</strong></a></li>
-  <li><a href="#cluster-analysis" id="toc-cluster-analysis" class="nav-link" data-scroll-target="#cluster-analysis"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>18</strong></span> <strong>Cluster analysis</strong></a></li>
+  <li><a href="#non-linear-regression" id="toc-non-linear-regression" class="nav-link" data-scroll-target="#non-linear-regression"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16</strong></span> <strong>Non-linear regression</strong></a>
+  <ul>
+  <li><a href="#concepts-2" id="toc-concepts-2" class="nav-link" data-scroll-target="#concepts-2"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1</strong></span> <strong>Concepts</strong></a>
+  <ul class="collapse">
+  <li><a href="#coefficients-of-linear-regression-preview" id="toc-coefficients-of-linear-regression-preview" class="nav-link" data-scroll-target="#coefficients-of-linear-regression-preview"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1.1</strong></span> <strong>Coefficients of linear regression (preview)</strong></a></li>
+  <li><a href="#non-linear-regression-definition" id="toc-non-linear-regression-definition" class="nav-link" data-scroll-target="#non-linear-regression-definition"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1.2</strong></span> <strong>Non-linear Regression definition</strong></a></li>
+  <li><a href="#visualization-4" id="toc-visualization-4" class="nav-link" data-scroll-target="#visualization-4"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1.3</strong></span> <strong>Visualization</strong></a></li>
+  <li><a href="#coefficient" id="toc-coefficient" class="nav-link" data-scroll-target="#coefficient"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1.4</strong></span> <strong>Coefficient</strong></a></li>
+  </ul></li>
+  <li><a href="#workflow-4" id="toc-workflow-4" class="nav-link" data-scroll-target="#workflow-4"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2</strong></span> <strong>Workflow</strong></a>
+  <ul class="collapse">
+  <li><a href="#original-data" id="toc-original-data" class="nav-link" data-scroll-target="#original-data"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.1</strong></span> <strong>Original data</strong></a></li>
+  <li><a href="#fit-the-model-manually" id="toc-fit-the-model-manually" class="nav-link" data-scroll-target="#fit-the-model-manually"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.2</strong></span> <strong>Fit the model manually</strong></a></li>
+  <li><a href="#automatic-way" id="toc-automatic-way" class="nav-link" data-scroll-target="#automatic-way"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.3</strong></span> <strong>Automatic way</strong></a></li>
+  <li><a href="#partial-coefficient-of-determination" id="toc-partial-coefficient-of-determination" class="nav-link" data-scroll-target="#partial-coefficient-of-determination"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.4</strong></span> <strong>Partial coefficient of determination</strong></a></li>
+  <li><a href="#visualization-5" id="toc-visualization-5" class="nav-link" data-scroll-target="#visualization-5"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.5</strong></span> <strong>Visualization:</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tests-for-distributions" id="toc-tests-for-distributions" class="nav-link" data-scroll-target="#tests-for-distributions"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17</strong></span> <strong>Tests for distributions</strong></a></li>
+  <li><a href="#principal-component-analysis" id="toc-principal-component-analysis" class="nav-link" data-scroll-target="#principal-component-analysis"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>18</strong></span> <strong>Principal component analysis</strong></a></li>
+  <li><a href="#cluster-analysis" id="toc-cluster-analysis" class="nav-link" data-scroll-target="#cluster-analysis"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>19</strong></span> <strong>Cluster analysis</strong></a></li>
   <li><a href="#sessioninfo" id="toc-sessioninfo" class="nav-link" data-scroll-target="#sessioninfo"><strong><span style="color:green">SessionInfo:</span></strong></a></li>
   </ul>
 </nav>
@@ -368,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023.05.02</p>
+      <p class="date">2023.05.08</p>
     </div>
   </div>
   
@@ -460,25 +478,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Hyperlink of XJTLU ENV222 courseware
 </summary>
 <ul>
-<li><a href="https://pzhao.org/openr/ENV222-Overview.html">Lecture1 ENV222 Overview</a><br></li>
-<li><a href="https://pzhao.org/openr/R-markdown-basic.html">Lecture2 R Markdown basic</a><br></li>
-<li><a href="https://pzhao.org/openr/R-markdown-advanced.html">Lecture3 R Markdown advanced</a><br></li>
-<li><a href="https://pzhao.org/openr/R-characters.html">Lecture4 R for characters</a><br></li>
-<li><a href="https://pzhao.org/openr/R-time.html">Lecture5 R for time data</a><br></li>
-<li><a href="https://pzhao.org/openr/R-graphs-advanced.html">Lecture6 Statistical graphs (advanced)</a><br></li>
-<li><a href="https://pzhao.org/openr/R-Tidyverse.html">Lecture7 R Tidyverse</a><br></li>
-<li><a href="https://pzhao.org/openr/ANOVA-post-hoc.html">Lecture8 ANOVA Post-hoc tests</a><br></li>
-<li><a href="https://pzhao.org/openr/MANOVA.html">Lecture9 MANOVA</a><br></li>
-<li><a href="https://pzhao.org/openr/ANCOVA.html">Lecture10 ANCOVA</a><br></li>
-<li><a href="https://pzhao.org/openr/MANCOVA.html">Lecture11 MANCOVA</a><br></li>
-<li><a href="https://pzhao.org/openr/Combining-statistics.html">Lecture12 Combining statistics</a><br></li>
-<li><a href="https://pzhao.org/openr/Non-parametric-hypothesis-tests.html">Lecture13 Non-parametric hypothesis tests</a><br></li>
-<li><a href="https://pzhao.org/openr/Multiple-linear-regression.html">Lecture14 Multiple linear regression</a><br></li>
-<li><a href="https://pzhao.org/openr/Logistic-regression.html">Lecture15 Logistic regression</a><br></li>
-<li><a href="https://pzhao.org/openr/Poisson-regression.html">Lecture16 Poisson regression</a><br></li>
-<li><a href="https://pzhao.org/openr/Non-linear-regression.html">Lecture17 Non-linear regression</a><br></li>
-<li><a href="https://pzhao.org/openr/Principal-component-analysis.html">Lecture18 Principal component analysis</a><br></li>
-<li><a href="https://pzhao.org/openr/Cluster-analysis.html">Lecture19 Cluster analysis</a><br></li>
+<li><a href="https://pzhao.org/openr/ENV222-Overview.html">Lecture-1 ENV222 Overview</a><br></li>
+<li><a href="https://pzhao.org/openr/R-markdown-basic.html">Lecture-2 R Markdown basic</a><br></li>
+<li><a href="https://pzhao.org/openr/R-markdown-advanced.html">Lecture-3 R Markdown advanced</a><br></li>
+<li><a href="https://pzhao.org/openr/R-characters.html">Lecture-4 R for characters</a><br></li>
+<li><a href="https://pzhao.org/openr/R-time.html">Lecture-5 R for time data</a><br></li>
+<li><a href="https://pzhao.org/openr/R-graphs-advanced.html">Lecture-6 Statistical graphs (advanced)</a><br></li>
+<li><a href="https://pzhao.org/openr/R-Tidyverse.html">Lecture-7 R Tidyverse</a><br></li>
+<li><a href="https://pzhao.org/openr/ANOVA-post-hoc.html">Lecture-8 ANOVA Post-hoc tests</a><br></li>
+<li><a href="https://pzhao.org/openr/MANOVA.html">Lecture-9 MANOVA</a><br></li>
+<li><a href="https://pzhao.org/openr/ANCOVA.html">Lecture-10 ANCOVA</a><br></li>
+<li><a href="https://pzhao.org/openr/MANCOVA.html">Lecture-11 MANCOVA</a><br></li>
+<li><a href="https://pzhao.org/openr/Combining-statistics.html">Lecture-12 Combining statistics</a><br></li>
+<li><a href="https://pzhao.org/openr/Non-parametric-hypothesis-tests.html">Lecture-13 Non-parametric hypothesis tests</a><br></li>
+<li><a href="https://pzhao.org/openr/Multiple-linear-regression.html">Lecture-14 Multiple linear regression</a><br></li>
+<li><a href="https://pzhao.org/openr/Logistic-regression.html">Lecture-15 Logistic regression</a><br></li>
+<li><a href="https://pzhao.org/openr/Poisson-regression.html">Lecture-16 Poisson regression</a><br></li>
+<li><a href="https://pzhao.org/openr/Non-linear-regression.html">Lecture-17 Non-linear regression</a><br></li>
+<li><a href="https://pzhao.org/openr/Tests-for-distributions.html">Lecture-18 Tests for distributions</a><br></li>
+<li><a href="https://pzhao.org/openr/Principal-component-analysis.html">Lecture-19 Principal component analysis</a><br></li>
+<li><a href="https://pzhao.org/openr/Cluster-analysis.html">Lecture-20 Cluster analysis</a><br></li>
 </ul>
 </details>
 <details>
@@ -1010,7 +1029,7 @@ attr(,"useBytes")
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the current date</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Tue May  2 00:06:42 2023"</code></pre>
+<pre><code>[1] "Mon May  8 18:06:56 2023"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># character</span></span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="st">"2/11/1962"</span></span>
@@ -4254,19 +4273,19 @@ lm(formula = y ~ x1 + x2, data = dtf)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--28.779  -5.886  -1.408   6.158  27.203 
+-29.515  -5.676  -1.511   5.911  28.153 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    8.716      2.157   4.041 0.000103 ***
-x1            -7.246      8.118  -0.893 0.374135    
-x2             7.549      8.118   0.930 0.354561    
+(Intercept)    8.783      2.167   4.053 9.82e-05 ***
+x1             2.034      8.439   0.241    0.810    
+x2            -1.732      8.440  -0.205    0.838    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 9.423 on 103 degrees of freedom
-Multiple R-squared:  0.4086,    Adjusted R-squared:  0.3971 
-F-statistic: 35.59 on 2 and 103 DF,  p-value: 1.781e-12</code></pre>
+Residual standard error: 9.461 on 103 degrees of freedom
+Multiple R-squared:  0.4039,    Adjusted R-squared:  0.3923 
+F-statistic:  34.9 on 2 and 103 DF,  p-value: 2.683e-12</code></pre>
 </div>
 </div>
 <p><a id="Variance inflation factor (VIF)" href=""></a></p>
@@ -5612,14 +5631,346 @@ Note:        *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 </section>
 <section id="non-linear-regression" class="level1">
 <h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16</strong></span> <strong>Non-linear regression</strong></h1>
+<section id="concepts-2" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-2"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1</strong></span> <strong>Concepts</strong></h2>
+<section id="coefficients-of-linear-regression-preview" class="level3">
+<h3 class="anchored" data-anchor-id="coefficients-of-linear-regression-preview"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1.1</strong></span> <strong>Coefficients of linear regression (preview)</strong></h3>
+<ul>
+<li>SLR: <span class="math inline">\(y = b_0 + b_1x\)</span></li>
+<li>MLR: <span class="math inline">\(y = b_0 + b_1x_1 + b_2x_2\)</span></li>
+<li>Logistic Regression: <span class="math inline">\(\mathrm {log} \frac{y}{1-y} = \beta_0 + \beta_1 x\)</span> or <span class="math inline">\(y = \frac{e^{\beta_0 + \beta_1x}}{\ 1 + e^{\beta_0 + \beta_1x}}\)</span></li>
+<li>Poisson Regression: <span class="math inline">\(\mathrm {log}(y)=a + bx\)</span> or <span class="math inline">\(y = e^{a + bx}\)</span></li>
+</ul>
+</section>
+<section id="non-linear-regression-definition" class="level3">
+<h3 class="anchored" data-anchor-id="non-linear-regression-definition"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1.2</strong></span> <strong>Non-linear Regression definition</strong></h3>
+<p><span class="math display">\[y_{i}=f(x_{i}, \theta)+\varepsilon_{i}, i=1,2,...,n\]</span></p>
+<ul>
+<li><span class="math inline">\(y_{i}\)</span>: The response variable</li>
+<li><span class="math inline">\(x_{i}=(x_{i1},x_{i2},...,x_{ik})'\)</span>: The explanatory variable</li>
+<li><span class="math inline">\(\theta=(\theta_{0},\theta_{1},...\theta_{p})'\)</span>: Unknown parameter vector</li>
+<li><span class="math inline">\(\varepsilon_{i}\)</span>: Random error term</li>
+</ul>
+<p>A model for the relationship between the dependent variable(s) and the independent variable(s) is not linear but a curve.</p>
+<p>Two categories:</p>
+<ol type="1">
+<li>One that can be transformed into a linear model</li>
+<li>One that cannot be transformed into a linear model</li>
+</ol>
+<p>Like:</p>
+<ol type="1">
+<li><span class="math inline">\(y = a + be^x\)</span>: Set x’ = e^x, then <span class="math inline">\(y = a + bx'\)</span></li>
+<li><span class="math inline">\(z=a+be^{xy}\)</span>: Can’t be transformed into linear</li>
+</ol>
+<p>Some Non-linear Regression model:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Michaelis-Menten</td>
+<td style="text-align: left;"><span class="math inline">\(y=\frac{a x}{b+cx}\)</span> or <span class="math inline">\(y=\frac{a x}{b+x}\)</span>…</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3-parameter asymptotic exponential</td>
+<td style="text-align: left;"><span class="math inline">\(y=a-b \mathrm{e}^{-c x}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3-parameter logistic</td>
+<td style="text-align: left;"><span class="math inline">\(y=\frac{a}{1+b \mathrm{e}^{-c x}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Biexponential</td>
+<td style="text-align: left;"><span class="math inline">\(y=a \mathrm{e}^{b x}-c \mathrm{e}^{-d x}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="visualization-4" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-4"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1.3</strong></span> <strong>Visualization</strong></h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb501"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb501-1"><a href="#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb501-2"><a href="#cb501-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb501-3"><a href="#cb501-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb501-4"><a href="#cb501-4" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb501-5"><a href="#cb501-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb502"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb502-1"><a href="#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="co"># curve() function way</span></span>
+<span id="cb502-2"><a href="#cb502-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb502-3"><a href="#cb502-3" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(a <span class="sc">*</span> x <span class="sc">/</span> (b <span class="sc">+</span> c <span class="sc">*</span> x), <span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb502-4"><a href="#cb502-4" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(a <span class="sc">-</span> b <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>c <span class="sc">*</span> x), <span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb502-5"><a href="#cb502-5" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(a <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> b <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>c <span class="sc">*</span> x)), <span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>) </span>
+<span id="cb502-6"><a href="#cb502-6" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(a <span class="sc">*</span> <span class="fu">exp</span>(b <span class="sc">*</span> x) <span class="sc">-</span> c <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>d <span class="sc">*</span> x), <span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-note_files/figure-html/unnamed-chunk-120-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb503"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb503-1"><a href="#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot() function way</span></span>
+<span id="cb503-2"><a href="#cb503-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb503-3"><a href="#cb503-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb503-4"><a href="#cb503-4" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb503-5"><a href="#cb503-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> a <span class="sc">*</span> x <span class="sc">/</span> (b <span class="sc">+</span> c <span class="sc">*</span> x))) <span class="sc">+</span></span>
+<span id="cb503-6"><a href="#cb503-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Michaelis-Menten"</span>) <span class="sc">+</span> </span>
+<span id="cb503-7"><a href="#cb503-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(y <span class="sc">==</span> <span class="fu">frac</span>(a <span class="sc">*</span> x, b <span class="sc">+</span> c <span class="sc">*</span> x))) <span class="sc">+</span></span>
+<span id="cb503-8"><a href="#cb503-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb503-9"><a href="#cb503-9" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb503-10"><a href="#cb503-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> a <span class="sc">-</span> b <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>c <span class="sc">*</span> x))) <span class="sc">+</span></span>
+<span id="cb503-11"><a href="#cb503-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"3-parameter asymptotic exponential"</span>) <span class="sc">+</span></span>
+<span id="cb503-12"><a href="#cb503-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(y <span class="sc">==</span> a <span class="sc">-</span> b <span class="sc">*</span> e<span class="sc">^</span>(<span class="sc">-</span>c <span class="sc">*</span> x))) <span class="sc">+</span></span>
+<span id="cb503-13"><a href="#cb503-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb503-14"><a href="#cb503-14" aria-hidden="true" tabindex="-1"></a>plot3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb503-15"><a href="#cb503-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> a <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> b <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>c <span class="sc">*</span> x)))) <span class="sc">+</span></span>
+<span id="cb503-16"><a href="#cb503-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"3-parameter logistic"</span>) <span class="sc">+</span></span>
+<span id="cb503-17"><a href="#cb503-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(y <span class="sc">==</span> <span class="fu">frac</span>(a, <span class="dv">1</span> <span class="sc">+</span> b <span class="sc">*</span> e<span class="sc">^</span>(<span class="sc">-</span>c <span class="sc">*</span> x)))) <span class="sc">+</span></span>
+<span id="cb503-18"><a href="#cb503-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb503-19"><a href="#cb503-19" aria-hidden="true" tabindex="-1"></a>plot4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb503-20"><a href="#cb503-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> a <span class="sc">*</span> <span class="fu">exp</span>(b <span class="sc">*</span> x) <span class="sc">-</span> c <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>d <span class="sc">*</span> x))) <span class="sc">+</span></span>
+<span id="cb503-21"><a href="#cb503-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Biexponential"</span>) <span class="sc">+</span></span>
+<span id="cb503-22"><a href="#cb503-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(y <span class="sc">==</span> a <span class="sc">*</span> e<span class="sc">^</span>(b <span class="sc">*</span> x) <span class="sc">-</span> c <span class="sc">*</span> e<span class="sc">^</span>(<span class="sc">-</span>d <span class="sc">*</span> x))) <span class="sc">+</span></span>
+<span id="cb503-23"><a href="#cb503-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb503-24"><a href="#cb503-24" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(plot1, plot2, plot3, plot4, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-note_files/figure-html/unnamed-chunk-120-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="coefficient" class="level3">
+<h3 class="anchored" data-anchor-id="coefficient"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1.4</strong></span> <strong>Coefficient</strong></h3>
+<p>Coefficient of determination (<span class="math inline">\(R^2\)</span>) formula:</p>
+<p><span class="math display">\[R^2=\frac{SSR}{SST}=\frac{\sum_{}^{}(y'-\bar{y})^2}{\sum_{}^{}(y-\bar{y})^2}\]</span></p>
+<p>Pearson Correlation Coefficient (<span class="math inline">\(r\)</span>) formula:</p>
+<p><span class="math display">\[r =\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right)}{\sqrt{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2} \sum_{i=1}^{n}\left(y_{i}-\bar{y}\right)^{2}}}\]</span> ### <span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.1.5</strong></span> <strong>Partial coefficient of determination</strong></p>
+<p>For linear regression, <span class="math inline">\(r^2 = R^2\)</span>. But for non-linear regression, because <span class="math inline">\(SST \neq SSE + SSR\)</span> so <span class="math inline">\(R^2 \neq r^2\)</span>.</p>
+<p>Measure the fitting of non-linear regression model. Its definition formula is:</p>
+<p><span class="math display">\[R^2=1-\frac{SSE}{SST}\]</span></p>
+</section>
+</section>
+<section id="workflow-4" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-4"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2</strong></span> <strong>Workflow</strong></h2>
+<section id="original-data" class="level3">
+<h3 class="anchored" data-anchor-id="original-data"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.1</strong></span> <strong>Original data</strong></h3>
+<p>Reaction rate ~ concentration</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb504"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb504-1"><a href="#cb504-1" aria-hidden="true" tabindex="-1"></a>dtf <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data/mm.txt"</span>, <span class="at">header=</span>T)</span>
+<span id="cb504-2"><a href="#cb504-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb504-3"><a href="#cb504-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dtf) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(conc, rate)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-note_files/figure-html/unnamed-chunk-121-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fit-the-model-manually" class="level3">
+<h3 class="anchored" data-anchor-id="fit-the-model-manually"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.2</strong></span> <strong>Fit the model manually</strong></h3>
+<p><strong>Fit Michaelis-Menten model:</strong> <span class="math inline">\(y=\frac{a x}{b+x}\)</span></p>
+<p>Features:</p>
+<ol type="1">
+<li>The curve passes through the origin</li>
+<li>Rising rate of the curve diminishes with the increasing of <span class="math inline">\(x\)</span></li>
+<li>Function has an asymptote <span class="math inline">\(y = a\)</span></li>
+<li><span class="math inline">\(y = \frac{a}{2}\)</span> when <span class="math inline">\(x = b\)</span></li>
+</ol>
+<p><strong>Fit 3-parameter asymptotic exponential model:</strong> <span class="math inline">\(y=a-b \mathrm{e}^{-c x}\)</span></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb505"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb505-1"><a href="#cb505-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">nls</span>(rate <span class="sc">~</span> a <span class="sc">*</span> conc <span class="sc">/</span> (b <span class="sc">+</span> conc), <span class="at">data =</span> dtf, <span class="at">start =</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">200</span>, <span class="at">b =</span> <span class="fl">0.03</span>))</span>
+<span id="cb505-2"><a href="#cb505-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">nls</span>(rate <span class="sc">~</span> a <span class="sc">-</span> b <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>c <span class="sc">*</span> conc), <span class="at">data =</span> dtf, <span class="at">start =</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">200</span>, <span class="at">b =</span> <span class="dv">150</span>, <span class="at">c =</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="automatic-way" class="level3">
+<h3 class="anchored" data-anchor-id="automatic-way"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.3</strong></span> <strong>Automatic way</strong></h3>
+<p>Find the start value of model parameters is very hard, so here are some functions:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>SSasymp()</code></td>
+<td style="text-align: left;">asymptotic regression model</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>SSasympOff()</code></td>
+<td style="text-align: left;">asymptotic regression model with an offset</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>SSasympOrig()</code></td>
+<td style="text-align: left;">asymptotic regression model through the origin</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>SSbiexp()</code></td>
+<td style="text-align: left;">biexponential model</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>SSfol()</code></td>
+<td style="text-align: left;">first-order compartment model</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>SSfpl()</code></td>
+<td style="text-align: left;">four-parameter logistic model</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>SSgompertz()</code></td>
+<td style="text-align: left;">Gompertz growth model</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>SSlogis()</code></td>
+<td style="text-align: left;">logistic model</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>SSmicmen()</code></td>
+<td style="text-align: left;">Michaelis–Menten model</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>SSweibull()</code></td>
+<td style="text-align: left;">Weibull growth curve model</td>
+</tr>
+</tbody>
+</table>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb506"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb506-1"><a href="#cb506-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">nls</span>(rate <span class="sc">~</span> <span class="fu">SSmicmen</span>(conc, a, b), <span class="at">data =</span> dtf)</span>
+<span id="cb506-2"><a href="#cb506-2" aria-hidden="true" tabindex="-1"></a>m1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Nonlinear regression model
+  model: rate ~ SSmicmen(conc, a, b)
+   data: dtf
+        a         b 
+212.68371   0.06412 
+ residual sum-of-squares: 1195
+
+Number of iterations to convergence: 0 
+Achieved convergence tolerance: 1.937e-06</code></pre>
+</div>
+</div>
+<p>Result: <span class="math inline">\(r = \frac{212.7c}{0.06412+c}\)</span></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb508"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb508-1"><a href="#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Formula: rate ~ SSmicmen(conc, a, b)
+
+Parameters:
+   Estimate Std. Error t value Pr(&gt;|t|)    
+a 2.127e+02  6.947e+00  30.615 3.24e-11 ***
+b 6.412e-02  8.281e-03   7.743 1.57e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.93 on 10 degrees of freedom
+
+Number of iterations to convergence: 0 
+Achieved convergence tolerance: 1.937e-06</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb510"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb510-1"><a href="#cb510-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">nls</span>(rate <span class="sc">~</span> <span class="fu">SSasympOff</span>(conc, a, b, c), <span class="at">data =</span> dtf)</span>
+<span id="cb510-2"><a href="#cb510-2" aria-hidden="true" tabindex="-1"></a>m2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Nonlinear regression model
+  model: rate ~ SSasympOff(conc, a, b, c)
+   data: dtf
+        a         b         c 
+200.94280   1.85368  -0.04298 
+ residual sum-of-squares: 1009
+
+Number of iterations to convergence: 0 
+Achieved convergence tolerance: 1.768e-06</code></pre>
+</div>
+</div>
+<p>Result: <span class="math inline">\(r = 201 - 153 e^{-6.38c}\)</span></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb512"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb512-1"><a href="#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Formula: rate ~ SSasympOff(conc, a, b, c)
+
+Parameters:
+   Estimate Std. Error t value Pr(&gt;|t|)    
+a 200.94280    5.97460  33.633 8.95e-11 ***
+b   1.85368    0.16218  11.430 1.16e-06 ***
+c  -0.04298    0.01486  -2.893   0.0178 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.59 on 9 degrees of freedom
+
+Number of iterations to convergence: 0 
+Achieved convergence tolerance: 1.768e-06</code></pre>
+</div>
+</div>
+</section>
+<section id="partial-coefficient-of-determination" class="level3">
+<h3 class="anchored" data-anchor-id="partial-coefficient-of-determination"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.4</strong></span> <strong>Partial coefficient of determination</strong></h3>
+<p>Formula: <span class="math inline">\(R^{2}=1-\frac{SSE}{SST}\)</span></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb514"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb514-1"><a href="#cb514-1" aria-hidden="true" tabindex="-1"></a>calc_R2 <span class="ot">&lt;-</span> <span class="cf">function</span>(model) {</span>
+<span id="cb514-2"><a href="#cb514-2" aria-hidden="true" tabindex="-1"></a>  ms <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)</span>
+<span id="cb514-3"><a href="#cb514-3" aria-hidden="true" tabindex="-1"></a>  sse <span class="ot">&lt;-</span> <span class="fu">as.vector</span>((ms[[<span class="dv">3</span>]])<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> ms<span class="sc">$</span>df[<span class="dv">2</span>])</span>
+<span id="cb514-4"><a href="#cb514-4" aria-hidden="true" tabindex="-1"></a>  null <span class="ot">&lt;-</span> <span class="fu">lm</span>(dtf<span class="sc">$</span>rate <span class="sc">~</span> <span class="dv">1</span>)</span>
+<span id="cb514-5"><a href="#cb514-5" aria-hidden="true" tabindex="-1"></a>  sst <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">unlist</span>(<span class="fu">summary.aov</span>(null)[[<span class="dv">1</span>]][<span class="dv">2</span>]))</span>
+<span id="cb514-6"><a href="#cb514-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span> <span class="sc">-</span> sse<span class="sc">/</span>sst</span>
+<span id="cb514-7"><a href="#cb514-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb514-8"><a href="#cb514-8" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">calc_R2</span>(m1), <span class="fu">calc_R2</span>(m2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9612608 0.9672987</code></pre>
+</div>
+</div>
+</section>
+<section id="visualization-5" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-5"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.5</strong></span> <strong>Visualization:</strong></h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb516"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb516-1"><a href="#cb516-1" aria-hidden="true" tabindex="-1"></a>xv <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fl">1.2</span>, .<span class="dv">01</span>)</span>
+<span id="cb516-2"><a href="#cb516-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(m1, <span class="fu">list</span>(<span class="at">conc =</span> xv))</span>
+<span id="cb516-3"><a href="#cb516-3" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(m2, <span class="fu">list</span>(<span class="at">conc =</span> xv))</span>
+<span id="cb516-4"><a href="#cb516-4" aria-hidden="true" tabindex="-1"></a>dtf_predicted <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(xv, y1, y2)</span>
+<span id="cb516-5"><a href="#cb516-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dtf) <span class="sc">+</span> </span>
+<span id="cb516-6"><a href="#cb516-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(conc, rate)) <span class="sc">+</span></span>
+<span id="cb516-7"><a href="#cb516-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(xv, y1, <span class="at">color =</span> <span class="st">'Michaelis-Menten model'</span>), <span class="at">data =</span> dtf_predicted) <span class="sc">+</span> </span>
+<span id="cb516-8"><a href="#cb516-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(xv, y2, <span class="at">color =</span> <span class="st">'3-parameter asymptotic exponential model'</span>), <span class="at">data =</span> dtf_predicted) <span class="sc">+</span> </span>
+<span id="cb516-9"><a href="#cb516-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb516-10"><a href="#cb516-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'Michaelis-Menten model'</span> <span class="ot">=</span> <span class="st">'blue'</span>, <span class="st">'3-parameter asymptotic exponential model'</span> <span class="ot">=</span> <span class="st">'red'</span>)) <span class="sc">+</span></span>
+<span id="cb516-11"><a href="#cb516-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">'Model'</span>) <span class="sc">+</span></span>
+<span id="cb516-12"><a href="#cb516-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">'Models'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-note_files/figure-html/unnamed-chunk-127-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="tests-for-distributions" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17</strong></span> <strong>Tests for distributions</strong></h1>
 <p><span style="color:#008888">To be continue…</span></p>
 </section>
 <section id="principal-component-analysis" class="level1">
-<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17</strong></span> <strong>Principal component analysis</strong></h1>
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>18</strong></span> <strong>Principal component analysis</strong></h1>
 <p><span style="color:#008888">To be continue…</span></p>
 </section>
 <section id="cluster-analysis" class="level1">
-<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>18</strong></span> <strong>Cluster analysis</strong></h1>
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>19</strong></span> <strong>Cluster analysis</strong></h1>
 <p><span style="color:#008888">To be continue…</span></p>
 </section>
 <section id="sessioninfo" class="level1">
@@ -5643,14 +5994,14 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] qcc_2.7            faraway_1.0.8      nnet_7.3-18        jmv_2.3.4         
- [5] car_3.1-2          carData_3.0-5      ISLR_1.4           biotools_4.2      
- [9] mvnormalTest_1.0.0 rstatix_0.7.2      MASS_7.3-58.2      gplots_3.1.3      
-[13] agricolae_1.3-5    openair_2.16-0     lubridate_1.9.2    forcats_1.0.0     
-[17] stringr_1.5.0      dplyr_1.1.0        purrr_1.0.1        readr_2.1.4       
-[21] tibble_3.2.1       tidyverse_2.0.0    latex2exp_0.9.6    patchwork_1.1.2   
-[25] ggplot2_3.4.2      Epi_2.47           tidyr_1.3.0        magrittr_2.0.3    
-[29] knitr_1.42        
+ [1] gridExtra_2.3      qcc_2.7            faraway_1.0.8      nnet_7.3-18       
+ [5] jmv_2.3.4          car_3.1-2          carData_3.0-5      ISLR_1.4          
+ [9] biotools_4.2       mvnormalTest_1.0.0 rstatix_0.7.2      MASS_7.3-58.2     
+[13] gplots_3.1.3       agricolae_1.3-5    openair_2.16-0     lubridate_1.9.2   
+[17] forcats_1.0.0      stringr_1.5.0      dplyr_1.1.0        purrr_1.0.1       
+[21] readr_2.1.4        tibble_3.2.1       tidyverse_2.0.0    latex2exp_0.9.6   
+[25] patchwork_1.1.2    ggplot2_3.4.2      Epi_2.47           tidyr_1.3.0       
+[29] magrittr_2.0.3     knitr_1.42        
 
 loaded via a namespace (and not attached):
   [1] backports_1.4.1      copula_1.1-2         corrplot_0.92       
