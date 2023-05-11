@@ -1,2 +1,2 @@
 <Sixth update> add ENV222 note chapter 16 Non-linear regression content & refresh the qmd plot graph folder
-<>
+<Sixth update+> add ENV222 note chapter 17 Tests for distributions content and ENV222 exercise quiz2, Poisson Regression

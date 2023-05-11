@@ -355,7 +355,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#visualization-5" id="toc-visualization-5" class="nav-link" data-scroll-target="#visualization-5"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>16.2.5</strong></span> <strong>Visualization:</strong></a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#tests-for-distributions" id="toc-tests-for-distributions" class="nav-link" data-scroll-target="#tests-for-distributions"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17</strong></span> <strong>Tests for distributions</strong></a></li>
+  <li><a href="#tests-for-distributions" id="toc-tests-for-distributions" class="nav-link" data-scroll-target="#tests-for-distributions"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17</strong></span> <strong>Tests for distributions</strong></a>
+  <ul>
+  <li><a href="#distributions-and-their-r-functions" id="toc-distributions-and-their-r-functions" class="nav-link" data-scroll-target="#distributions-and-their-r-functions"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.1</strong></span> <strong>Distributions and their R functions</strong></a></li>
+  <li><a href="#empirical-distribution-function-edf-or-ecdf" id="toc-empirical-distribution-function-edf-or-ecdf" class="nav-link" data-scroll-target="#empirical-distribution-function-edf-or-ecdf"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.2</strong></span> <strong>Empirical distribution function (EDF or eCDF)</strong></a>
+  <ul class="collapse">
+  <li><a href="#concepts-3" id="toc-concepts-3" class="nav-link" data-scroll-target="#concepts-3"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.2.1</strong></span> <strong>Concepts</strong></a></li>
+  <li><a href="#visualization-6" id="toc-visualization-6" class="nav-link" data-scroll-target="#visualization-6"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.2.2</strong></span> <strong>Visualization</strong></a></li>
+  </ul></li>
+  <li><a href="#kolmogorov-smirnov-test" id="toc-kolmogorov-smirnov-test" class="nav-link" data-scroll-target="#kolmogorov-smirnov-test"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.3</strong></span> <strong>Kolmogorov-Smirnov test</strong></a>
+  <ul class="collapse">
+  <li><a href="#concepts-4" id="toc-concepts-4" class="nav-link" data-scroll-target="#concepts-4"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.3.1</strong></span> <strong>Concepts</strong></a></li>
+  <li><a href="#visualization-7" id="toc-visualization-7" class="nav-link" data-scroll-target="#visualization-7"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.3.2</strong></span> <strong>Visualization</strong></a></li>
+  <li><a href="#one-sample-test" id="toc-one-sample-test" class="nav-link" data-scroll-target="#one-sample-test"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.3.3</strong></span> <strong>One-sample test</strong></a></li>
+  <li><a href="#two-sample-test" id="toc-two-sample-test" class="nav-link" data-scroll-target="#two-sample-test"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.3.4</strong></span> <strong>Two-sample test</strong></a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#principal-component-analysis" id="toc-principal-component-analysis" class="nav-link" data-scroll-target="#principal-component-analysis"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>18</strong></span> <strong>Principal component analysis</strong></a></li>
   <li><a href="#cluster-analysis" id="toc-cluster-analysis" class="nav-link" data-scroll-target="#cluster-analysis"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>19</strong></span> <strong>Cluster analysis</strong></a></li>
   <li><a href="#sessioninfo" id="toc-sessioninfo" class="nav-link" data-scroll-target="#sessioninfo"><strong><span style="color:green">SessionInfo:</span></strong></a></li>
@@ -386,7 +401,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023.05.08</p>
+      <p class="date">2023.05.10</p>
     </div>
   </div>
   
@@ -1029,7 +1044,7 @@ attr(,"useBytes")
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the current date</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Mon May  8 18:06:56 2023"</code></pre>
+<pre><code>[1] "Wed May 10 14:28:34 2023"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># character</span></span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="st">"2/11/1962"</span></span>
@@ -4272,20 +4287,20 @@ Call:
 lm(formula = y ~ x1 + x2, data = dtf)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--29.515  -5.676  -1.511   5.911  28.153 
+     Min       1Q   Median       3Q      Max 
+-28.7320  -5.9821  -0.9726   6.2104  27.9263 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    8.783      2.167   4.053 9.82e-05 ***
-x1             2.034      8.439   0.241    0.810    
-x2            -1.732      8.440  -0.205    0.838    
+(Intercept)    8.937      2.196   4.070 9.25e-05 ***
+x1             4.065      8.217   0.495    0.622    
+x2            -3.764      8.221  -0.458    0.648    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 9.461 on 103 degrees of freedom
-Multiple R-squared:  0.4039,    Adjusted R-squared:  0.3923 
-F-statistic:  34.9 on 2 and 103 DF,  p-value: 2.683e-12</code></pre>
+Residual standard error: 9.453 on 103 degrees of freedom
+Multiple R-squared:  0.4049,    Adjusted R-squared:  0.3933 
+F-statistic: 35.04 on 2 and 103 DF,  p-value: 2.467e-12</code></pre>
 </div>
 </div>
 <p><a id="Variance inflation factor (VIF)" href=""></a></p>
@@ -5963,7 +5978,529 @@ Achieved convergence tolerance: 1.768e-06</code></pre>
 </section>
 <section id="tests-for-distributions" class="level1">
 <h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17</strong></span> <strong>Tests for distributions</strong></h1>
-<p><span style="color:#008888">To be continue…</span></p>
+<section id="distributions-and-their-r-functions" class="level2">
+<h2 class="anchored" data-anchor-id="distributions-and-their-r-functions"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.1</strong></span> <strong>Distributions and their R functions</strong></h2>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Distribution</th>
+<th style="text-align: left;"><span style="color:red"><strong>d</strong></span></th>
+<th style="text-align: left;"><span style="color:red"><strong>p</strong></span></th>
+<th style="text-align: left;"><span style="color:red"><strong>q</strong></span></th>
+<th style="text-align: left;"><span style="color:red"><strong>r</strong></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beta</td>
+<td style="text-align: left;"><code>pbeta()</code></td>
+<td style="text-align: left;"><code>qbeta()</code></td>
+<td style="text-align: left;"><code>dbeta()</code></td>
+<td style="text-align: left;"><code>rbeta()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Binomial</td>
+<td style="text-align: left;"><code>pbinom()</code></td>
+<td style="text-align: left;"><code>qbinom()</code></td>
+<td style="text-align: left;"><code>dbinom()</code></td>
+<td style="text-align: left;"><code>rbinom()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cauchy</td>
+<td style="text-align: left;"><code>pcauchy()</code></td>
+<td style="text-align: left;"><code>qcauchy()</code></td>
+<td style="text-align: left;"><code>dcauchy()</code></td>
+<td style="text-align: left;"><code>rcauchy()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chi-Square</td>
+<td style="text-align: left;"><code>pchisq()</code></td>
+<td style="text-align: left;"><code>qchisq()</code></td>
+<td style="text-align: left;"><code>dchisq()</code></td>
+<td style="text-align: left;"><code>rchisq()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Exponential)</td>
+<td style="text-align: left;"><code>pexp()</code></td>
+<td style="text-align: left;"><code>qexp()</code></td>
+<td style="text-align: left;"><code>dexp()</code></td>
+<td style="text-align: left;"><code>rexp()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;"><code>pf()</code></td>
+<td style="text-align: left;"><code>qf()</code></td>
+<td style="text-align: left;"><code>df()</code></td>
+<td style="text-align: left;"><code>rf()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gamma</td>
+<td style="text-align: left;"><code>pgamma()</code></td>
+<td style="text-align: left;"><code>qgamma()</code></td>
+<td style="text-align: left;"><code>dgamma()</code></td>
+<td style="text-align: left;"><code>rgamma()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Geometric</td>
+<td style="text-align: left;"><code>pgeom()</code></td>
+<td style="text-align: left;"><code>qgeom()</code></td>
+<td style="text-align: left;"><code>dgeom()</code></td>
+<td style="text-align: left;"><code>rgeom()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hyper geometric</td>
+<td style="text-align: left;"><code>phyper()</code></td>
+<td style="text-align: left;"><code>qhyper()</code></td>
+<td style="text-align: left;"><code>dhyper()</code></td>
+<td style="text-align: left;"><code>rhyper()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Logistic</td>
+<td style="text-align: left;"><code>plogis()</code></td>
+<td style="text-align: left;"><code>qlogis()</code></td>
+<td style="text-align: left;"><code>dlogis()</code></td>
+<td style="text-align: left;"><code>rlogis()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Log Normal</td>
+<td style="text-align: left;"><code>plnorm()</code></td>
+<td style="text-align: left;"><code>qlnorm()</code></td>
+<td style="text-align: left;"><code>dlnorm()</code></td>
+<td style="text-align: left;"><code>rlnorm()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Negative Binomial</td>
+<td style="text-align: left;"><code>pnbinom()</code></td>
+<td style="text-align: left;"><code>qnbinom()</code></td>
+<td style="text-align: left;"><code>dnbinom()</code></td>
+<td style="text-align: left;"><code>rnbinom()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Normal</td>
+<td style="text-align: left;"><code>pnorm()</code></td>
+<td style="text-align: left;"><code>qnorm()</code></td>
+<td style="text-align: left;"><code>dnorm()</code></td>
+<td style="text-align: left;"><code>rnorm()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Poisson</td>
+<td style="text-align: left;"><code>ppois()</code></td>
+<td style="text-align: left;"><code>qpois()</code></td>
+<td style="text-align: left;"><code>dpois()</code></td>
+<td style="text-align: left;"><code>rpois()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Student t</td>
+<td style="text-align: left;"><code>pt()</code></td>
+<td style="text-align: left;"><code>qt()</code></td>
+<td style="text-align: left;"><code>dt()</code></td>
+<td style="text-align: left;"><code>rt()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Studentized Range</td>
+<td style="text-align: left;"><code>ptukey()</code></td>
+<td style="text-align: left;"><code>qtukey()</code></td>
+<td style="text-align: left;"><code>dtukey()</code></td>
+<td style="text-align: left;"><code>rtukey()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Uniform</td>
+<td style="text-align: left;"><code>punif()</code></td>
+<td style="text-align: left;"><code>qunif()</code></td>
+<td style="text-align: left;"><code>dunif()</code></td>
+<td style="text-align: left;"><code>runif()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Weibull</td>
+<td style="text-align: left;"><code>pweibull()</code></td>
+<td style="text-align: left;"><code>qweibull()</code></td>
+<td style="text-align: left;"><code>dweibull()</code></td>
+<td style="text-align: left;"><code>rweibull()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wilcoxon Rank Sum Statistic</td>
+<td style="text-align: left;"><code>pwilcox()</code></td>
+<td style="text-align: left;"><code>qwilcox()</code></td>
+<td style="text-align: left;"><code>dwilcox()</code></td>
+<td style="text-align: left;"><code>rwilcox()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wilcoxon Signed Rank Statistic</td>
+<td style="text-align: left;"><code>psignrank()</code></td>
+<td style="text-align: left;"><code>qsignrank()</code></td>
+<td style="text-align: left;"><code>dsignrank()</code></td>
+<td style="text-align: left;"><code>rsignrank()</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Distribution functions in R:</strong> <code>prefix</code> + <code>root_name</code></p>
+<ul>
+<li><span style="color:red"><strong>d</strong></span> for “<span style="color:red">density</span>”, the density function (PDF).</li>
+<li><span style="color:red"><strong>p</strong></span> for “<span style="color:red">probability</span>”, the cumulative distribution function (CDF).</li>
+<li><span style="color:red"><strong>q</strong></span> for “<span style="color:red">quantile</span>” or “critical”, the inverse of CDF.</li>
+<li><span style="color:red"><strong>r</strong></span> for “<span style="color:red">random</span>”, a random variable having the specified distribution</li>
+</ul>
+<center>
+<img src="images/Distribution%20functions%20in%20R.png" class="img-fluid">
+</center>
+<p>Some common distribution:</p>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Distribution</th>
+<th style="text-align: left;">Parameters</th>
+<th style="text-align: left;">Expression</th>
+<th style="text-align: left;">Mean</th>
+<th style="text-align: left;">Variance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Bernoulli trial</td>
+<td style="text-align: left;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(q\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(pq\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Binomial</td>
+<td style="text-align: left;"><span class="math inline">\(n, p\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(C(n, x) p^x q^{n-x}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(np\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(npq\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Poisson</td>
+<td style="text-align: left;"><span class="math inline">\(\lambda\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(e^{-\lambda} \lambda^x / x !\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\lambda\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\lambda\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Normal</td>
+<td style="text-align: left;"><span class="math inline">\(\mu, \sigma\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\frac{1}{\sqrt{2 \pi \sigma}} e^{-(x-\mu)^2 / 2 \sigma^2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\sigma^2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Std. Normal</td>
+<td style="text-align: left;"><span class="math inline">\(z\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\frac{1}{\sqrt{2 \pi}} e^{-z^2 / 2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Student-t</td>
+<td style="text-align: left;"><span class="math inline">\(v\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\frac{\Gamma\left(\frac{v+1}{2}\right)}{\sqrt{v \pi} \Gamma\left(\frac{v}{2}\right)}\left(1+\frac{x^2}{v}\right)^{-\frac{v+1}{2}}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\left\{\begin{array}{cc}v /(v-2) &amp; \text { for } v&gt;2 \\ \infty &amp; \text { for } 1&lt;v \leq 2 \\ \text { undefined } &amp; \text { otherwise }\end{array}\right.\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="empirical-distribution-function-edf-or-ecdf" class="level2">
+<h2 class="anchored" data-anchor-id="empirical-distribution-function-edf-or-ecdf"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.2</strong></span> <strong>Empirical distribution function (EDF or eCDF)</strong></h2>
+<section id="concepts-3" class="level3">
+<h3 class="anchored" data-anchor-id="concepts-3"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.2.1</strong></span> <strong>Concepts</strong></h3>
+<p><span class="math display">\[F_{n}(x)= \begin{cases}0, &amp; \text { for } x&lt;y_{1} \\ k / n, &amp; \text { for } y_{k} \leqslant x&lt;y_{k+1}\qquad (k=1,2, \ldots, n-1) \\ 1, &amp; \text { for } x \geqslant y_{n}\end{cases}\]</span></p>
+<p>Empirical distribution function (EDF) is a way of representing the cumulative distribution function (CDF) of a set of data. The EDF is calculated by ordering the data from smallest to largest, and then assigning a probability to each data point based on its rank in the distribution.</p>
+<p>Specifically, the EDF assigns a probability of 1/n to each of the n data points, where n is the sample size. Then, the EDF at any given point x is the proportion of data points that are less than or equal to x.</p>
+</section>
+<section id="visualization-6" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-6"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.2.2</strong></span> <strong>Visualization</strong></h3>
+<details>
+<summary>
+code
+</summary>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb517"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb517-1"><a href="#cb517-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb517-2"><a href="#cb517-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb517-3"><a href="#cb517-3" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
+<span id="cb517-4"><a href="#cb517-4" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
+<span id="cb517-5"><a href="#cb517-5" aria-hidden="true" tabindex="-1"></a>x4 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb517-6"><a href="#cb517-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ecdf</span>(x1))</span>
+<span id="cb517-7"><a href="#cb517-7" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(pnorm, <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb517-8"><a href="#cb517-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ecdf</span>(x2))</span>
+<span id="cb517-9"><a href="#cb517-9" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(pnorm, <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb517-10"><a href="#cb517-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ecdf</span>(x3))</span>
+<span id="cb517-11"><a href="#cb517-11" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(pnorm, <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb517-12"><a href="#cb517-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ecdf</span>(x4))</span>
+<span id="cb517-13"><a href="#cb517-13" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(pnorm, <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-note_files/figure-html/unnamed-chunk-129-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="kolmogorov-smirnov-test" class="level2">
+<h2 class="anchored" data-anchor-id="kolmogorov-smirnov-test"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.3</strong></span> <strong>Kolmogorov-Smirnov test</strong></h2>
+<section id="concepts-4" class="level3">
+<h3 class="anchored" data-anchor-id="concepts-4"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.3.1</strong></span> <strong>Concepts</strong></h3>
+<p>The KS test works by comparing the maximum distance between the EDF and the CDF, called the KS statistic, to a critical value calculated from the null distribution of the test statistic. If the calculated KS statistic is larger than the critical value, the null hypothesis that the sample is drawn from the theoretical distribution is rejected.</p>
+<p>critical values for D for one sample (<span class="math inline">\(n\le40\)</span>):</p>
+<center>
+<img src="images/Table%20of%20one-sample%20Kolmogorov-Smirnov%20test%20statistics%20D.png" class="img-fluid">
+</center>
+<p><br></p>
+<p>Asymptotic critical values for <span class="math inline">\(D\)</span> for one sample (small sample sizes):</p>
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(\alpha\)</span></th>
+<th style="text-align: center;">0.2</th>
+<th style="text-align: center;">0.1</th>
+<th style="text-align: center;">0.05</th>
+<th style="text-align: center;">0.02</th>
+<th style="text-align: center;">0.01</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Critical <span class="math inline">\(D\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.07\sqrt{\frac{1}{n}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.14\cdot\sqrt{\frac{1}{n}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.22\cdot\sqrt{\frac{1}{n}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.52\cdot\sqrt{\frac{1}{n}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.63 \cdot\sqrt{\frac{1}{n}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>critical values for D for two sample (<span class="math inline">\(n\le40\)</span>):</p>
+<center>
+<img src="images/Table%20of%20two-sample%20Kolmogorov-Smirnov%20test%20statistics%20D.png" class="img-fluid">
+</center>
+<p><br></p>
+<p>Asymptotic critical values for <span class="math inline">\(D\)</span> for one sample (large samle sizes):</p>
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(\alpha\)</span></th>
+<th style="text-align: center;">0.2</th>
+<th style="text-align: center;">0.1</th>
+<th style="text-align: center;">0.05</th>
+<th style="text-align: center;">0.02</th>
+<th style="text-align: center;">0.01</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Critical <span class="math inline">\(D\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.07\sqrt{\frac{m+n}{n}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.14\cdot\sqrt{\frac{m+n}{n}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.22\cdot\sqrt{\frac{m+n}{n}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.52\cdot\sqrt{\frac{m+n}{n}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.63 \cdot\sqrt{\frac{m+n}{n}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="visualization-7" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-7"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.3.2</strong></span> <strong>Visualization</strong></h3>
+<details>
+<summary>
+code
+</summary>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb518"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb518-1"><a href="#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="co"># package ‘kolmin’ is not available for this version of R</span></span>
+<span id="cb518-2"><a href="#cb518-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kolmim)</span>
+<span id="cb518-3"><a href="#cb518-3" aria-hidden="true" tabindex="-1"></a>pvalue <span class="ot">&lt;-</span> <span class="fu">pkolm</span>(<span class="at">d =</span> <span class="fl">0.1</span>, <span class="at">n =</span> <span class="dv">30</span>)</span>
+<span id="cb518-4"><a href="#cb518-4" aria-hidden="true" tabindex="-1"></a>nks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">80</span>, <span class="dv">100</span>)</span>
+<span id="cb518-5"><a href="#cb518-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="dv">1</span>, <span class="fl">0.01</span>)</span>
+<span id="cb518-6"><a href="#cb518-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sapply</span>(x, pkolm, <span class="at">n =</span> nks[<span class="dv">1</span>])</span>
+<span id="cb518-7"><a href="#cb518-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">xlab =</span> <span class="st">'D'</span>, <span class="at">ylab =</span> <span class="st">'CDF'</span>)</span>
+<span id="cb518-8"><a href="#cb518-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">length</span>(nks)) <span class="fu">lines</span>(x, <span class="fu">sapply</span>(x, pkolm, <span class="at">n =</span> nks[i]), <span class="at">col =</span> i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<div class="cell" data-layout-align="center">
+
+</div>
+<center>
+<img src="images/Kolmogorov-Smirnov%20distribution.png" class="img-fluid" style="width:70.0%">
+</center>
+</section>
+<section id="one-sample-test" class="level3">
+<h3 class="anchored" data-anchor-id="one-sample-test"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.3.3</strong></span> <strong>One-sample test</strong></h3>
+<p><strong>Hypothesis:</strong></p>
+<p><span class="math inline">\(H_{0}: F(x)=F_{0}(x)\)</span> The CDF of x is a given reference distribution function <span class="math inline">\(F_0(x)\)</span>.</p>
+<p><strong>Test statistic:</strong></p>
+<p><span class="math inline">\(D_{n}=\sup _{x}\left[\left|F_{n}(x)-F_{0}(x)\right|\right]\)</span></p>
+<p><span class="math inline">\(D_{n}\)</span>: the supremum distance between the empirical distribution function of given sample and the cumulative distribution function of the given reference distribution.</p>
+<p><strong>Example:</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb519"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb519-1"><a href="#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Original dataset</span></span>
+<span id="cb519-2"><a href="#cb519-2" aria-hidden="true" tabindex="-1"></a>x0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">108</span>, <span class="dv">112</span>, <span class="dv">117</span>, <span class="dv">130</span>, <span class="dv">111</span>, <span class="dv">131</span>, <span class="dv">113</span>, <span class="dv">113</span>, <span class="dv">105</span>, <span class="dv">128</span>)</span>
+<span id="cb519-3"><a href="#cb519-3" aria-hidden="true" tabindex="-1"></a>x0_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(x0)</span>
+<span id="cb519-4"><a href="#cb519-4" aria-hidden="true" tabindex="-1"></a>x0_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(x0)</span>
+<span id="cb519-5"><a href="#cb519-5" aria-hidden="true" tabindex="-1"></a>eCDF <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(x0)</span>
+<span id="cb519-6"><a href="#cb519-6" aria-hidden="true" tabindex="-1"></a><span class="co"># cumulative distribution function F(x) of the reference distribution</span></span>
+<span id="cb519-7"><a href="#cb519-7" aria-hidden="true" tabindex="-1"></a>CDF <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(x0, x0_mean, x0_sd)</span>
+<span id="cb519-8"><a href="#cb519-8" aria-hidden="true" tabindex="-1"></a><span class="co"># create a data frame to put values into</span></span>
+<span id="cb519-9"><a href="#cb519-9" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">data =</span> x0, <span class="at">eCDF =</span> <span class="fu">eCDF</span>(x0), <span class="at">CDF =</span> CDF)</span>
+<span id="cb519-10"><a href="#cb519-10" aria-hidden="true" tabindex="-1"></a><span class="co"># visualization</span></span>
+<span id="cb519-11"><a href="#cb519-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb519-12"><a href="#cb519-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(data)) <span class="sc">+</span></span>
+<span id="cb519-13"><a href="#cb519-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_ecdf</span>(<span class="at">size=</span><span class="dv">1</span>,<span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">"Empirical CDF (Fn(x))"</span>)) <span class="sc">+</span></span>
+<span id="cb519-14"><a href="#cb519-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> pnorm, <span class="at">args =</span> <span class="fu">list</span>(x0_mean, x0_sd), <span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">"Theoretical CDF (F(x))"</span>)) <span class="sc">+</span></span>
+<span id="cb519-15"><a href="#cb519-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sample data"</span>) <span class="sc">+</span></span>
+<span id="cb519-16"><a href="#cb519-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Cumulative probability"</span>) <span class="sc">+</span></span>
+<span id="cb519-17"><a href="#cb519-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.2</span>))<span class="sc">+</span></span>
+<span id="cb519-18"><a href="#cb519-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-note_files/figure-html/unnamed-chunk-132-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb520"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb520-1"><a href="#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort values of sample observations and remove duplicates</span></span>
+<span id="cb520-2"><a href="#cb520-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">sort</span>(x0))</span>
+<span id="cb520-3"><a href="#cb520-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate D</span></span>
+<span id="cb520-4"><a href="#cb520-4" aria-hidden="true" tabindex="-1"></a>Daft <span class="ot">&lt;-</span> <span class="fu">abs</span>(<span class="fu">eCDF</span>(x) <span class="sc">-</span> <span class="fu">pnorm</span>(x, x0_mean, x0_sd))</span>
+<span id="cb520-5"><a href="#cb520-5" aria-hidden="true" tabindex="-1"></a>Daft</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.005874162 0.024147672 0.030327372 0.094264640 0.256212096 0.191556764
+[7] 0.082045735 0.018782968 0.066450468</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb522"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb522-1"><a href="#cb522-1" aria-hidden="true" tabindex="-1"></a>Dbef <span class="ot">&lt;-</span> <span class="fu">abs</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">eCDF</span>(x)[<span class="sc">-</span><span class="fu">length</span>(x)]) <span class="sc">-</span> <span class="fu">pnorm</span>(x, x0_mean, x0_sd))</span>
+<span id="cb522-2"><a href="#cb522-2" aria-hidden="true" tabindex="-1"></a>Dbef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.10587416 0.07585233 0.06967263 0.00573536 0.05621210 0.09155676 0.18204573
+[8] 0.11878297 0.03354953</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb524"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb524-1"><a href="#cb524-1" aria-hidden="true" tabindex="-1"></a>D_score <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">c</span>(Daft, Dbef))</span>
+<span id="cb524-2"><a href="#cb524-2" aria-hidden="true" tabindex="-1"></a>D_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2562121</code></pre>
+</div>
+</div>
+<p><strong>One step in R:</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb526"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb526-1"><a href="#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(x0,<span class="st">'pnorm'</span>, x0_mean, x0_sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Asymptotic one-sample Kolmogorov-Smirnov test
+
+data:  x0
+D = 0.25621, p-value = 0.5276
+alternative hypothesis: two-sided</code></pre>
+</div>
+</div>
+<p><strong>Decision:</strong></p>
+<p>We cannot reject <span class="math inline">\(H_0\)</span> that the data are normally distributed at <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><strong>Conclusion:</strong></p>
+<p>The data follows a normal distribution.</p>
+</section>
+<section id="two-sample-test" class="level3">
+<h3 class="anchored" data-anchor-id="two-sample-test"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>17.3.4</strong></span> <strong>Two-sample test</strong></h3>
+<p><strong>Hypothesis:</strong></p>
+<p><span class="math inline">\(H_0\)</span>: Two populations follow a common probability distribution.</p>
+<p><strong>Test statistic:</strong></p>
+<p><span class="math inline">\(D_{n,m}=\sup _{x}\left[\left|F_{1, n}(x)-F_{2, m}(x)\right|\right]\)</span></p>
+<p><strong>Example:</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb528"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb528-1"><a href="#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Original dataset</span></span>
+<span id="cb528-2"><a href="#cb528-2" aria-hidden="true" tabindex="-1"></a>sample1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">165</span>, <span class="dv">168</span>, <span class="dv">172</span>, <span class="dv">177</span>, <span class="dv">180</span>, <span class="dv">182</span>)</span>
+<span id="cb528-3"><a href="#cb528-3" aria-hidden="true" tabindex="-1"></a>sample2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">163</span>, <span class="dv">167</span>, <span class="dv">169</span>, <span class="dv">175</span>, <span class="dv">175</span>, <span class="dv">179</span>, <span class="dv">183</span>, <span class="dv">185</span>)</span>
+<span id="cb528-4"><a href="#cb528-4" aria-hidden="true" tabindex="-1"></a>mean1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample1)</span>
+<span id="cb528-5"><a href="#cb528-5" aria-hidden="true" tabindex="-1"></a>mean2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample2)</span>
+<span id="cb528-6"><a href="#cb528-6" aria-hidden="true" tabindex="-1"></a>sd1 <span class="ot">&lt;-</span> <span class="fu">sd</span>(sample1)</span>
+<span id="cb528-7"><a href="#cb528-7" aria-hidden="true" tabindex="-1"></a>sd2 <span class="ot">&lt;-</span> <span class="fu">sd</span>(sample2)</span>
+<span id="cb528-8"><a href="#cb528-8" aria-hidden="true" tabindex="-1"></a><span class="co"># empirical distribution function Fn(x)</span></span>
+<span id="cb528-9"><a href="#cb528-9" aria-hidden="true" tabindex="-1"></a>eCDF1 <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(sample1)</span>
+<span id="cb528-10"><a href="#cb528-10" aria-hidden="true" tabindex="-1"></a><span class="fu">eCDF1</span>(sample1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1666667 0.3333333 0.5000000 0.6666667 0.8333333 1.0000000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb530"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb530-1"><a href="#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="co"># empirical distribution function Fm(x)</span></span>
+<span id="cb530-2"><a href="#cb530-2" aria-hidden="true" tabindex="-1"></a>eCDF2 <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(sample2)</span>
+<span id="cb530-3"><a href="#cb530-3" aria-hidden="true" tabindex="-1"></a><span class="fu">eCDF2</span>(sample2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.125 0.250 0.375 0.625 0.625 0.750 0.875 1.000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb532"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb532-1"><a href="#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualization</span></span>
+<span id="cb532-2"><a href="#cb532-2" aria-hidden="true" tabindex="-1"></a>group2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"sample1"</span>, <span class="fu">length</span>(sample1)), <span class="fu">rep</span>(<span class="st">"sample2"</span>, <span class="fu">length</span>(sample2)))</span>
+<span id="cb532-3"><a href="#cb532-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">all =</span> <span class="fu">c</span>(sample1,sample2), <span class="at">group =</span> group2)</span>
+<span id="cb532-4"><a href="#cb532-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb532-5"><a href="#cb532-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df2, <span class="fu">aes</span>(<span class="at">x =</span> all, <span class="at">group =</span> group, <span class="at">color =</span> group2)) <span class="sc">+</span></span>
+<span id="cb532-6"><a href="#cb532-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_ecdf</span>(<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb532-7"><a href="#cb532-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sample data"</span>) <span class="sc">+</span></span>
+<span id="cb532-8"><a href="#cb532-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Cumulative probability"</span>) <span class="sc">+</span></span>
+<span id="cb532-9"><a href="#cb532-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ENV222-note_files/figure-html/unnamed-chunk-134-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb533"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb533-1"><a href="#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge, sort observations of two samples, and remove duplicates </span></span>
+<span id="cb533-2"><a href="#cb533-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">sort</span>(<span class="fu">c</span>(sample1,sample2)))</span>
+<span id="cb533-3"><a href="#cb533-3" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate D and its location</span></span>
+<span id="cb533-4"><a href="#cb533-4" aria-hidden="true" tabindex="-1"></a>D2 <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">abs</span>(<span class="fu">eCDF1</span>(x2) <span class="sc">-</span> <span class="fu">eCDF2</span>(x2)))</span>
+<span id="cb533-5"><a href="#cb533-5" aria-hidden="true" tabindex="-1"></a>idxD2 <span class="ot">&lt;-</span> <span class="fu">which.max</span>(<span class="fu">abs</span>(<span class="fu">eCDF1</span>(x2) <span class="sc">-</span> <span class="fu">eCDF2</span>(x2))) <span class="co"># the index of x-axis value</span></span>
+<span id="cb533-6"><a href="#cb533-6" aria-hidden="true" tabindex="-1"></a>xD2 <span class="ot">&lt;-</span> x2[idxD2] <span class="co"># corresponding x-axis value</span></span>
+<span id="cb533-7"><a href="#cb533-7" aria-hidden="true" tabindex="-1"></a>D2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.25</code></pre>
+</div>
+</div>
+<p><strong>One step in R:</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb535"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb535-1"><a href="#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(sample1, sample2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Exact two-sample Kolmogorov-Smirnov test
+
+data:  sample1 and sample2
+D = 0.25, p-value = 0.9281
+alternative hypothesis: two-sided</code></pre>
+</div>
+</div>
+<p><strong>Decision:</strong></p>
+<p>We cannot reject the <span class="math inline">\(H_0\)</span> at <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><strong>Test statistic:</strong></p>
+<p>We can conclude that sample 1 and sample 2 come from the same distributions.</p>
+</section>
+</section>
 </section>
 <section id="principal-component-analysis" class="level1">
 <h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>18</strong></span> <strong>Principal component analysis</strong></h1>
