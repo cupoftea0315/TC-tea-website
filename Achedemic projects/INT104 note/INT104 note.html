@@ -113,6 +113,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#cross-validation-accuracy" id="toc-cross-validation-accuracy" class="nav-link active" data-scroll-target="#cross-validation-accuracy"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>1</strong></span> <strong>Cross validation accuracy</strong></a></li>
   <li><a href="#cluster-centers" id="toc-cluster-centers" class="nav-link" data-scroll-target="#cluster-centers"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>2</strong></span> <strong>Cluster centers</strong></a></li>
   <li><a href="#naïve-bayes-classifier" id="toc-naïve-bayes-classifier" class="nav-link" data-scroll-target="#naïve-bayes-classifier"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>3</strong></span> <strong>Naïve Bayes classifier</strong></a></li>
+  <li><a href="#agglomerative-clustering" id="toc-agglomerative-clustering" class="nav-link" data-scroll-target="#agglomerative-clustering"><span style="color:gray; font-family:Microsoft JhengHei;"><strong>4</strong></span> <strong>Agglomerative Clustering</strong></a></li>
   <li><a href="#sessioninfo" id="toc-sessioninfo" class="nav-link" data-scroll-target="#sessioninfo"><strong><span style="color:green">SessionInfo:</span></strong></a></li>
   </ul>
 </nav>
@@ -141,7 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023.05.08</p>
+      <p class="date">2023.05.11</p>
     </div>
   </div>
   
@@ -435,6 +436,38 @@ Y    1    0    1    0    1    0    1    0    1     0</code></pre>
 </div>
 </div>
 </section>
+<section id="agglomerative-clustering" class="level1">
+<h1><span style="color:gray; font-family:Microsoft JhengHei;"><strong>4</strong></span> <strong>Agglomerative Clustering</strong></h1>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.cluster.hierarchy <span class="im">import</span> linkage, dendrogram</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">13</span>],</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">8</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">10</span>],</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">2</span>],</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">0</span>, <span class="dv">7</span>],</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">0</span>]])</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>single <span class="op">=</span> linkage(D, <span class="st">'single'</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>dendrogram(single)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Single linkage'</span>)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>complete <span class="op">=</span> linkage(D, <span class="st">'complete'</span>)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>dendrogram(complete)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Complete linkage'</span>)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>average <span class="op">=</span> linkage(D, <span class="st">'average'</span>)</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>dendrogram(average)</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Average linkage'</span>)</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<center>
+<img src="images/single.png" class="img-fluid" style="width:75.0%"> <img src="images/complete.png" class="img-fluid" style="width:75.0%"> <img src="images/average.png" class="img-fluid" style="width:75.0%">
+</center>
+</section>
 <section id="sessioninfo" class="level1">
 <h1><strong><span style="color:green">SessionInfo:</span></strong></h1>
 <div class="cell" data-layout-align="center">
@@ -456,10 +489,12 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] htmlwidgets_1.6.2 compiler_4.2.3    fastmap_1.1.0     cli_3.6.1        
- [5] tools_4.2.3       htmltools_0.5.4   rstudioapi_0.14   yaml_2.3.7       
- [9] rmarkdown_2.21    knitr_1.42        xfun_0.37         digest_0.6.31    
-[13] jsonlite_1.8.4    rlang_1.1.0       evaluate_0.20    </code></pre>
+ [1] Rcpp_1.0.10       lattice_0.20-45   png_0.1-8         digest_0.6.31    
+ [5] grid_4.2.3        jsonlite_1.8.4    evaluate_0.20     rlang_1.1.0      
+ [9] cli_3.6.1         rstudioapi_0.14   Matrix_1.5-3      reticulate_1.28  
+[13] rmarkdown_2.21    tools_4.2.3       htmlwidgets_1.6.2 xfun_0.37        
+[17] yaml_2.3.7        fastmap_1.1.0     compiler_4.2.3    htmltools_0.5.4  
+[21] knitr_1.42       </code></pre>
 </div>
 </div>
 </section>
