@@ -2,6 +2,7 @@
 <Sixth update+> add ENV222 note chapter 17 Tests for distributions content and ENV222 exercise quiz2, Poisson Regression
 <Sixth update++> update the about page Personal statement and Curriculum vitae
 <Seventh update> add ENV222 note chapter 18 PCA and chapter 19 HCA
+<Eighth update> correct the ENV222 note and add HTML `Polygonal Planet Project` to Game projects
 
 
 
