@@ -4,6 +4,7 @@
 <Seventh update> add `ENV222 note` chapter 18 PCA and chapter 19 HCA
 <Eighth update> correct the `ENV222 note` and add HTML `Polygonal Planet Project` to Game projects
 <Ninth update> add `IELTS station` to website top bar and switch the personal image in `about` page to Roxy
+<Tenth update> add `INT305 note` to `Achedemic projects`
 
 
 
