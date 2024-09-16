@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "TC-tea website",
+    "title": "Welcome!",
     "section": "",
     "text": "CodePen - Kurzgesagt earth scene (HTML Canvas)\n\n\n\n\n\n\n\n\n\n\n\nWelcome!"
   },
@@ -33,5 +33,12 @@
     "title": "About",
     "section": "Curriculum vitae",
     "text": "Curriculum vitae\nBioinformatics(Data science) undergraduate at XJTLU Main field: Biology, Genomics, Data science, Machine learning, Statistics, etc. Main hobby: Music, Film, Anime, Programming, Video editing, Game, etc. Internship Experiences: Sichuan Aiger Biotechnology Co., LTD …"
+  },
+  {
+    "objectID": "about.html#this-website",
+    "href": "about.html#this-website",
+    "title": "About",
+    "section": "",
+    "text": "Used to store some programming and biological knowledges Used to list some interested projects …"
   }
 ]
