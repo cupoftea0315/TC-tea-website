@@ -1,6 +1,6 @@
 ## GNBF5030 Homework 1
 
-*Student id: 1155228903*                                    *Markdown file is available on [https://zhtc.one/](https://zhtc.one/)*
+*Student id: 1155228903*
 
 #### Question 1
 
