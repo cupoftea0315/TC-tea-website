@@ -7482,7 +7482,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="GNBF5010-Homework-1">GNBF5010 Homework 1<a class="anchor-link" href="#GNBF5010-Homework-1">¶</a></h1><p><em>Student id: 1155228903</em></p>
+<h1 id="GNBF5010-Homework-2">GNBF5010 Homework 2<a class="anchor-link" href="#GNBF5010-Homework-2">¶</a></h1><p><em>Student id: 1155228903</em></p>
 </div>
 </div>
 </div>
@@ -7493,129 +7493,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-1">Question 1<a class="anchor-link" href="#Question-1">¶</a></h3><p>This program determines whether a given year is a leap year and then prints the number of days in February for that year.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter a year: "</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"In"</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="s2">", February has"</span><span class="p">,</span> <span class="s2">"29 days."</span> <span class="k">if</span> <span class="n">detect_leap_year</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">else</span> <span class="s2">"28 days."</span><span class="p">)</span>
-
-<span class="c1"># Check if the year is a leap year</span>
-<span class="k">def</span> <span class="nf">detect_leap_year</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">'''</span>
-<span class="sd">    Definition: leap years are divisible by 4, except for years that are </span>
-<span class="sd">                divisible by 100 unless they are also divisible by 400.</span>
-<span class="sd">    '''</span>
-    <span class="c1"># Check if the year is divisible by 100</span>
-    <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="c1"># If it is divisible by 100, it is a leap year only if it is also divisible by 400</span>
-        <span class="k">return</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># If it is not divisible by 100, it is a leap year if it is divisible by 4</span>
-        <span class="k">return</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>In 2000 , February has 29 days.
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-2">Question 2<a class="anchor-link" href="#Question-2">¶</a></h3><p>This program takes a sequence string and divides it into two halves, and can also checks if the string length is at least 2.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># Define a sequence string</span>
-    <span class="n">seq</span> <span class="o">=</span> <span class="s2">"ACTAGATGA"</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">first_half</span><span class="p">,</span> <span class="n">second_half</span> <span class="o">=</span> <span class="n">divide_seq</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">first_half</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">second_half</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-
-<span class="c1"># Take a sequence string and divides it into two halves.</span>
-<span class="k">def</span> <span class="nf">divide_seq</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">'''</span>
-<span class="sd">    Definition: the first half contains the first half of the characters (rounded down), </span>
-<span class="sd">                and the second half contains the remainder of the characters (rounded up).</span>
-<span class="sd">    '''</span>
-    <span class="c1"># Validate that the length of the string is at least 2, if not, then separate the sequence into two part.</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"The sequence string must be at least 2 characters long."</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">mid_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-        <span class="k">return</span> <span class="n">seq</span><span class="p">[:</span><span class="n">mid_index</span><span class="p">],</span> <span class="n">seq</span><span class="p">[</span><span class="n">mid_index</span><span class="p">:]</span>  
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>ACTA
-GATGA
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">¶</a></h3><p>This program uses nested loops to print a pattern of <code>#</code> and spaces, where each subsequent line has an increasing number of spaces before the <code>#</code>.</p>
+<h3 id="Question1-(Unknown-Letters)">Question1 (Unknown Letters)<a class="anchor-link" href="#Question1-(Unknown-Letters)">¶</a></h3><p>The input file <code>seqs.txt</code> contains 516 sequences, with each sequence in a single line. Write a program to list which letters in the file <code>seqs.txt</code> are not A, T, C, or G. It should only list each letter once.</p>
 </div>
 </div>
 </div>
@@ -7628,23 +7506,20 @@ GATGA
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># Define the number of lines in the pattern</span>
-    <span class="n">num_lines</span> <span class="o">=</span> <span class="mi">6</span>
-    <span class="n">pattern</span> <span class="o">=</span> <span class="n">loop_tower</span><span class="p">(</span><span class="n">num_lines</span><span class="p">)</span>
-    <span class="c1"># Print each line in this pattern</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">pattern</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"seqs.txt"</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">seqs</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">non_ATCG_letters</span> <span class="o">=</span> <span class="n">find_non_ATCG_letters</span><span class="p">(</span><span class="n">seqs</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Letters in sequences that are not A, T, C, or G:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'  '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">non_ATCG_letters</span><span class="p">))</span>
 
-<span class="c1"># Build the '#' tower</span>
-<span class="k">def</span> <span class="nf">loop_tower</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">'''</span>
-<span class="sd">    Definition: ("#") + (" ") * (height - 1) + ("#")</span>
-<span class="sd">    '''</span>
-    <span class="n">pattern</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">height</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="s2">"#"</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"#"</span>
-        <span class="n">pattern</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">pattern</span>
+<span class="c1"># Find which letters in these sequences are not A, T, C, or G. It should only list each letter once. </span>
+<span class="k">def</span> <span class="nf">find_non_ATCG_letters</span><span class="p">(</span><span class="n">seqs</span><span class="p">):</span>
+    <span class="n">non_ATCG</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">seqs</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">letter</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">'ATCG'</span><span class="p">:</span>
+                <span class="n">non_ATCG</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">non_ATCG</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
@@ -7661,12 +7536,8 @@ GATGA
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>##
-# #
-#  #
-#   #
-#    #
-#     #
+<pre>Letters in sequences that are not A, T, C, or G:
+M  K  S  W  N  R  H  Y
 </pre>
 </div>
 </div>
@@ -7679,7 +7550,15 @@ GATGA
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-4">Question 4<a class="anchor-link" href="#Question-4">¶</a></h3><p>This program can continually generates and sums up random numbers between 1 and 20, and stops when the sum exceeds 1000 or if more than 100 numbers have been generated.</p>
+<h3 id="Question2-(Sequence-Properties)">Question2 (Sequence Properties)<a class="anchor-link" href="#Question2-(Sequence-Properties)">¶</a></h3><p>Write a program, 1) read all sequences in <code>seqs.txt</code> and store them into a list called <code>seqs</code>, 2) prompt the user a menu for selection of various properties of the sequences, and 3) show the corresponding results based on user’s choice. 4) Prompt the selection menu again and exit the program only if the user enters ‘0’; otherwise, repeat steps 2 and 3.</p>
+<p>Your program should keep prompting the selection menu until the user inputs “0”. The menu includes the following items. Please use separate functions in your program for the processes in options 1 to 4.</p>
+<ol>
+<li>Number of sequences in the input file</li>
+<li>The total number of occurrences of a short sequence (e.g. GGATC) in all sequences in the input file. The program will then prompt another message for the input of the target short sequence. Note that no need to consider overlapping cases. For example, the number of occurrences of AAA in AAAAAA is two.</li>
+<li>Number of sequences with length ≥ a particular length, e.g. 500. The program will then ask for the minimum length.</li>
+<li>Number of sequences with GC content ≥ a given value, e.g. 50%. The GC content could be calculated as (num_of_G + num_of_C) / Total_num_of_AGCT.</li>
+<li>The combination of choices 3 and 4: Number of sequences with length ≥ a particular length and with GC content ≥ a particular value.</li>
+</ol>
 </div>
 </div>
 </div>
@@ -7688,34 +7567,80 @@ GATGA
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># Define the range of these random numbers and maximum sum value, maximum quantity of it</span>
-    <span class="n">sum_rand_nums</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-
-<span class="c1"># Sum the random value and output the counting of it</span>
-<span class="k">def</span> <span class="nf">sum_rand_nums</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">sum_limit</span><span class="p">,</span> <span class="n">max_n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">'''</span>
-<span class="sd">    Definition: sums up random numbers between start and end, </span>
-<span class="sd">                finally stops when the sum &gt; sum_limit or n &gt; max_n. </span>
-<span class="sd">    '''</span>
-    <span class="n">current_sum</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"seqs.txt"</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">seqs</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-        <span class="n">current_sum</span> <span class="o">+=</span> <span class="n">num</span>
-        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">max_n</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"&gt;&gt;&gt; Early break because </span><span class="si">{</span><span class="n">max_n</span><span class="si">}</span><span class="s2"> numbers have been generated."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"==========================="</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Please select the sequences property that you want to display or press 0 to exit the program."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"1) Total number of sequences"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"2) Number of pattern occurrences"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"3) Number of sequences with length &gt;= min_len"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"4) Number of sequences with GC% &gt;= min_GC"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"5) Number of sequences with length &gt;= min_len and GC% &gt;= min_GC</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the choice: "</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Exiting..."</span><span class="p">)</span>
             <span class="k">break</span>
-        <span class="k">if</span> <span class="n">current_sum</span> <span class="o">&gt;</span> <span class="n">sum_limit</span><span class="p">:</span>
-            <span class="k">break</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> random number</span><span class="si">{</span><span class="s1">'s'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">''</span><span class="si">}</span><span class="s2"> are generated; sum = </span><span class="si">{</span><span class="n">current_sum</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">'1'</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total number of sequences is </span><span class="si">{</span><span class="n">count_total_sequences</span><span class="p">(</span><span class="n">seqs</span><span class="p">)</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">'2'</span><span class="p">:</span>
+            <span class="n">pattern</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the short sequence to search for (e.g. GGATC): "</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of occurrences of '</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">' is </span><span class="si">{</span><span class="n">count_pattern_occurrences</span><span class="p">(</span><span class="n">seqs</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="p">)</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">'3'</span><span class="p">:</span>
+            <span class="n">min_len</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"min_len = "</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of sequences with length &gt;= min_len is </span><span class="si">{</span><span class="n">count_sequences_by_length</span><span class="p">(</span><span class="n">seqs</span><span class="p">,</span><span class="w"> </span><span class="n">min_len</span><span class="p">)</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">'4'</span><span class="p">:</span>
+            <span class="n">min_gc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"min_GC (e.g. 50%) = "</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Num of seqs with gc &gt;= min_gc is </span><span class="si">{</span><span class="n">count_sequences_by_gc_content</span><span class="p">(</span><span class="n">seqs</span><span class="p">,</span><span class="w"> </span><span class="n">min_gc</span><span class="p">)</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">'5'</span><span class="p">:</span>
+            <span class="n">min_len</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"min_len = "</span><span class="p">))</span>
+            <span class="n">min_gc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"min_GC (e.g. 50%) = "</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of seqs with len &gt;= min_len and gc &gt;= min_gc is </span><span class="si">{</span><span class="n">count_sequences_by_length_and_gc</span><span class="p">(</span><span class="n">seqs</span><span class="p">,</span><span class="w"> </span><span class="n">min_len</span><span class="p">,</span><span class="w"> </span><span class="n">min_gc</span><span class="p">)</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid choice, please try again."</span><span class="p">)</span>
+
+<span class="c1"># 1) Number of sequences in the input file.</span>
+<span class="k">def</span> <span class="nf">count_total_sequences</span><span class="p">(</span><span class="n">seqs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">seqs</span><span class="p">)</span>
+
+<span class="c1"># 2) The total number of occurrences of a short sequence (e.g. GGATC) in all sequences in the input file.</span>
+<span class="k">def</span> <span class="nf">count_pattern_occurrences</span><span class="p">(</span><span class="n">seqs</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+<span class="c1"># 3) Number of sequences with length ≥ a particular length, e.g. 500. The program will then ask for the minimum length.</span>
+<span class="k">def</span> <span class="nf">count_sequences_by_length</span><span class="p">(</span><span class="n">seqs</span><span class="p">,</span> <span class="n">min_len</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">min_len</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+<span class="c1"># 4) Number of sequences with GC content ≥ a given value, e.g. 50%. The GC content could be calculated as (num_of_G + num_of_C) / Total_num_of_AGCT.</span>
+<span class="k">def</span> <span class="nf">calculate_gc_content</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'G'</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'C'</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'A'</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'T'</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'G'</span><span class="p">)</span> <span class="o">+</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'C'</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="k">def</span> <span class="nf">count_sequences_by_gc_content</span><span class="p">(</span><span class="n">seqs</span><span class="p">,</span> <span class="n">min_gc</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">calculate_gc_content</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">min_gc</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+<span class="c1"># 5) The combination of choices 3 and 4: Number of sequences with length ≥ a particular length and with GC content ≥ a particular value.</span>
+<span class="k">def</span> <span class="nf">count_sequences_by_length_and_gc</span><span class="p">(</span><span class="n">seqs</span><span class="p">,</span> <span class="n">min_len</span><span class="p">,</span> <span class="n">min_gc</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">min_len</span> <span class="ow">and</span> <span class="n">calculate_gc_content</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">min_gc</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count</span>    
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
@@ -7732,8 +7657,65 @@ GATGA
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&gt;&gt;&gt; Early break because 100 numbers have been generated.
-100 random numbers are generated; sum = 904.
+<pre>===========================
+Please select the sequences property that you want to display or press 0 to exit the program.
+1) Total number of sequences
+2) Number of pattern occurrences
+3) Number of sequences with length &gt;= min_len
+4) Number of sequences with GC% &gt;= min_GC
+5) Number of sequences with length &gt;= min_len and GC% &gt;= min_GC
+
+Total number of sequences is 516.
+
+===========================
+Please select the sequences property that you want to display or press 0 to exit the program.
+1) Total number of sequences
+2) Number of pattern occurrences
+3) Number of sequences with length &gt;= min_len
+4) Number of sequences with GC% &gt;= min_GC
+5) Number of sequences with length &gt;= min_len and GC% &gt;= min_GC
+
+Number of occurrences of 'GGATC' is 357.
+
+===========================
+Please select the sequences property that you want to display or press 0 to exit the program.
+1) Total number of sequences
+2) Number of pattern occurrences
+3) Number of sequences with length &gt;= min_len
+4) Number of sequences with GC% &gt;= min_GC
+5) Number of sequences with length &gt;= min_len and GC% &gt;= min_GC
+
+Number of sequences with length &gt;= min_len is 454.
+
+===========================
+Please select the sequences property that you want to display or press 0 to exit the program.
+1) Total number of sequences
+2) Number of pattern occurrences
+3) Number of sequences with length &gt;= min_len
+4) Number of sequences with GC% &gt;= min_GC
+5) Number of sequences with length &gt;= min_len and GC% &gt;= min_GC
+
+Num of seqs with gc &gt;= min_gc is 258.
+
+===========================
+Please select the sequences property that you want to display or press 0 to exit the program.
+1) Total number of sequences
+2) Number of pattern occurrences
+3) Number of sequences with length &gt;= min_len
+4) Number of sequences with GC% &gt;= min_GC
+5) Number of sequences with length &gt;= min_len and GC% &gt;= min_GC
+
+Number of seqs with len &gt;= min_len and gc &gt;= min_gc is 11.
+
+===========================
+Please select the sequences property that you want to display or press 0 to exit the program.
+1) Total number of sequences
+2) Number of pattern occurrences
+3) Number of sequences with length &gt;= min_len
+4) Number of sequences with GC% &gt;= min_GC
+5) Number of sequences with length &gt;= min_len and GC% &gt;= min_GC
+
+Exiting...
 </pre>
 </div>
 </div>
@@ -7746,7 +7728,13 @@ GATGA
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-5">Question 5<a class="anchor-link" href="#Question-5">¶</a></h3><p>This program finds and prints the longest substring of a given string <code>s</code> in which the letters occur in alphabetical order.</p>
+<h3 id="Question3-(Average-of-tests)">Question3 (Average of tests)<a class="anchor-link" href="#Question3-(Average-of-tests)">¶</a></h3><p>Suppose <code>test1.txt</code>, <code>test2.txt</code> and <code>test3.txt</code> are results from three different experiments. The gene set used in each experiment is slightly different. Each row in the data file represents one gene, with the following format:</p>
+<p><code>Accession_Number Number Number …</code></p>
+<ol>
+<li>First, load the data from all files to a single dictionary, with the accession number as the key and the reference to a list of data from all experiments as the value.</li>
+<li>Then calculate the average for each gene and store them in another dictionary.</li>
+<li>At the end, write this new dictionary to an output file called <code>test_averages.txt</code>, where the first column is the accession number of the gene, and the second column is the corresponding average value.</li>
+</ol>
 </div>
 </div>
 </div>
@@ -7759,36 +7747,36 @@ GATGA
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># Define a string with random letters</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="s1">'azcbobobegghakl'</span>
-    <span class="n">longest_alphabetical_substring</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"test1.txt"</span><span class="p">,</span> <span class="s2">"test2.txt"</span><span class="p">,</span> <span class="s2">"test3.txt"</span><span class="p">]</span>
+    <span class="n">new_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                <span class="n">gene</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                           <span class="c1"># Set key</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>      <span class="c1"># Set value</span>
+                <span class="k">if</span> <span class="n">gene</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">new_dict</span><span class="p">:</span>
+                    <span class="n">new_dict</span><span class="p">[</span><span class="n">gene</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">new_dict</span><span class="p">[</span><span class="n">gene</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">test_averages</span> <span class="o">=</span> <span class="n">calculate_averages</span><span class="p">(</span><span class="n">new_dict</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"test_averages.txt"</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">gene</span><span class="p">,</span> <span class="n">average</span> <span class="ow">in</span> <span class="n">test_averages</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gene</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">average</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Average of all genes have been written."</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">longest_alphabetical_substring</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">'''</span>
-<span class="sd">    Definition: use double pointer i and j to locate the substring of s, by compareing </span>
-<span class="sd">                the current and previous longest alphabetical substring to find the </span>
-<span class="sd">                solution.</span>
-<span class="sd">    '''</span>
-    <span class="n">max_length</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">start_index</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="n">substring</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">is_alphabetical</span><span class="p">(</span><span class="n">substring</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">substring</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_length</span><span class="p">:</span>
-                <span class="n">max_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">substring</span><span class="p">)</span>
-                <span class="n">start_index</span> <span class="o">=</span> <span class="n">i</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Longest substring in alphabetical order is: </span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="n">start_index</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">start_index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">max_length</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">is_alphabetical</span><span class="p">(</span><span class="n">substring</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">'''</span>
-<span class="sd">    Definition: determine whether a string is alphabetical by iterating through a loop </span>
-<span class="sd">                and comparing whether the previous character is greater than the next </span>
-<span class="sd">                character</span>
-<span class="sd">    '''</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">substring</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">substring</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">substring</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">return</span> <span class="kc">True</span>
+<span class="c1"># Calculate the average for each gene from different experiments.</span>
+<span class="k">def</span> <span class="nf">calculate_averages</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">test_averages</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">gene</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">values_diffexp</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values_diffexp</span><span class="p">:</span>
+                <span class="n">total</span> <span class="o">+=</span> <span class="n">value</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">test_averages</span><span class="p">[</span><span class="n">gene</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="n">count</span>
+    <span class="k">return</span> <span class="n">test_averages</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
@@ -7805,7 +7793,121 @@ GATGA
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Longest substring in alphabetical order is: beggh
+<pre>Average of all genes have been written.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Question4-(Molecular-Weight)">Question4 (Molecular Weight)<a class="anchor-link" href="#Question4-(Molecular-Weight)">¶</a></h3><p>Write a program with the following steps.</p>
+<ol>
+<li>Make a python dictionary of one-letter amino acids codes (the keys) to their molecular weight (the values), for all 22 amino acids. The molecular weight of 22 amino acids can be found in the table of next page. For example, the molecular weight of C (Cysteine) is 121.</li>
+<li>Print out a list of all the amino acids sorted by their molecular weights from the heaviest to the lightest. Hint: Just sort the items in Question (1) dictionary based on values. The output will look like:<pre><code>AA MW
+W 204Da
+Y 181Da
+R 174Da
+F 165Da
+… …
+</code></pre>
+</li>
+<li>Read the protein sequence from lysozyme.fasta and calculate the molecular weight of this protein using the dictionary created in question (1).</li>
+</ol>
+<img alt="Amino Acids Table" src="amino%20acids%20table.png" style="width: 35%; height: auto;"/>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">ac_dict</span> <span class="o">=</span> <span class="n">create_amino_acid_dict</span><span class="p">()</span>
+    <span class="n">sort_amino_acids_by_weight</span><span class="p">(</span><span class="n">ac_dict</span><span class="p">)</span>
+    <span class="n">protein_weight</span> <span class="o">=</span> <span class="n">calculate_protein_weight</span><span class="p">(</span><span class="s2">"lysozyme.fasta"</span><span class="p">,</span> <span class="n">ac_dict</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"===========================</span><span class="se">\n</span><span class="s2">The molecular weight of the protein is: </span><span class="si">{</span><span class="n">protein_weight</span><span class="si">}</span><span class="s2">Da"</span><span class="p">)</span>
+
+<span class="c1"># Make a python dictionary of one-letter amino acids codes (the keys) to their molecular weight (the values), for all 22 amino acids. T</span>
+<span class="k">def</span> <span class="nf">create_amino_acid_dict</span><span class="p">():</span>
+    <span class="n">ac_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'A'</span><span class="p">:</span> <span class="mi">89</span><span class="p">,</span> <span class="s1">'R'</span><span class="p">:</span> <span class="mi">174</span><span class="p">,</span> <span class="s1">'N'</span><span class="p">:</span> <span class="mi">132</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">:</span> <span class="mi">133</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span> <span class="mi">133</span><span class="p">,</span>
+                       <span class="s1">'C'</span><span class="p">:</span> <span class="mi">121</span><span class="p">,</span> <span class="s1">'Q'</span><span class="p">:</span> <span class="mi">146</span><span class="p">,</span> <span class="s1">'E'</span><span class="p">:</span> <span class="mi">147</span><span class="p">,</span> <span class="s1">'Z'</span><span class="p">:</span> <span class="mi">147</span><span class="p">,</span> <span class="s1">'G'</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span>
+                       <span class="s1">'H'</span><span class="p">:</span> <span class="mi">155</span><span class="p">,</span> <span class="s1">'I'</span><span class="p">:</span> <span class="mi">131</span><span class="p">,</span> <span class="s1">'L'</span><span class="p">:</span> <span class="mi">131</span><span class="p">,</span> <span class="s1">'K'</span><span class="p">:</span> <span class="mi">146</span><span class="p">,</span> <span class="s1">'M'</span><span class="p">:</span> <span class="mi">149</span><span class="p">,</span>
+                       <span class="s1">'F'</span><span class="p">:</span> <span class="mi">165</span><span class="p">,</span> <span class="s1">'P'</span><span class="p">:</span> <span class="mi">115</span><span class="p">,</span> <span class="s1">'S'</span><span class="p">:</span> <span class="mi">105</span><span class="p">,</span> <span class="s1">'T'</span><span class="p">:</span> <span class="mi">119</span><span class="p">,</span> <span class="s1">'W'</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
+                       <span class="s1">'Y'</span><span class="p">:</span> <span class="mi">181</span><span class="p">,</span> <span class="s1">'V'</span><span class="p">:</span> <span class="mi">117</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">ac_dict</span>
+
+<span class="c1"># Print out a list of all the amino acids sorted by their molecular weights from the heaviest to the lightest.</span>
+<span class="k">def</span> <span class="nf">sort_amino_acids_by_weight</span><span class="p">(</span><span class="n">ac_dict</span><span class="p">):</span>
+    <span class="n">sorted_amino_acids</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ac_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"AA</span><span class="se">\t</span><span class="s2">MW"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">amino_acid</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">sorted_amino_acids</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">amino_acid</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">weight</span><span class="si">}</span><span class="s2">Da"</span><span class="p">)</span>
+
+<span class="c1"># Calculate the molecular weight of this `lysozyme.fasta` protein using the amino acids dictionary.</span>
+<span class="k">def</span> <span class="nf">calculate_protein_weight</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">ac_dict</span><span class="p">):</span>
+    <span class="n">protein_sequence</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"&gt;"</span><span class="p">):</span>
+                <span class="k">continue</span>   <span class="c1"># Skip the header line</span>
+            <span class="n">protein_sequence</span> <span class="o">+=</span> <span class="n">line</span>
+    <span class="n">protein_weight</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">ac</span> <span class="ow">in</span> <span class="n">protein_sequence</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ac</span> <span class="ow">in</span> <span class="n">ac_dict</span><span class="p">:</span>
+            <span class="n">protein_weight</span> <span class="o">+=</span> <span class="n">ac_dict</span><span class="p">[</span><span class="n">ac</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">protein_weight</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>AA	MW
+W	204Da
+Y	181Da
+R	174Da
+F	165Da
+H	155Da
+M	149Da
+E	147Da
+Z	147Da
+Q	146Da
+K	146Da
+D	133Da
+B	133Da
+N	132Da
+I	131Da
+L	131Da
+C	121Da
+T	119Da
+V	117Da
+P	115Da
+S	105Da
+A	89Da
+G	75Da
+===========================
+The molecular weight of the protein is: 19421Da
 </pre>
 </div>
 </div>

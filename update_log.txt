@@ -17,6 +17,7 @@
 <Eighteenth update> Add `Postgraduate study` bar and put the `GNBF5030 homework1` to it
 <Nineteenth update> Add `GNBF5010 homework1` to `Nineteenth update`
 <Twentieth update> Update the `about` page's information
+<21st update> Add `GNBF5010 homework2`
 
 
 
