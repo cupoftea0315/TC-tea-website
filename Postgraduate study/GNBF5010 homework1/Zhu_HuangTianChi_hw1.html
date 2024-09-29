@@ -7493,7 +7493,15 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-1">Question 1<a class="anchor-link" href="#Question-1">¶</a></h3><p>This program determines whether a given year is a leap year and then prints the number of days in February for that year.</p>
+<h3 id="Question-1">Question 1<a class="anchor-link" href="#Question-1">¶</a></h3><p>The month of February normally has 28 days. But if it is a leap year, February has 29 days. Write a program that asks the user to enter a year (No input validation is needed).</p>
+<p>The program should then display the number of days in February that year. Use the following criteria to identify leap years:</p>
+<ol>
+<li>Determine whether the year is divisible by 100. If it is, then it is a leap year if and only if it is also divisible by 400. For example, 2000 is a leap year, but 2100 is not.</li>
+<li>If the year is not divisible by 100, then it is a leap year if and only if it is divisible by 4. For example, 2008 is a leap year, but 2009 is not.</li>
+</ol>
+<p>Here is a sample run of the program:</p>
+<p><code>Enter a year: 2008</code></p>
+<p><code>In 2008, February has 29 days.</code></p>
 </div>
 </div>
 </div>
@@ -7551,7 +7559,17 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-2">Question 2<a class="anchor-link" href="#Question-2">¶</a></h3><p>This program takes a sequence string and divides it into two halves, and can also checks if the string length is at least 2.</p>
+<h3 id="Question-2">Question 2<a class="anchor-link" href="#Question-2">¶</a></h3><p>Suppose you have a sequence string as a variable, like seq = "ACTAGATGA". Write a program that uses the seq variable to create two new variables, first_half andsecond_half that contain the first half (rounded down) and the second half (rounded up) of seq. When printed, these two should print "ACTA" and "GATGA", respectively.</p>
+<p>Importantly, your code should work no matter what the string seq refers to. For example, if seq = "TACTTG", then your code should return first_half referring to "TAC" and second_half referring to "TTG". You may also want to validate that the length of the string is at least 2.</p>
+<p>Your main program could look like this:</p>
+<pre><code>seq = "ACTAGATGA"
+
+## Your own code here:
+## …
+
+print(first_half) # should print "ACTA"
+print(second_half) # should print "GATGA"
+</code></pre>
 </div>
 </div>
 </div>
@@ -7615,7 +7633,15 @@ GATGA
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">¶</a></h3><p>This program uses nested loops to print a pattern of <code>#</code> and spaces, where each subsequent line has an increasing number of spaces before the <code>#</code>.</p>
+<h3 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">¶</a></h3><p>Write a program that uses nested loops to draw this pattern.</p>
+<p>Note: Pretend that string multiplications like "abc"*3 doesn’t exist.</p>
+<pre><code>##
+# #
+#  #
+#   #
+#    #
+#     #
+</code></pre>
 </div>
 </div>
 </div>
@@ -7679,7 +7705,12 @@ GATGA
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-4">Question 4<a class="anchor-link" href="#Question-4">¶</a></h3><p>This program can continually generates and sums up random numbers between 1 and 20, and stops when the sum exceeds 1000 or if more than 100 numbers have been generated.</p>
+<h3 id="Question-4">Question 4<a class="anchor-link" href="#Question-4">¶</a></h3><p>Write a program that continually generates and sums up random numbers between 1 and 20 and stops when the sum exceeds 1000. Stop early with a warning message if more than 100 numbers have been generated. At the end, print the sum and the number of random integers generated. Use <code>random.randint(1, 20)</code> to generate a random integer between 1 and 20 (inclusive). To start with, you may use the providedtemplate of q4. The output may look like this.</p>
+<pre><code>95 random number are generated; sum = 1007.
+
+&gt;&gt;&gt; Early break because 100 numbers have been generated.
+101 random number are generated; sum = 993.
+</code></pre>
 </div>
 </div>
 </div>
@@ -7746,7 +7777,13 @@ GATGA
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Question-5">Question 5<a class="anchor-link" href="#Question-5">¶</a></h3><p>This program finds and prints the longest substring of a given string <code>s</code> in which the letters occur in alphabetical order.</p>
+<h3 id="Question-5">Question 5<a class="anchor-link" href="#Question-5">¶</a></h3><p>Assume s is a string of lower-case characters (You may assign s directly in the program, no need to ask the user for input). Write a program that prints the longest substring of s in which the letters occur in alphabetical order. Print the only first occurrence if there are two or more alphabetically ordered substrings with the same length.</p>
+<p>For example, if <code>s = 'azcbobobegghakl'</code>, then your program should print</p>
+<pre><code>Longest substring in alphabetical order is: beggh
+</code></pre>
+<p>If <code>s = 'abcbcd'</code>, then your program should print</p>
+<pre><code>Longest substring in alphabetical order is: ab
+</code></pre>
 </div>
 </div>
 </div>
