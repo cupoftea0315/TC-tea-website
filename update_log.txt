@@ -18,7 +18,7 @@
 <Nineteenth update> Add `GNBF5010 homework1` to `Nineteenth update`
 <Twentieth update> Update the `about` page's information
 <21st update> Add `GNBF5010 homework2`
-
+<22nd update> Add `GNBF5030 homework2`
 
 
 
