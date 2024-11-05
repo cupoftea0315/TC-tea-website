@@ -7504,7 +7504,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">main_part1</span><span class="p">():</span>
@@ -7582,7 +7582,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">main_part2</span><span class="p">():</span>
@@ -7653,7 +7653,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span> 
@@ -7691,8 +7691,8 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&gt; Time for implementation without dictionary: 0.004003286361694336
-&gt; Time for implementation with dictionary: 0.002178192138671875
+<pre>&gt; Time for implementation without dictionary: 0.0055446624755859375
+&gt; Time for implementation with dictionary: 0.003008604049682617
 Result: the implementation with dictionary is faster.
 &lt;Performance test, done!&gt;
 </pre>
@@ -7707,7 +7707,30 @@ Result: the implementation with dictionary is faster.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-3:-Generalization">Step 3: Generalization<a class="anchor-link" href="#Step-3:-Generalization">¶</a></h3>
+<h3 id="Step-3:-Generalization">Step 3: Generalization<a class="anchor-link" href="#Step-3:-Generalization">¶</a></h3><p><em><strong>Function</strong>: count the occurrences of k-mers in a given biological sequence file.</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Example Command: <code>python count_kmers.py example_chromosome21.fasta 3 -c</code></p>
+<ul>
+<li><code>python count_kmers.py</code>: The command to run the script.</li>
+<li><code>example_chromosome21.fasta</code>: The input file in FASTA or FASTQ format.</li>
+<li><code>3</code>: A single k-mer length (in this case, 3) to be counted in the input sequence file.</li>
+<li><code>-c</code>: The flag to compare the performance of the two k-mer counting implementations. When the comparison flag is used, it logs the time taken by each method to a log file named "log.txt".</li>
+</ul>
+<p>Output file example (k=1):</p>
+<pre><code>A:41
+C:41
+G:47
+T:71
+</code></pre>
 </div>
 </div>
 </div>
@@ -7719,8 +7742,7 @@ Result: the implementation with dictionary is faster.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
@@ -7778,7 +7800,7 @@ Result: the implementation with dictionary is faster.
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"log.txt"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
                 <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"&gt; k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">, dict_time=</span><span class="si">{</span><span class="n">elapsed_time</span><span class="si">}</span><span class="s2">, non_dict_time=</span><span class="si">{</span><span class="n">elapsed_time_non_dict</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="c1"># Part 1: Implementation without dictionary</span>
+<span class="c1"># Part 1: Implementation with dictionary</span>
 <span class="k">def</span> <span class="nf">count_kmers</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
@@ -7787,7 +7809,7 @@ Result: the implementation with dictionary is faster.
             <span class="n">counts</span><span class="p">[</span><span class="n">kmer</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">kmer</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">counts</span>
 
-<span class="c1"># Part 2: Implementation with dictionary</span>
+<span class="c1"># Part 2: Implementation without dictionary</span>
 <span class="k">def</span> <span class="nf">count_kmers_non_dict</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
@@ -7803,7 +7825,7 @@ Result: the implementation with dictionary is faster.
                 <span class="n">counts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">kmer</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">counts</span>
 
-<span class="c1"># Read sequences from the input file</span>
+<span class="c1"># Read sequences from the input file (FASTA or FASTQ)</span>
 <span class="k">def</span> <span class="nf">read_sequence</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
     <span class="n">file_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_path</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">file_ext</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'.fasta'</span><span class="p">,</span> <span class="s1">'.fa'</span><span class="p">,</span> <span class="s1">'.fna'</span><span class="p">]:</span>
@@ -7833,7 +7855,35 @@ Result: the implementation with dictionary is faster.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-4:-Extra-task">Step 4: Extra task<a class="anchor-link" href="#Step-4:-Extra-task">¶</a></h3>
+<h3 id="Step-4:-Extra-task">Step 4: Extra task<a class="anchor-link" href="#Step-4:-Extra-task">¶</a></h3><p><em><strong>Function</strong>: Find best matches to a protein query in a protein database using a simple method based on the Jaccard index of tetrapeptide composition.</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Example Command: <code>python simple_search.py query.fasta ecoli-k12.fasta</code></p>
+<ul>
+<li><code>python simple_search.py</code>: The command to run the script.</li>
+<li><code>query.fasta</code>: The input file containing one or more protein sequences in FASTA format.</li>
+<li><code>ecoli-k12.fasta</code>: The input file containing the protein database to be searched against in FASTA format.</li>
+</ul>
+<p>Output file example:</p>
+<pre><code>QUERY_ID SUBJECT_ID SIMILARITY_SCORE
+Query1 Subject1 0.90
+Query1 Subject2 0.85
+Query1 Subject3 0.80
+Query1 Subject4 0.72
+Query1 Subject5 0.50
+Query2 Subject1 0.98
+Query2 Subject2 0.50
+Query2 Subject3 0.45
+...
+</code></pre>
 </div>
 </div>
 </div>
@@ -7842,10 +7892,64 @@ Result: the implementation with dictionary is faster.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># To be announced.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">count_kmers</span> <span class="kn">import</span> <span class="n">count_kmers</span><span class="p">,</span> <span class="n">read_sequence</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Parse command-line arguments</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Find best matches to a protein query in a protein database"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"query_file"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"Protein query file (FASTA)"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"database_file"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"Protein database file (FASTA)"</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="c1"># Read sequences and headers from the input files</span>
+    <span class="n">query_sequences</span> <span class="o">=</span> <span class="n">read_sequence</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">query_file</span><span class="p">)</span>
+    <span class="n">database_sequences</span> <span class="o">=</span> <span class="n">read_sequence</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">database_file</span><span class="p">)</span>
+    <span class="n">query_headers</span> <span class="o">=</span> <span class="n">read_fasta_headers</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">query_file</span><span class="p">)</span>
+    <span class="n">database_headers</span> <span class="o">=</span> <span class="n">read_fasta_headers</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">database_file</span><span class="p">)</span>
+
+    <span class="c1"># Find the best matches for each query sequence in the database</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">query_id</span><span class="p">,</span> <span class="n">query_seq</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">query_sequences</span><span class="p">):</span>
+        <span class="n">query_kmers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">count_kmers</span><span class="p">(</span><span class="n">query_seq</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="c1"># Calculate Jaccard index for each pair of query and subject sequences</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">subject_id</span><span class="p">,</span> <span class="n">subject_seq</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">database_sequences</span><span class="p">):</span>
+            <span class="n">subject_kmers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">count_kmers</span><span class="p">(</span><span class="n">subject_seq</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="n">jaccard_index</span><span class="p">(</span><span class="n">query_kmers</span><span class="p">,</span> <span class="n">subject_kmers</span><span class="p">)</span>
+            <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
+        <span class="c1"># Sort the scores in descending order and select the top 5 hits</span>
+        <span class="n">scores</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">top_hits</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">subject_id</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">top_hits</span><span class="p">:</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">query_headers</span><span class="p">[</span><span class="n">query_id</span><span class="p">],</span> <span class="n">database_headers</span><span class="p">[</span><span class="n">subject_id</span><span class="p">],</span> <span class="n">score</span><span class="p">))</span>
+
+    <span class="c1"># Write the results to the results file</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"search_results.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"QUERY_ID</span><span class="se">\t</span><span class="s2">SUBJECT_ID</span><span class="se">\t</span><span class="s2">SIMILARITY_SCORE</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Calculate the Jaccard index between two sets</span>
+<span class="k">def</span> <span class="nf">jaccard_index</span><span class="p">(</span><span class="n">set1</span><span class="p">,</span> <span class="n">set2</span><span class="p">):</span>
+    <span class="n">intersection</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">set1</span> <span class="o">&amp;</span> <span class="n">set2</span><span class="p">)</span>
+    <span class="n">union</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">set1</span> <span class="o">|</span> <span class="n">set2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">intersection</span> <span class="o">/</span> <span class="n">union</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">if</span> <span class="n">union</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+
+<span class="c1"># Read FASTA headers from the input file</span>
+<span class="k">def</span> <span class="nf">read_fasta_headers</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s2">"fasta"</span><span class="p">):</span>
+            <span class="n">headers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">headers</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
