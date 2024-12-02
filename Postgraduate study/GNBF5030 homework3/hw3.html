@@ -11,7 +11,7 @@
 
 <meta name="author" content="Student id: 1155228903" />
 
-<meta name="date" content="2024-11-12" />
+<meta name="date" content="2024-11-21" />
 
 <title>GNBF5030 Homework3</title>
 
@@ -1623,7 +1623,7 @@ display: none;
 
 <h1 class="title toc-ignore">GNBF5030 Homework3</h1>
 <h4 class="author">Student id: 1155228903</h4>
-<h4 class="date">2024-11-12</h4>
+<h4 class="date">2024-11-21</h4>
 
 </div>
 
@@ -1677,9 +1677,10 @@ t.test(murder_lowincome, murder_highincome)</code></pre>
 ## sample estimates:
 ## mean of x mean of y 
 ##     8.020     6.736</code></pre>
-<p>Solution: <span style="color: #C6913A">There are 95% confidence at
-[-0.8058706, 3.3738706] region to say that the mean murder rates are
-different between these two groups.</span></p>
+<p>Solution: <span style="color: #C6913A">The p-value is 0.2225 (larger
+than 0.05), do not reject the H0 hypothesis. There is no significant
+evidence to indicate that the mean murder rates are different between
+these two groups.</span></p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Use syntax of
 <code>[&lt;row_selector&gt;, &lt;column_selector&gt;]</code> to extract
@@ -1895,9 +1896,18 @@ t.test(cd33_all, cd33_aml, var.equal = TRUE)</code></pre>
 ## sample estimates:
 ##  mean of x  mean of y 
 ## -0.8812041  0.3537709</code></pre>
-<p>Solution: <span style="color: #C6913A">The p-value is 1.773e-09,
-reject the H0 hypotheses. Therefor, the means of the gene CD33
-expression values in lymphoblastic leukemia (ALL) and acute myeloid
+<p>Solution:</p>
+<ul>
+<li><span style="color: #C6913A">H0 hypothesis: The means of the gene
+CD33 expression values in lymphoblastic leukemia (ALL) and acute myeloid
+leukemia (AML) patients are equal.</span></li>
+<li><span style="color: #C6913A">H1 hypothesis: The means of the gene
+CD33 expression values in lymphoblastic leukemia (ALL) and acute myeloid
+leukemia (AML) patients are not equal.</span></li>
+</ul>
+<p><span style="color: #C6913A">Conclusion: The p-value is 1.773e-09
+(smaller than 0.05), reject the H0 hypothesis. The means of the gene
+CD33 expression values in lymphoblastic leukemia (ALL) and acute myeloid
 leukemia (AML) patients are significantly different.</span></p>
 </div>
 <div id="question-4-categorical-analysis" class="section level3">
@@ -1926,10 +1936,10 @@ chisq.test(table)</code></pre>
 ## 
 ## data:  table
 ## X-squared = 3.7541, df = 1, p-value = 0.05268</code></pre>
-<p>Solution: <span style="color: #C6913A">The p-value is 0.05268, do not
-reject the H0 hypotheses. There is no significant association between
-the genetic mutation (A) and the occurrence of the disease (D) at a
-significance level of 0.05.</span></p>
+<p>Solution: <span style="color: #C6913A">The p-value is 0.05268 (larger
+than 0.05), do not reject the H0 hypothesis. There is no significant
+association between the genetic mutation (A) and the occurrence of the
+disease (D) at a significance level of 0.05.</span></p>
 <p>//</p>
 </div>
 <div id="sessioninfo" class="section level3">
@@ -1959,17 +1969,17 @@ significance level of 0.05.</span></p>
 ## [1] gridExtra_2.3 ggplot2_3.5.1
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] gtable_0.3.6      jsonlite_1.8.9    dplyr_1.1.4       compiler_4.4.1   
-##  [5] highr_0.11        tidyselect_1.2.1  jquerylib_0.1.4   systemfonts_1.1.0
-##  [9] scales_1.3.0      textshaping_0.4.0 yaml_2.3.10       fastmap_1.2.0    
-## [13] R6_2.5.1          labeling_0.4.3    generics_0.1.3    knitr_1.48       
-## [17] tibble_3.2.1      munsell_0.5.1     bslib_0.8.0       pillar_1.9.0     
-## [21] rlang_1.1.4       utf8_1.2.4        cachem_1.1.0      xfun_0.48        
-## [25] sass_0.4.9        cli_3.6.3         withr_3.0.2       magrittr_2.0.3   
-## [29] digest_0.6.37     grid_4.4.1        rstudioapi_0.17.1 lifecycle_1.0.4  
-## [33] vctrs_0.6.5       evaluate_1.0.1    glue_1.8.0        farver_2.1.2     
-## [37] ragg_1.3.3        fansi_1.0.6       colorspace_2.1-1  rmarkdown_2.28   
-## [41] tools_4.4.1       pkgconfig_2.0.3   htmltools_0.5.8.1</code></pre>
+##  [1] vctrs_0.6.5       cli_3.6.3         knitr_1.49        rlang_1.1.4      
+##  [5] xfun_0.48         generics_0.1.3    textshaping_0.4.0 jsonlite_1.8.9   
+##  [9] labeling_0.4.3    glue_1.8.0        colorspace_2.1-1  htmltools_0.5.8.1
+## [13] ragg_1.3.3        sass_0.4.9        fansi_1.0.6       scales_1.3.0     
+## [17] rmarkdown_2.29    grid_4.4.1        evaluate_1.0.1    munsell_0.5.1    
+## [21] jquerylib_0.1.4   tibble_3.2.1      fastmap_1.2.0     yaml_2.3.10      
+## [25] lifecycle_1.0.4   compiler_4.4.1    dplyr_1.1.4       pkgconfig_2.0.3  
+## [29] rstudioapi_0.17.1 systemfonts_1.1.0 farver_2.1.2      digest_0.6.37    
+## [33] R6_2.5.1          tidyselect_1.2.1  utf8_1.2.4        pillar_1.9.0     
+## [37] magrittr_2.0.3    bslib_0.8.0       withr_3.0.2       tools_4.4.1      
+## [41] gtable_0.3.6      cachem_1.1.0</code></pre>
 </div>
 
 
