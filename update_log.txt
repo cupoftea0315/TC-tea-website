@@ -25,3 +25,4 @@
 <25th update> Add `GNBF5030 homework3`
 <26th update> Add `GNBF5040 final review`
 <27th update> Add `Genshin damage calculation`
+<27th update+> Update `Genshin damage calculation`
